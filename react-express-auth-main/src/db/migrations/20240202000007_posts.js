@@ -7,6 +7,9 @@ exports.up = (knex) => {
         table.increments();
         table.string('post_picture').notNullable();
         table.string('project_desription').notNullable();
+        table.integer('user_id').unsigned().notNullable();
+
+        
         table.foreign('user_id').references('id').inTable('users');
         table.timestamps(true, true);
       });
