@@ -6,7 +6,7 @@ exports.up = (knex) => {
     return knex.schema.createTable('posts', (table) => {
         table.increments();
         table.string('post_picture').notNullable();
-        table.string('project_desription').notNullable();
+        table.string('project_description').notNullable();
         table.integer('user_id').unsigned().notNullable();
 
         
