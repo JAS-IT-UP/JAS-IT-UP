@@ -21,16 +21,18 @@ export default function LoginPage() {
   if (currentUser) return <Navigate to="/" />;
 
   return <>
-    <h1>Login</h1>
+    {/* <h1></h1> */}
     <form onSubmit={handleSubmit} aria-labelledby="login-heading">
-      <h2 id='login-heading'>Log back in!</h2>
+      <h2 id='login-heading'>Sign In</h2>
       <label htmlFor="username">Username</label>
-      <input type="text" autoComplete="username" id="username" name="username" />
+      <input type="text" autoComplete="username" id="username" name="username" placeholder="Enter Username"/>
 
       <label htmlFor="password">Password</label>
-      <input type="password" autoComplete="current-password" id="password" name="password" />
+      <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Enter Password"/>
 
-      <button>Log in!</button>
+      <p>Don't have an account? <a href="/sign-up">Sign Up</a>!</p>
+
+      <button>JAS IT UP!</button>
     </form>
     { !!errorText && <p>{errorText}</p> }
   </>;

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -51,4 +57,33 @@ form {
   color: #EEBC32;
   font-weight: bold;
   font-style: italic;
+}
+
+input[type='file'] {
+  color: transparent;
+  display: none;
+}
+.profile-img {
+  position: relative;
+}
+
+#upload-picture-button {
+  width: 4rem;
+  height: 4rem;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#upload-picture {
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
