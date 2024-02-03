@@ -4,7 +4,7 @@
  */
 exports.up = (knex) => {
   return knex.schema.createTable('materials', (table) => {
-        table.increments('id').primary();
+        table.increments();
         table.string('material_name').notNullable();
     });
 }

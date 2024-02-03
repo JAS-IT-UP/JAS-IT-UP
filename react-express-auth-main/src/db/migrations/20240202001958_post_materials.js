@@ -5,7 +5,7 @@
 exports.up = (knex) => {
    return knex.schema.createTable('post_materials', (table) => {
         table.increments();
-        table.integer('count').notNullable().unique();
+        table.integer('count').notNullable();
         table.integer('post_id').unsigned().notNullable();
         table.integer('material_id').unsigned().notNullable();
 
