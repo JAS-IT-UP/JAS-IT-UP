@@ -1,7 +1,6 @@
-const knex = require('../knex');
+const knex = require("../knex");
 
 class Post {
-
   constructor({ id, post_picture, project_description, user_id }) {
     this.id = id;
     this.postPicture = post_picture;
@@ -10,13 +9,14 @@ class Post {
   }
 
   static async list() {
-    const query = 'SELECT * FROM posts JOIN users ON posts.user_id = users.id';
+    const query = "SELECT * FROM posts JOIN users ON posts.user_id = users.id";
     const { rows } = await knex.raw(query);
     return rows.map((post) => new Post(post));
   }
 
   static async find(id) {
-    const query = 'SELECT * FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = ?';
+    const query =
+      "SELECT * FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = ?";
     const args = [id];
     const { rows } = await knex.raw(query, args);
     const post = rows[0];
@@ -24,7 +24,8 @@ class Post {
   }
 
   static async findByUserId(userId) {
-    const query = 'SELECT * FROM users JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?';
+    const query =
+      "SELECT * FROM users JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
     const args = [userId];
     const { rows } = await knex.raw(query, args);
     return rows.map((post) => new Post(post));
@@ -50,14 +51,15 @@ class Post {
   }
 
   static async deleteAll() {
-    return knex.raw('TRUNCATE posts;');
+    return knex.raw("TRUNCATE posts;");
   }
 
-  update = async ({postPicture, postDescription}) => { // dynamic queries are easier if you add more properties
-    const rows = await knex('posts')
+  update = async ({ postPicture, postDescription }) => {
+    // dynamic queries are easier if you add more properties
+    const rows = await knex("posts")
       .where({ id: this.id })
       .update({ postPicture, postDescription })
-      .returning('*');
+      .returning("*");
 
     const updatedPost = rows[0];
     return updatedPost ? new Post(updatedPost) : null;
