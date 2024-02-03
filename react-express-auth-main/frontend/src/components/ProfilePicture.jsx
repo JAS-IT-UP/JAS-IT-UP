@@ -24,14 +24,14 @@ export default function ProfilePicture({ handleFile }) {
 
     return (
         <div className="profile-img">
-            
+
         <button id="upload-picture-button" type="button" onClick={handleClick}>
             {img ? <img id="upload-picture" src={src} alt="chosen" /> : 'Choose Image'}
         </button>
 
         <input
             type="file"
-            name="avatar"
+            name="profilePicture"
             accept="image/png, image/jpeg"
             onChange={handleFileChange}
             ref={hiddenFileInput}
