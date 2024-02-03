@@ -38,6 +38,17 @@ class Post {
     return new Post(createdPost);
   }
 
+  static async delete(id) {
+    try {
+      const query = "DELETE FROM posts WHERE id = ?";
+      await knex.raw(query, [id]);
+      return true;
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  }
+
   static async deleteAll() {
     return knex.raw('TRUNCATE posts;');
   }
