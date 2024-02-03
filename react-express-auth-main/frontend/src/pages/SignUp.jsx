@@ -43,7 +43,6 @@ export default function SignUpPage() {
   };
 
   return <>
-    <h1></h1>
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">Create an Account</h2>
 
