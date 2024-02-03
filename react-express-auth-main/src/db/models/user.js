@@ -39,7 +39,7 @@ class User {
     return user ? new User(user) : null;
   }
 
-  static async create(profilePicture, firstName, lastName, username, email, password) {
+  static async create({profilePicture, firstName, lastName, username, email, password}) {
     const passwordHash = await hashPassword(password);
 
     const query = `INSERT INTO users (profile_picture, first_name, last_name, username, email, password_hash)
@@ -54,10 +54,24 @@ class User {
     return knex.raw('TRUNCATE users;');
   }
 
-  update = async (username) => { // dynamic queries are easier if you add more properties
-    const rows = await knex('users')
+  update = async ({profilePicture, username}) => { // dynamic queries are easier if you add more properties
+    if (!profilePicture && !username) {
+      return null;
+    }
+  
+    const updateUser = {};
+  
+    if (profilePicture) {
+      updateUser.profile_picture = profilePicture;
+    }
+  
+    if (username) {
+      updateUser.username = username;
+    }
+  
+  const rows = await knex('users')
       .where({ id: this.id })
-      .update({ username })
+      .update(updateUser)
       .returning('*');
 
     const updatedUser = rows[0];
