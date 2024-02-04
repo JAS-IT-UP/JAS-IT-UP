@@ -1,15 +1,27 @@
 const createUser = async (req, res) => {
   const {
-    session, // this req.session property is put here by the handleCookieSessions middleware
-    db: { User }, // this req.db.User property is put here by the addModelsToRequest middleware
-    body: { username, password }, // this req.body property is put here by the client
+    session,
+    db: { users }, 
+    body: { profile_picture, first_name, last_name, username, email, password }, 
   } = req;
 
-  // TODO: check if username is taken, what should you return?
-  const user = await User.create(username, password);
-  session.userId = user.id;
+  const existingUser = await users.findOne({ username });
 
-  res.send(user);
+  if (existingUser) {
+    return res.status(400).json({ message: 'Username is already taken' });
+  }
+
+  const user = await users.create({
+    profile_picture,
+    first_name,
+    last_name,
+    username,
+    email,
+    password,
+  });
+
+  session.usersId = user.id;
+  res.status(201).json({ message: 'User created successfully', users });
 };
 
 module.exports = createUser;
