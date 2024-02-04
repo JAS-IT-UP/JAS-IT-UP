@@ -1,10 +1,10 @@
 const listUsers = async (req, res) => {
   const { 
-    db: { User } // this req.db.User property is put here by the addModelsToRequest middleware
+    db: { users} 
   } = req; 
 
-  const users = await User.list();
-  res.send(users);
+  const user = await users.list();
+  res.send(user);
 };
 
 module.exports = listUsers;
