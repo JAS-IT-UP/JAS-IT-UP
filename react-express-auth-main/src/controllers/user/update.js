@@ -2,10 +2,10 @@ const { isAuthorized } = require('../../utils/auth-utils');
 
 const updateUser = async (req, res) => {
   const {
-    session, // this req.session property is put here by the handleCookieSessions middleware
-    db: { users }, // this req.db.User property is put here by the addModelsToRequest middleware
-    body: {username}, // this req.body property is put here by the client
-    params: { id }, // this req.params.id is a part of the request URL
+    session, 
+    db: { users }, 
+    body: {username}, 
+    params: { id }, 
   } = req;
 
   if (!isAuthorized(id, session)) return res.sendStatus(403);
