@@ -1,10 +1,10 @@
 const showUser = async (req, res) => {
   const {
-    db: { users }, 
+    db: { User }, 
     params: { id }, 
   } = req;
 
-  const user = await users.find(id);
+  const user = await User.find(id);
   if (!user) return res.sendStatus(404);
 
   res.send(user);

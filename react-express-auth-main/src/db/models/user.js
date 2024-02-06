@@ -8,17 +8,17 @@ class User {
   // the database and hide the passwordHash before sending it back to the controller
   constructor({
     id,
-    profile_picture,
-    first_name,
-    last_name,
+    profilePicture,
+    firstName,
+    lastName,
     username,
     email,
     password_hash,
   }) {
     this.id = id;
-    this.profilePicture = profile_picture;
-    this.firstName = first_name;
-    this.lastName = last_name;
+    this.profilePicture = profilePicture;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.username = username;
     this.email = email;
     this.#passwordHash = password_hash;
@@ -52,13 +52,13 @@ class User {
     firstName,
     lastName,
     username,
-    email,
-    password,
+    email = "test",
+    password, 
   }) {
     const passwordHash = await hashPassword(password);
 
     const query = `INSERT INTO users (profile_picture, first_name, last_name, username, email, password_hash)
-      VALUES (?, ?, ?, ?, ?,) RETURNING *`;
+      VALUES (?, ?, ?, ?, ?, ?) RETURNING *`;
     const args = [
       profilePicture,
       firstName,
@@ -101,8 +101,10 @@ class User {
     return updatedUser ? new User(updatedUser) : null;
   };
 
-  isValidPassword = async (password) =>
-    isValidPassword(password, this.#passwordHash);
+  isValidPassword = async (password) => (
+    isValidPassword(password, this.#passwordHash)
+  );
 }
+
 
 module.exports = User;
