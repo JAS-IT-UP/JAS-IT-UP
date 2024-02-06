@@ -16,7 +16,7 @@ export default function LoginPage() {
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
     console.log(user.id)
-    navigate(`/users/${user.id}`);
+    navigate(`/users/${user.user.id}`);
   };
 
   if (currentUser) return <Navigate to="/" />;
