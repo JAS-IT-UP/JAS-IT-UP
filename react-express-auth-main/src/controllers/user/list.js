@@ -1,9 +1,9 @@
 const listUsers = async (req, res) => {
   const { 
-    db: { users} 
+    db: { User} 
   } = req; 
 
-  const user = await users.list();
+  const user = await User.list();
   res.send(user);
 };
 

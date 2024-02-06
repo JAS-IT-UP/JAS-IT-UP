@@ -27,7 +27,7 @@ export default function SignUpPage() {
 
     if (!profilePicture || !firstName || !lastName || !username || !password) return setErrorText('Missing username or password');
 
-    const [user, error] = await createUser({ profilePicture, firstName, lastName, username, password });
+    const [user, error] = await createUser(formData);
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);

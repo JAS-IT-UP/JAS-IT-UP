@@ -32,7 +32,6 @@ Router.post("/materials", materialController.create);
 Router.patch("/users/:id", userController.update);
 Router.patch("/posts/:id", postController.update);
 
-Router.get('/users/:id', userController.show);
 Router.post('/login', userController.login);
 Router.delete('/logout', userController.logout);
 
