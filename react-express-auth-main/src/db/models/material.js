@@ -12,13 +12,14 @@ class Material {
     return rows.map((material) => new Material(material));
   }
 
-  static async find(id) {
+  static async find(id) { 
     const query = "SELECT * FROM materials WHERE materials.id = ?";
     const args = [id];
     const { rows } = await knex.raw(query, args);
     const material = rows[0];
     return material ? new Material(material) : null;
   }
+   
 
   static async findByMaterialName(materialName) {
     const query = "SELECT * FROM materials Where materials.material_name = ?";

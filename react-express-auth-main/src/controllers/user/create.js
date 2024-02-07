@@ -1,27 +1,27 @@
 const createUser = async (req, res) => {
   const {
     session,
-    db: { users }, 
-    body: { profile_picture, first_name, last_name, username, email, password }, 
+    db: { User }, 
+    body: { profilePicture = "test", firstName, lastName, username, email, password }, 
   } = req;
 
-  const existingUser = await users.findOne({ username });
+  const existingUser = await User.findByUsername( username );
 
   if (existingUser) {
     return res.status(400).json({ message: 'Username is already taken' });
   }
 
-  const user = await users.create({
-    profile_picture,
-    first_name,
-    last_name,
+  const user = await User.create({
+    profilePicture,
+    firstName,
+    lastName,
     username,
     email,
     password,
   });
 
   session.usersId = user.id;
-  res.status(201).json({ message: 'User created successfully', users });
+  res.status(201).json({ message: 'User created successfully', user });
 };
 
-module.exports = createUser;
+module.exports = createUser; 

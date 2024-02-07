@@ -1,4 +1,4 @@
-
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
@@ -18,6 +18,7 @@ export default function HomePage() {
           <button onClick={() => navigate('/login')}>JAS IT UP!</button>
         </section>
         <section id="home-wallpaper">
+          <img src="/home-images/home-wallpaper.svg"></img>
         </section>
       </section>
    
