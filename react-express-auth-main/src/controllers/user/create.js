@@ -2,7 +2,7 @@ const createUser = async (req, res) => {
   const {
     session,
     db: { User }, 
-    body: { profilePicture = "test", firstName, lastName, username, email, password }, 
+    body: { profilePicture = req.file ? { data: req.file.buffer, contentType: req.file.mimetype } : null, firstName, lastName, username, email, password }, 
   } = req;
 
   const existingUser = await User.findByUsername( username );

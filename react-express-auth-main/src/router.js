@@ -8,6 +8,8 @@ const addModelsToRequest = require('./middleware/add-models-to-request');
 const checkAuthentication = require('./middleware/check-authentication');
 
 const Router = express.Router();
+const upload = require('./middleware/upload');
+const { router } = require('./server');
 Router.use(addModelsToRequest);
 
 Router.get("/users", userController.list);
@@ -23,7 +25,7 @@ Router.get("/saved_posts/:id", savedPostController.find);
 
 Router.get("/users/:id", userController.show);
 
-Router.post("/users", userController.create);
+Router.post("/users", upload.single('profilePicture'), userController.create);
 Router.post("/posts", postController.create);
 Router.post("/saved_posts", savedPostController.create);
 Router.post("/post_materials", postMaterialController.create);

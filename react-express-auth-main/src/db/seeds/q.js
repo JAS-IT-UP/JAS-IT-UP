@@ -13,4 +13,4 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('post_materials').del()
   await knex('post_materials').insert(post_materials);
-};
+}; 

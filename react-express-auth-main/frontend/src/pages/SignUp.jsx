@@ -11,7 +11,7 @@ export default function SignUpPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState({
-    profilePicture: '',
+    profilePicture: null,
     firstName: '',
     lastName: '',
     username: '',
