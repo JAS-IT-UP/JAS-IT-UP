@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { fetchHandler, basicFetchOptions } from '../utils';
-import { useNavigate } from "react-router-dom";
+import { getAllPosts } from '../adapters/post-adapter';
+import { useNavigate, Navigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 
 export default function ExplorePage() {
@@ -9,11 +9,12 @@ export default function ExplorePage() {
   const [posts, setPosts] = useState([]);
   const [savedPosts, setSavedPosts] = useState([]);
 
+  if (!currentUser) return <Navigate to="/" />;
 
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const [responseData, error] = await fetchHandler('/api/posts', basicFetchOptions);
+        const [responseData, error] = await getAllPosts('/api/posts', basicFetchOptions);
         if (error) {
           throw new Error(`Error fetching posts: ${error.message}`);
         }
