@@ -4,7 +4,19 @@ import CurrentUserContext from "../contexts/current-user-context";
 
 export default function ExplorePage() {
   const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const [savedPosts, setSavedPosts] = useState([]);
+
+  const toggleSavePost = (postId) => {
+      if (savedPosts.includes(postId)) {
+        setSavedPosts(savedPosts.filter(id => id !== postId)); // Remove post from savedPosts
+      } else {
+        setSavedPosts([...savedPosts, postId]); // Add post to savedPosts
+      }
+    }
+
+    const handleSavePost = (postId) => {
+      toggleSave(postId);
+    }
 
   return <>
     <main>
@@ -13,7 +25,8 @@ export default function ExplorePage() {
       </div>
       <div id="main-content">
         <section id="first-column">
-            <section id="first-post"></section>
+            <section id="first-post">
+            </section>
             <section id="second-post"></section>
             <section id="third-post"></section>
         </section>
