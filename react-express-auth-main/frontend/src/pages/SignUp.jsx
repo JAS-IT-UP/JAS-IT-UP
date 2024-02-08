@@ -15,6 +15,7 @@ export default function SignUpPage() {
     firstName: '',
     lastName: '',
     username: '',
+    email: '',
     password: '',
   });
 
@@ -23,7 +24,7 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
-    const { profilePicture, firstName, lastName, username, password } = formData;
+    const { profilePicture, firstName, lastName, email, username, password } = formData;
 
     if (!profilePicture || !firstName || !lastName || !username || !password) return setErrorText('Missing username or password');
 
@@ -50,7 +51,7 @@ export default function SignUpPage() {
 
       <p>JAS IT UP!</p>
 
-    <div className="img-wrapper">
+    {/* <div className="img-wrapper">
       <p id="profile-picture">Profile Picture</p>
       <ProfilePicture 
       onChange={handleChange}
@@ -58,6 +59,21 @@ export default function SignUpPage() {
       value={formData.profilePicture}
       required
 />
+    </div> */}
+
+    <div className="image-url">
+      <label htmlFor="image-url">Profile Picture</label>
+      <input
+        autoComplete="off"
+        type="text"
+        id="profile-picture"
+        name="profilePicture"
+        placeholder="https://janesselfie.com/image.jpg"
+        onChange={handleChange}
+        value={formData.profilePicture}
+        required
+      />
+
     </div>
 
 <label htmlFor="first-name">First Name</label>
@@ -72,7 +88,7 @@ export default function SignUpPage() {
         required
       />
 
-<label htmlFor="last-name">First Name</label>
+<label htmlFor="last-name">Last Name</label>
       <input
         autoComplete="off"
         type="text"
@@ -94,6 +110,17 @@ export default function SignUpPage() {
         onChange={handleChange}
         value={formData.username}
         required
+      />
+
+      <label htmlFor="email">Email</label>
+      <input
+        autoComplete="off"
+        type="text"
+        id="email"
+        name="email"
+        placeholder="JaneDoe@gmail.com"
+        onChange={handleChange}
+        value={formData.email}
       />
 
       <label htmlFor="password">Password</label>
