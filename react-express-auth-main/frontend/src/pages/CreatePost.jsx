@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
-
+import Dropdown from "../components/DropDown";
 
 
 export default function CreatePostPage() {
@@ -50,8 +50,8 @@ export default function CreatePostPage() {
 
       <div className="materials-section"> 
       <label htmlFor="materials">Materials:</label> 
-      <textarea type="text" id="materials" name="materials" placeholder="List Your Repurposed Materials Here" onChange={handleChange} required></textarea>
-      {/* add materials value*/}
+      <h2>List Your Repurposed Materials Here</h2>
+      <Dropdown/>
       </div>
 
       <div className="description-section"> 
