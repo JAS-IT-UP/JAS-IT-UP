@@ -1,3 +1,5 @@
+import { useState, useContext } from "react";
+
 export default function Dropdown()  {
 	const [selectedOption, setSelectedOption] = useState("Materials");
 
@@ -8,7 +10,7 @@ export default function Dropdown()  {
 return  (
 	<div>
 		<label>
-			Select an option:
+			Choose Your Repurposed Materials:
 				<select  value={selectedOption} onChange={handleDropdownChange}>
 				<option  value="Milk Carton">Milk Carton</option>
 				<option  value="Jeans">Jeans</option>
@@ -19,7 +21,7 @@ return  (
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		<p>Selected option: {selectedOption}</p>
+		<p>Selected Material: {selectedOption}</p>
 	</div>
 	);
 }

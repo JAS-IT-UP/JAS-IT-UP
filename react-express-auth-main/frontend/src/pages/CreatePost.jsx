@@ -6,7 +6,7 @@ import Dropdown from "../components/DropDown";
 
 export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  const [uploadedImage, setUploadedImage] = useState(null);
+//   const [uploadedImage, setUploadedImage] = useState(null);
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState({postPicture: '', postDescription: ''})
   
