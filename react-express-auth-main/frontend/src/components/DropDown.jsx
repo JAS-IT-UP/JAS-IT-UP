@@ -10,7 +10,7 @@ export default function Dropdown()  {
 return  (
 	<div>
 		<label>
-			Choose Your Repurposed Materials:
+			<h3>Choose Your Repurposed Materials:</h3>
 				<select  value={selectedOption} onChange={handleDropdownChange}>
 				<option  value="Milk Carton">Milk Carton</option>
 				<option  value="Jeans">Jeans</option>
