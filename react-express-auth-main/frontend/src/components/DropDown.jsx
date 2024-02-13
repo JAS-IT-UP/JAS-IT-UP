@@ -6,7 +6,7 @@ export default function Dropdown()  {
 	const  handleDropdownChange = (event) => {
 		setSelectedOption(event.target.value);
 	};
-
+console.log('hi')
 return  (
 	<div>
 		<label>
