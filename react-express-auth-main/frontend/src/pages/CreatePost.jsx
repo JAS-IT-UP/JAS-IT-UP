@@ -67,7 +67,7 @@ export default function CreatePostPage() {
     </form>
     <div>
     {posts.map((post, index) => (
-      <PostCard key={index} postPicture={formData.postPicture} projectDescription={post.projectDescription} />
+      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} />
     ))}
     </div>
   </div>
