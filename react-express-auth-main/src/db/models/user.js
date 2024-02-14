@@ -8,17 +8,17 @@ class User {
   // the database and hide the passwordHash before sending it back to the controller
   constructor({
     id,
-    profilePicture,
-    firstName,
-    lastName,
+    profile_picture,
+    first_name,
+    last_name,
     username,
     email,
     password_hash,
   }) {
     this.id = id;
-    this.profilePicture = profilePicture;
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.profilePicture = profile_picture;
+    this.firstName = first_name;
+    this.lastName = last_name;
     this.username = username;
     this.email = email;
     this.#passwordHash = password_hash;
@@ -44,6 +44,7 @@ class User {
     const args = [username];
     const { rows } = await knex.raw(query, args);
     const user = rows[0];
+    console.log(user, "this is the find by username : data from db")
     return user ? new User(user) : null;
   }
 
@@ -55,6 +56,8 @@ class User {
     email = "test",
     password, 
   }) {
+
+
     const passwordHash = await hashPassword(password);
 
     const query = `INSERT INTO users (profile_picture, first_name, last_name, username, email, password_hash)
