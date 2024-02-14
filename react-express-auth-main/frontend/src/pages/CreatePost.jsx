@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
 import Dropdown from "../components/DropDown";
+import PostCard from "../components/PostCard";
 
 
 export default function CreatePostPage() {
