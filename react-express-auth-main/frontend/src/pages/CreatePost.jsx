@@ -15,6 +15,7 @@ export default function CreatePostPage() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setPosts([...posts, formData]);
     setErrorText('')
     const {postPicture, projectDescription, userId} = formData
     if(!postPicture || !projectDescription){ 
