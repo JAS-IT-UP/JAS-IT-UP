@@ -1,11 +1,12 @@
 import { fetchHandler, getPostOptions, getPatchOptions } from "../utils";
 
-const baseUrl = "/api/posts";
+const baseUrl = "/api/make_posts";
 
 export const createPost = async ({  postPicture,
-    projectDescription, userId}) =>
-  fetchHandler(baseUrl, getPostOptions({  postPicture,
-    projectDescription, userId}));
+    projectDescription, userId}) => {
+      const createdPost = await fetchHandler(baseUrl, getPostOptions({  postPicture, projectDescription}));
+      return createdPost;
+    }
 
 export const getAllPosts = async () => {
   const [posts] = await fetchHandler(baseUrl);

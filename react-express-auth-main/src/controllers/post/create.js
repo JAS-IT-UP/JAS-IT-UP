@@ -1,19 +1,18 @@
 const createPost = async (req, res) => {
     const {
-      session,
-      db: { posts },
-      body: { post_picture, project_description},
+      // session,
+      db: { Post },
+      body: { postPicture, projectDescription},
     } = req;
   
-    const { userId, userType } = session;
-    if (!userId || !userType) return res.sendStatus(401);
+    if (!userId) return res.sendStatus(401);
   
-    const post = await posts.create({
-      post_picture,
-      project_description,
-      user_id: userId,
-      account_type: userType === "user",
+    const post = await Post.create({
+      postPicture,
+      projectDescription,
+      userId,
     });
+    
     if (!post) return res.sendStatus(404);
   
     res.send(post);

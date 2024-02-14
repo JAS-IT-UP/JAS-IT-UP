@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CurrentUserContext from "../contexts/current-user-context";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -18,21 +19,21 @@ export default function HomePage() {
           <button onClick={() => navigate('/login')}>JAS IT UP!</button>
         </section>
         <section id="home-wallpaper">
-          <img src="/home-images/home-wallpaper.svg"></img>
+          <img src="/images/home-wallpaper.svg"></img>
         </section>
       </section>
    
       <section id = "upcycling-examples">
         <section id="example-1">
-          <img src = "/home-images/upcycle-planters-palette.svg"></img>
+          <img src = "/images/upcycle-planters-palette.svg"></img>
           <p>This is the example 1 description.</p>
         </section>
         <section id="example-2">
-          <img src = "/home-images/upcycle-planters.svg"></img>
+          <img src = "/images/upcycle-planters.svg"></img>
           <p>This is the example 2 description.</p>
         </section>
         <section id="example-3">
-          <img src = "/home-images/upcycle-with-person.svg"></img>
+          <img src = "/images/upcycle-with-person.svg"></img>
           <p>This is the example 3 description.</p>
         </section>
       </section>

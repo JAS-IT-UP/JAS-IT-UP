@@ -11,33 +11,33 @@ const Router = express.Router();
 Router.use(addModelsToRequest);
 
 Router.get("/users", userController.list);
-Router.get("/posts", postController.list);
-Router.get("/saved_posts", savedPostController.list);
-Router.get("/post_materials", postMaterialController.list);
-Router.get("/materials", materialController.list);
-
-Router.get("/materials/:id", materialController.find);
-Router.get("/post", postController.find);
-Router.get("/post_materials/:id", postMaterialController.find);
-Router.get("/saved_posts/:id", savedPostController.find);
-
 Router.get("/users/:id", userController.show);
-
 Router.post("/users", userController.create);
-Router.post("/posts", postController.create);
+Router.patch("/users/:id", userController.update);
+
+Router.get("/posts", postController.list);
+Router.post("/make_posts", checkAuthentication, postController.create);
+Router.get("/post", postController.find);
+
+Router.get("/saved_posts/:id", savedPostController.find);
+Router.get("/saved_posts", savedPostController.list);
 Router.post("/saved_posts", savedPostController.create);
-Router.post("/post_materials", postMaterialController.create);
+
+Router.get("/materials", materialController.list);
+Router.get("/materials/:id", materialController.find);
 Router.post("/materials", materialController.create);
 
-Router.patch("/users/:id", userController.update);
+Router.get("/post_materials", postMaterialController.list);
+Router.get("/post_materials/:id", postMaterialController.find);
+Router.post("/post_materials", postMaterialController.create);
 Router.patch("/posts/:id", postController.update);
 
 Router.post('/login', userController.login);
 Router.delete('/logout', userController.logout);
 
-Router.get('/show-me', checkAuthentication, userController.showMe);
+Router.get('/me', checkAuthentication, userController.showMe);
 
-Router.post('/posts', checkAuthentication, (require('./controllers/post')).create);
+Router.post('/make_posts', checkAuthentication, (require('./controllers/post')).create);
 Router.get('/posts/:id', (require('./controllers/post')).find);
 Router.delete('/posts/:id', checkAuthentication, (require('./controllers/post')).deletePost);
 Router.delete('/saved_posts/:id', checkAuthentication, (require('./controllers/saved_posts')).deleteSavedPost);

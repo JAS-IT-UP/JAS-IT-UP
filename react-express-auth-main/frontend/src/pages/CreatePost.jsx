@@ -10,7 +10,8 @@ export default function CreatePostPage() {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState
-  ({postPicture: '', projectDescription: '', userId: ''});
+  ({postPicture: '', projectDescription: ''});
+  // const [materials, setMaterials] = useState([]);
   const [posts, setPosts] = useState([]);
 
  
@@ -18,7 +19,7 @@ export default function CreatePostPage() {
     e.preventDefault();
     setErrorText('');
     setPosts([...posts, formData]);
-    const {postPicture, projectDescription, userId} = formData;
+    const { postPicture, projectDescription } = formData;
     if(!postPicture || !projectDescription){ 
         return setErrorText('Missing Picture or Description');
     }
@@ -49,12 +50,13 @@ export default function CreatePostPage() {
       <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" 
       onChange={handleChange} 
       value={formData.postPicture} required></input>
+      <img src={formData.postPicture} alt="" />
       </div>
 
       <div className="materials-section"> 
       <label htmlFor="materials"> <h1 id="materials">Materials:</h1></label> 
       
-      <Dropdown />
+      <Dropdown onChange={handleChange}/>
       </div>
 
       <div className="description-section"> 
