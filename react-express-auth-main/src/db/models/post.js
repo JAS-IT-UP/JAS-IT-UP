@@ -54,11 +54,11 @@ class Post {
     return knex.raw("TRUNCATE posts;");
   }
 
-  update = async ({ postPicture, postDescription }) => {
+  update = async ({ postPicture, projectDescription }) => {
     // dynamic queries are easier if you add more properties
     const rows = await knex("posts")
       .where({ id: this.id })
-      .update({ postPicture, postDescription })
+      .update({ postPicture, projectDescription })
       .returning("*");
 
     const updatedPost = rows[0];
