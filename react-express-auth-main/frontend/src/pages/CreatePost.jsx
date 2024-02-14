@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
 import Dropdown from "../components/DropDown";
@@ -6,10 +7,9 @@ import Dropdown from "../components/DropDown";
 
 export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-//   const [uploadedImage, setUploadedImage] = useState(null);
+  const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState
-  ({postPicture: '', projectDescription: '', userId: ''})
+  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', userId: ''})
 
  
   const handleSubmit = async (e) => {
@@ -22,12 +22,14 @@ export default function CreatePostPage() {
 
       
     const [post, error] = await createPost(formData); 
+    console.log(post,error)
+
     if(error){
         return setErrorText(error.message)
     } 
-    setCurrentUser(user)
+
     setFormData(post)
-    Navigate('/explore')
+    navigate('/explore')
   };
 
   const handleChange = (e) => {
@@ -38,16 +40,12 @@ export default function CreatePostPage() {
     })) 
   };
 
-  const handleImageChange = (e) => {
-
-  }
-
   return (
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       {/* <h1 id= "create-heading">Picture:</h1> */}
       <div id= "picture-section"> 
       <label htmlFor="image"> <h1>Picture:</h1> </label>
-      <input type="" name="image" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" value={formData.postPicture} onChange={handleImageChange} required></input>
+      <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" value={formData.postPicture} onChange={handleImageChange} required></input>
       </div>
 
       <div className="materials-section"> 
@@ -58,7 +56,7 @@ export default function CreatePostPage() {
 
       <div className="description-section"> 
       <label htmlFor="description"> <h1> The Revamp:</h1></label> 
-      <textarea type="text" id="description" name="description" placeholder="This Is Where You Help Others JAS UP The Materials They Have. Give Us A Step By Step Description Of Your Project." value={formData.projectDescription} onChange={handleChange} required></textarea>
+      <textarea type="text" id="description" name="projectDescription" placeholder="This Is Where You Help Others JAS UP The Materials They Have. Give Us A Step By Step Description Of Your Project." value={formData.projectDescription} onChange={handleChange} required></textarea>
       </div>
 
       <button type="submit">POST</button>
