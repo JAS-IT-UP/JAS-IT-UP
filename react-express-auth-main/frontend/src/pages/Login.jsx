@@ -14,15 +14,13 @@ export default function LoginPage() {
     const formData = new FormData(event.target);
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
-    setCurrentUser(user);/// 
-    console.log(user, "setting context")
+    setCurrentUser(user);
     navigate(`/users/${user.id}`);
   };
 
   if (currentUser) return <Navigate to="/" />;
 
   return <>
-    {/* <h1></h1> */}
     <form onSubmit={handleSubmit} aria-labelledby="login-heading">
       <h2 id='login-heading'>Sign In</h2>
       <label htmlFor="username">Username</label>

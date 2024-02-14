@@ -26,6 +26,9 @@ export default function PostCard({ postPicture, projectDescription, material}) {
             <h3>The Revamp:</h3>
             <p>{projectDescription}</p>
             </div>
+            <div>
+                <button type="button" >DELETE</button>
+            </div>
         </div>
         )
     }
