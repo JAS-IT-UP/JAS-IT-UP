@@ -10,7 +10,7 @@ export default function PostCard({ postPicture, projectDescription, material}) {
             height: '300px' }}>
 
             <div>
-            {<img src={postPicture} alt="Post" style={{ maxWidth: '100px', height: '100px' }} />}
+            {postPicture && <img src={postPicture} alt="Post" style={{ maxWidth: '100px', height: '100px' }} />}
             </div>
 
             <div>

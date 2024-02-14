@@ -24,6 +24,7 @@ export default function CreatePostPage() {
         return setErrorText('Missing Picture or Description');
     }
 
+    // console.log(postPicture, projectDescription)
       
     const [post, error] = await createPost(formData); 
     if(error){
@@ -50,7 +51,7 @@ export default function CreatePostPage() {
       <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" 
       onChange={handleChange} 
       value={formData.postPicture} required></input>
-      <img src={formData.postPicture} alt="" />
+      {/* <img src={formData.postPicture} alt="" /> */}
       </div>
 
       <div className="materials-section"> 
