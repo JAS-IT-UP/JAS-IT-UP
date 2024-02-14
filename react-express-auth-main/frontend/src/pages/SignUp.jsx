@@ -11,9 +11,9 @@ export default function SignUpPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState({
-    profilePicture: '',
-    firstName: '',
-    lastName: '',
+    profile_picture: '',
+    first_name: '',
+    last_name: '',
     username: '',
     email: '',
     password: '',
@@ -24,9 +24,9 @@ export default function SignUpPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorText('');
-    const { profilePicture, firstName, lastName, email, username, password } = formData;
+    const { profile_picture, first_name, last_name, email, username, password } = formData;
 
-    if (!profilePicture || !firstName || !lastName || !username || !password) return setErrorText('Missing username or password');
+    if (!profile_picture || !first_name || !last_name || !username || !password) return setErrorText('Missing username or password');
 
     const [user, error] = await createUser(formData);
     if (error) return setErrorText(error.message);
@@ -67,10 +67,10 @@ export default function SignUpPage() {
         autoComplete="off"
         type="text"
         id="profile-picture"
-        name="profilePicture"
+        name="profile_picture"
         placeholder="https://janesselfie.com/image.jpg"
         onChange={handleChange}
-        value={formData.profilePicture}
+        value={formData.profile_picture}
         required
       />
 
@@ -81,10 +81,10 @@ export default function SignUpPage() {
         autoComplete="off"
         type="text"
         id="first-name"
-        name="firstName"
+        name="first_name"
         placeholder="Jane"
         onChange={handleChange}
-        value={formData.firstName}
+        value={formData.first_name}
         required
       />
 
@@ -93,10 +93,10 @@ export default function SignUpPage() {
         autoComplete="off"
         type="text"
         id="last-name"
-        name="lastName"
+        name="last_name"
         placeholder="Doe"
         onChange={handleChange}
-        value={formData.lastName}
+        value={formData.last_name}
         required
       />
 

@@ -2,7 +2,7 @@ const createUser = async (req, res) => {
   const {
     session,
     db: { User }, 
-    body: { profilePicture = "test", firstName, lastName, username, email, password }, 
+    body: { profile_picture, first_name, last_name, username, email, password }, 
   } = req;
 
   const existingUser = await User.findByUsername( username );
@@ -12,9 +12,9 @@ const createUser = async (req, res) => {
   }
 
   const user = await User.create({
-    profilePicture,
-    firstName,
-    lastName,
+    profile_picture,
+    first_name,
+    last_name,
     username,
     email,
     password,

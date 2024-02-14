@@ -8,17 +8,17 @@ class User {
   // the database and hide the passwordHash before sending it back to the controller
   constructor({
     id,
-    profilePicture,
-    firstName,
-    lastName,
+    profile_picture,
+    first_name,
+    last_name,
     username,
     email,
     password_hash,
   }) {
     this.id = id;
-    this.profilePicture = profilePicture;
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.profilePicture = profile_picture;
+    this.firstName = first_name;
+    this.lastName = last_name;
     this.username = username;
     this.email = email;
     this.#passwordHash = password_hash;
@@ -48,11 +48,11 @@ class User {
   }
 
   static async create({
-    profilePicture,
-    firstName,
-    lastName,
+    profile_picture,
+    first_name,
+    last_name,
     username,
-    email = "test",
+    email,
     password, 
   }) {
     const passwordHash = await hashPassword(password);
@@ -60,9 +60,9 @@ class User {
     const query = `INSERT INTO users (profile_picture, first_name, last_name, username, email, password_hash)
       VALUES (?, ?, ?, ?, ?, ?) RETURNING *`;
     const args = [
-      profilePicture,
-      firstName,
-      lastName,
+      profile_picture,
+      first_name,
+      last_name,
       username,
       email,
       passwordHash,
@@ -76,15 +76,15 @@ class User {
     return knex.raw("TRUNCATE users;");
   }
 
-  update = async ({ profilePicture, username }) => {
+  update = async ({ profile_picture, username }) => {
     // dynamic queries are easier if you add more properties
-    if (!profilePicture && !username) {
+    if (!profile_picture && !username) {
       return null;
     }
 
     const updateUser = {};
 
-    if (profilePicture) {
+    if (profile_picture) {
       updateUser.profile_picture = profilePicture;
     }
 
