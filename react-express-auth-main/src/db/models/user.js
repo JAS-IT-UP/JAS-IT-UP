@@ -54,7 +54,7 @@ class User {
     lastName,
     username,
     email = "test",
-    password, 
+    password,
   }) {
 
 
@@ -104,10 +104,8 @@ class User {
     return updatedUser ? new User(updatedUser) : null;
   };
 
-  isValidPassword = async (password) => (
-    isValidPassword(password, this.#passwordHash)
-  );
+  isValidPassword = async (password) =>
+    isValidPassword(password, this.#passwordHash);
 }
-
 
 module.exports = User;
