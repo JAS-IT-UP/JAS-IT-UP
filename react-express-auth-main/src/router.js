@@ -24,7 +24,7 @@ Router.get("/saved_posts/:id", savedPostController.find);
 Router.get("/users/:id", userController.show);
 
 Router.post("/users", userController.create);
-Router.post("/posts", postController.create);
+Router.post("/createPost", checkAuthentication ,postController.create);
 Router.post("/saved_posts", savedPostController.create);
 Router.post("/post_materials", postMaterialController.create);
 Router.post("/materials", materialController.create);
@@ -34,8 +34,10 @@ Router.patch("/posts/:id", postController.update);
 
 Router.post('/login', userController.login);
 Router.delete('/logout', userController.logout);
+Router.get('/me', userController.showMe);
 
-Router.get('/show-me', checkAuthentication, userController.showMe);
+// Router.get('/show-me', checkAuthentication, userController.showMe);
+
 
 Router.post('/posts', checkAuthentication, (require('./controllers/post')).create);
 Router.get('/posts/:id', (require('./controllers/post')).find);
