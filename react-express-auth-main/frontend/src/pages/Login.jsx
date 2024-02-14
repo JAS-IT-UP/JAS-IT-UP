@@ -14,8 +14,9 @@ export default function LoginPage() {
     const formData = new FormData(event.target);
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
-    setCurrentUser(user);
-    navigate(`/users/${user.user.id}`);
+    setCurrentUser(user);/// 
+    console.log(user, "setting context")
+    navigate(`/users/${user.id}`);
   };
 
   if (currentUser) return <Navigate to="/" />;
