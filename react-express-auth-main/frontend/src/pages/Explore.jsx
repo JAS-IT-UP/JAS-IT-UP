@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getAllPosts } from '../adapters/post-adapter';
+import { getAllPosts, getPost } from '../adapters/post-adapter';
+import { getAllPostMaterials, getPostMaterial } from '../adapters/postMaterial-adapter';
 import { useNavigate, Navigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 
+
 export default function ExplorePage() {
-  const navigate = useNavigate();
-  const { currentUser } = useContext(CurrentUserContext);
-  const [posts, setPosts] = useState([]);
-  const [savedPosts, setSavedPosts] = useState([]);
+  // const navigate = useNavigate();
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const [errorText, setErrorText] = useState('');
+  const [posts, setPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
+  const [savedPosts, setSavedPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
+  const [postMaterials, setpostMaterials] = useState({count: '', postId: '', materialId: ''});
 
 //   if (!currentUser) return <Navigate to="/" />;
 
@@ -35,7 +39,7 @@ export default function ExplorePage() {
     }
   }
 
-  const handleSavePost = (postId) => {
+  const handleSavePost = (postId) => { 
     toggleSavePost(postId);
   }
 
@@ -53,52 +57,22 @@ export default function ExplorePage() {
     <div id="left-wallpaper">
       <img src="/images/explore-left-wallpaper.svg" alt="Left Wallpaper" />
     </div>
-    <div id="main-content">
-      <section id="first-column">
-        {nonCurrUserPosts.slice(0, 3).map((post, index) => (
-          <section id={`first-post-${index}`} key={post.id}>
-            <div className="green-outer-box">
-              <img src={post.postPicture} alt={`Post ${index}`} />
-            </div>
-            {hamburgerClicked[post.id] ? (
-              <img src="/images/close.svg" alt="Close" onClick={() => toggleHamburgerBar(post.id)} />
-            ) : (
-              <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => toggleHamburgerBar(post.id)} />
-            )}
-            <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(post.id)} />
-          </section>
-        ))}
-      </section>
-      <section id="second-column">
-        {nonCurrUserPosts.slice(3, 6).map((post, index) => (
-          <section id={`second-post-${index}`} key={post.id}>
-            <div className="green-outer-box">
-              <img src={post.postPicture} alt={`Post ${index}`} />
-            </div>
-            {hamburgerClicked[post.id] ? (
-              <img src="/images/close.svg" alt="Close" onClick={() => toggleHamburgerBar(post.id)} />
-            ) : (
-              <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => toggleHamburgerBar(post.id)} />
-            )}
-            <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(post.id)} />
-          </section>
-        ))}
-      </section>
-      <section id="third-column">
-        {nonCurrUserPosts.slice(6, 9).map((post, index) => (
-          <section id={`third-post-${index}`} key={post.id}>
-            <div className="green-outer-box">
-              <img src={post.postPicture} alt={`Post ${index}`} />
-            </div>
-            {hamburgerClicked[post.id] ? (
-              <img src="/images/close.svg" alt="Close" onClick={() => toggleHamburgerBar(post.id)} />
-            ) : (
-              <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => toggleHamburgerBar(post.id)} />
-            )}
-            <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(post.id)} />
-          </section>
-        ))}
-      </section>
+    <div id="main-content" className="scrollable-content">
+    <section id="posts-container">
+      {nonCurrUserPosts.map((post, index) => (
+        <section id={`post-${index}`} key={post.id}>
+          <div className="green-outer-box">
+            <img src={post.postPicture} alt={`Post ${index}`} />
+          </div>
+          {hamburgerClicked[post.id] ? (
+            <img src="/images/close.svg" alt="Close" onClick={() => toggleHamburgerBar(post.id)} />
+          ) : (
+            <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => toggleHamburgerBar(post.id)} />
+          )}
+          <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(post.id)} />
+        </section>
+      ))}
+    </section>
     </div>
     <div id="right-wallpaper">
       <img src="/images/explore-left-wallpaper.svg" alt="Right Wallpaper" />

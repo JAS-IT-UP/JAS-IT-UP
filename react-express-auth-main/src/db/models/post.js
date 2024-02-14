@@ -31,9 +31,9 @@ class Post {
     return rows.map((post) => new Post(post));
   }
 
-  static async create(postPicture, postDescription, userId) {
-    const query = `INSERT INTO post (post_picture, post_description, user_id) VALUES (?, ?, ?) RETURNING *`;
-    const args = [postPicture, postDescription, userId];
+  static async create(postPicture, projectDescription, userId) {
+    const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
+    const args = [postPicture, projectDescription, userId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
     return new Post(createdPost);
@@ -54,11 +54,11 @@ class Post {
     return knex.raw("TRUNCATE posts;");
   }
 
-  update = async ({ postPicture, postDescription }) => {
+  update = async ({ postPicture, projectDescription }) => {
     // dynamic queries are easier if you add more properties
     const rows = await knex("posts")
       .where({ id: this.id })
-      .update({ postPicture, postDescription })
+      .update({ postPicture, projectDescription })
       .returning("*");
 
     const updatedPost = rows[0];
