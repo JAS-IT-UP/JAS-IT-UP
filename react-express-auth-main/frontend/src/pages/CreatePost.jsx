@@ -9,7 +9,8 @@ export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', userId: ''})
+  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', userId: ''});
+  const [posts, setPosts] = useState([]);
 
  
   const handleSubmit = async (e) => {
