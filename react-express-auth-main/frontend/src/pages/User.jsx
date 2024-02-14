@@ -12,11 +12,13 @@ export default function UserPage() {
   const [errorText, setErrorText] = useState(null);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
+  console.log(isCurrentUserProfile, currentUser, id);
 
   useEffect(() => {
     const loadUser = async () => {
       const [user, error] = await getUser(id);
       if (error) return setErrorText(error.message);
+      console.log(user, "this is the user")
       setUserProfile(user);
     };
 
