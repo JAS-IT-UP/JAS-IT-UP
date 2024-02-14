@@ -10,7 +10,7 @@ export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', userId: ''});
+  const [formData, setFormData] = useState({postPicture: '', projectDescription: ''});
   const [posts, setPosts] = useState([]);
 
  
@@ -18,7 +18,7 @@ export default function CreatePostPage() {
     e.preventDefault();
     setPosts([...posts, formData]);
     setErrorText('')
-    const {postPicture, projectDescription, userId} = formData
+    const { postPicture, projectDescription } = formData
     if(!postPicture || !projectDescription){ 
         return setErrorText('Missing Picture or Description')
     }
@@ -31,7 +31,7 @@ export default function CreatePostPage() {
     } 
 
     setFormData(post)
-    navigate('/explore')
+    // navigate('/explore')
   };
 
   const handleChange = (e) => {

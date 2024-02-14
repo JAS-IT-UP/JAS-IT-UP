@@ -4,10 +4,8 @@ const baseUrl = "/api/posts";
 
 export const createPost = async ({  postPicture, projectDescription, userId}) => {
   const data = await fetchHandler("/api/createPost", getPostOptions({  postPicture, projectDescription, userId}));
-  // if(error) throw error
-  // console.log(data, "this is the data")
-  return data
-}
+  return data;
+};
 
 
 
