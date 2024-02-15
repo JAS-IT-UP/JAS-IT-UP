@@ -1,54 +1,55 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getAllPosts, getPost } from '../adapters/post-adapter';
+import { getAllPosts } from '../adapters/post-adapter';
 import { getAllPostMaterials, getPostMaterial } from '../adapters/postMaterial-adapter';
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 
 
 export default function ExplorePage() {
   // const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
-  const [posts, setPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
-  const [savedPosts, setSavedPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
-  const [postMaterials, setpostMaterials] = useState({count: '', postId: '', materialId: ''});
-
-//   if (!currentUser) return <Navigate to="/" />;
+  const [posts, setPosts] = useState([]);
+  // const [savedPosts, setSavedPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
+  // const [postMaterials, setpostMaterials] = useState({count: '', postId: '', materialId: ''});
+  const [hamburgerClicked, setHamburgerClicked] = useState({});
 
   useEffect(() => {
-    async function fetchPosts() {
+
+    const loadPosts = async () => {
       try {
-        const [responseData, error] = await getAllPosts('/api/posts', basicFetchOptions);
-        if (error) {
-          throw new Error(`Error fetching posts: ${error.message}`);
-        }
-        setPosts(responseData); 
-      } catch (error) {
-        console.error(error);
+      const [postCards, error] = await getAllPosts();
+      if (error) {
+        setErrorText(error.message);
+      } else {
+        setPosts(postCards);
       }
-    }
-
-    fetchPosts();
-  }, []);
-
-  const toggleSavePost = (postId) => {
-    if (savedPosts.includes(postId)) {
-      setSavedPosts(savedPosts.filter(id => id !== postId)); // Remove save
-    } else {
-      setSavedPosts([...savedPosts, postId]); // Save Post
+    } catch (error) {
+      setErrorText("Error fetching posts");
     }
   }
+  loadPosts();
+}, []);
 
-  const handleSavePost = (postId) => { 
-    toggleSavePost(postId);
-  }
+  // const toggleSavePost = (postId) => {
+  //   if (savedPosts.includes(postId)) {
+  //     setSavedPosts(savedPosts.filter(id => id !== postId)); // Remove save
+  //   } else {
+  //     setSavedPosts([...savedPosts, postId]); // Save Post
+  //   }
+  // }
 
-  const nonCurrUserPosts = posts.filter(post => post.userId !== currentUser.id);
+  // const handleSavePost = (postId) => { 
+  //   toggleSavePost(postId);
+  // }
 
-  const toggleHamburgerBar = (postId) => {
+  // const nonCurrUserPosts = posts.filter(post => post.userId !== currentUser.id);
+
+  const handleHamburgerToggle = async (e, post) => {
+    e.preventDefault();
     setHamburgerClicked(prevState => ({
       ...prevState,
-      [postId]: !prevState[postId] 
+      [post.id]: !prevState[post.id] 
     }));
   }
 
@@ -59,15 +60,15 @@ export default function ExplorePage() {
     </div>
     <div id="main-content" className="scrollable-content">
     <section id="posts-container">
-      {nonCurrUserPosts.map((post, index) => (
+      {posts.map((post, index) => (
         <section id={`post-${index}`} key={post.id}>
           <div className="green-outer-box">
             <img src={post.postPicture} alt={`Post ${index}`} />
           </div>
           {hamburgerClicked[post.id] ? (
-            <img src="/images/close.svg" alt="Close" onClick={() => toggleHamburgerBar(post.id)} />
+            <img src="/images/close.svg" alt="Close" onClick={() => handleHamburgerToggle(post.id)} />
           ) : (
-            <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => toggleHamburgerBar(post.id)} />
+            <img src="/images/hamburger.svg" alt="Hamburger" onClick={(e) => handleHamburgerToggle(e, post.id)} />
           )}
           <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(post.id)} />
         </section>
