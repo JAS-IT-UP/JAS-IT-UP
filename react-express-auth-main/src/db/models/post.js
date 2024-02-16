@@ -32,7 +32,6 @@ class Post {
   }
 
   static async create({postPicture, projectDescription, userId}) {
-
     console.log(postPicture, projectDescription, userId)
     const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
     const args = [postPicture, projectDescription, userId];

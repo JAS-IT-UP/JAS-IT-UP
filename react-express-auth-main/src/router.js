@@ -36,9 +36,6 @@ Router.post('/login', userController.login);
 Router.delete('/logout', userController.logout);
 Router.get('/me', userController.showMe);
 
-// Router.get('/show-me', checkAuthentication, userController.showMe);
-
-
 Router.post('/posts', checkAuthentication, (require('./controllers/post')).create);
 Router.get('/posts/:id', (require('./controllers/post')).find);
 Router.delete('/posts/:id', checkAuthentication, (require('./controllers/post')).deletePost);

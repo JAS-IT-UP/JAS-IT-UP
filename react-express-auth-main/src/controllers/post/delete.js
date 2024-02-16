@@ -1,11 +1,12 @@
 const deletePost = async (req, res) => {
     const {
-      db: { posts },
+      db: { Post },
       params: { id },
     } = req;
     try {
-      const post = await posts.delete(Number(id));
+      const post = await Post.delete(Number(id));
       if (!post) {
+        // console.log(post, "this is the post")
         return res.status(404).json({ message: "Post not found" });
       }
       return res.json({ message: "Post deleted" });
