@@ -8,8 +8,15 @@ class Post {
     this.userId = user_id;
   }
 
+  // static async list() {
+  //   const query = "SELECT * FROM posts JOIN users ON posts.user_id = users.id";
+  //   const { rows } = await knex.raw(query);
+  //   return rows.map((post) => new Post(post));
+  // }
+
   static async list() {
-    const query = "SELECT * FROM posts JOIN users ON posts.user_id = users.id";
+    const query =
+      "SELECT p.project_description AS post_des, p.post_picture as postPic, STRING_AGG(m.material_name, ',') AS postmaterials FROM posts p INNER JOIN post_materials pm ON p.id = pm.post_id INNER JOIN materials m ON pm.material_id = m.id GROUP BY p.project_description,  p.post_picture";
     const { rows } = await knex.raw(query);
     return rows.map((post) => new Post(post));
   }
@@ -31,9 +38,8 @@ class Post {
     return rows.map((post) => new Post(post));
   }
 
-  static async create({postPicture, projectDescription, userId}) {
-
-    console.log(postPicture, projectDescription, userId)
+  static async create({ postPicture, projectDescription, userId }) {
+    console.log(postPicture, projectDescription, userId);
     const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
     const args = [postPicture, projectDescription, userId];
     const { rows } = await knex.raw(query, args);
