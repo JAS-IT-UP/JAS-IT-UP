@@ -57,13 +57,13 @@ export default function ExplorePage() {
 
   // const nonCurrUserPosts = posts.filter(post => post.userId !== currentUser.id);
 
-  const handleHamburgerToggle = async (e, post) => {
-    e.preventDefault();
-    setHamburgerClicked(prevState => ({
-      ...prevState,
-      [post.id]: !prevState[post.id] 
-    }));
-  }
+  // const handleHamburgerToggle = async (e, post) => {
+  //   e.preventDefault();
+  //   setHamburgerClicked(prevState => ({
+  //     ...prevState,
+  //     [post.id]: !prevState[post.id] 
+  //   }));
+  // }
 
   return <>
     <main>
@@ -81,7 +81,7 @@ export default function ExplorePage() {
         // (
           //   // console.log(post,index)
             // <div key={index}>{post.projectDescription}</div> 
-            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription} />
+            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription} postMaterial={post.postMaterial}/>
           // )
         } 
       )}

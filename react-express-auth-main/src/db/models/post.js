@@ -1,23 +1,25 @@
 const knex = require("../knex");
 
 class Post {
-  constructor({ id, post_picture, project_description, user_id }) {
+  constructor({
+    id,
+    post_picture,
+    project_description,
+    material_name,
+    user_id,
+  }) {
     this.id = id;
     this.postPicture = post_picture;
     this.projectDescription = project_description;
+    this.materialName = material_name;
     this.userId = user_id;
   }
 
-  // static async list() {
-  //   const query = "SELECT * FROM posts JOIN users ON posts.user_id = users.id";
-  //   const { rows } = await knex.raw(query);
-  //   return rows.map((post) => new Post(post));
-  // }
-
   static async list() {
     const query =
-      "SELECT p.project_description AS post_des, p.post_picture as postPic, STRING_AGG(m.material_name, ',') AS postmaterials FROM posts p INNER JOIN post_materials pm ON p.id = pm.post_id INNER JOIN materials m ON pm.material_id = m.id GROUP BY p.project_description,  p.post_picture";
+      "SELECT p.id, p.user_id, p.project_description, p.post_picture, STRING_AGG(m.material_name, ',') AS post_materials FROM posts p INNER JOIN post_materials pm ON p.id = pm.post_id INNER JOIN materials m ON pm.material_id = m.id GROUP BY p.id, p.user_id, p.project_description,  p.post_picture";
     const { rows } = await knex.raw(query);
+    console.log(rows);
     return rows.map((post) => new Post(post));
   }
 
@@ -32,7 +34,7 @@ class Post {
 
   static async findByUserId(userId) {
     const query =
-      "SELECT * FROM users JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
+      "SELECT * FROM posts JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
     const args = [userId];
     const { rows } = await knex.raw(query, args);
     return rows.map((post) => new Post(post));
