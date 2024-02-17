@@ -2,14 +2,22 @@ import { fetchHandler, getPostOptions, getPatchOptions, deleteOptions } from "..
 
 const baseUrl = "/api/posts";
 
-export const createPost = async ({  postPicture, projectDescription, userId}) => {
-  const data = await fetchHandler("/api/createPost", getPostOptions({  postPicture, projectDescription, userId}));
+export const createPost = async ({
+  postPicture,
+  projectDescription,
+  userId,
+}) => {
+  const data = await fetchHandler(
+    "/api/createPost",
+    getPostOptions({ postPicture, projectDescription, userId })
+  );
   return data;
 };
 
 export const getAllPosts = async () => {
-  const [posts] = await fetchHandler(baseUrl);
-  return posts || [];
+  const data = await fetchHandler(baseUrl);
+  console.log(data, "this is my adapter post")
+  return data || [];
 };
 
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
