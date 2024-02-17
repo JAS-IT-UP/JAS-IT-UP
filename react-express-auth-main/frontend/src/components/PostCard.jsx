@@ -1,9 +1,16 @@
 import { useState, useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function PostCard({ postPicture, projectDescription, material}) {
+export default function PostCard({ id, postPicture, projectDescription, material}) {
     const {currentUser} = useContext(CurrentUserContext);
+    const [posts, setPosts] = useState([]);
 
+    const handleDelete = async () => {
+        const [post, error] = await deletePost(id);
+        if (error) return setErrorText(error.message);
+        setPosts(post);
+    }
+    
     if(currentUser) {
         return (
             <div style={{ border: '1px solid #ccc', padding: '20px', margin: '10px 0', width: '300px',
@@ -27,7 +34,7 @@ export default function PostCard({ postPicture, projectDescription, material}) {
             <p>{projectDescription}</p>
             </div>
             <div>
-                <button type="button" >DELETE</button>
+                <button type="button" id="delete-button" onClick={handleDelete}>DELETE</button>
             </div>
         </div>
         )
