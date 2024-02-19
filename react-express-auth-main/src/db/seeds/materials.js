@@ -4,10 +4,25 @@
  */
 const materials = [
   {
-   material_name: 'Paper',
+   material_name: 'Milk Carton',
   },
   {
-    material_name: 'Plastic',
+    material_name: 'Jeans',
+  },
+  {
+    material_name: 'Mason Jars',
+  },
+  {
+    material_name: 'NewsPaper/Magazine',
+  },
+  {
+    material_name: 'Fabric Scraps',
+  },
+  {
+    material_name: 'Cans',
+  },
+  {
+    material_name: 'Other',
   },
 ];
 exports.seed = async function(knex) {

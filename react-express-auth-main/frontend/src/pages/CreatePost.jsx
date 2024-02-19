@@ -31,7 +31,7 @@ export default function CreatePostPage() {
     } 
 
     setFormData(post)
-    navigate('/users/:id');
+    // navigate('/users/:id');
   };
 
   const handleChange = (e) => {

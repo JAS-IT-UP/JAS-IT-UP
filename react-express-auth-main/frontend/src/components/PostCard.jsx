@@ -7,15 +7,6 @@ export default function PostCard({ id, postPicture, materialName, projectDescrip
     const [errorText, setErrorText] = useState(null);
     const [posts, setPosts] = useState([]);
 
-    // useEffect(() => {
-    //     const loadPosts = async () => {
-    //         const [postCards, error] = await getAllPosts();
-    //         if (error) return setErrorText(error.message);
-    //         setPosts(postCards);
-    //     };
-    //     loadPosts();
-    // })
-
     const handleDelete = async () => {
         const [post, error] = await deletePost({ id });
         if (error) return setErrorText(error.message);
