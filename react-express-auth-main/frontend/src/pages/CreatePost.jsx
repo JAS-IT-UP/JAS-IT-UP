@@ -10,14 +10,14 @@ export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({postPicture: '', projectDescription: ''});
+  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', materialName: ''});
   const [posts, setPosts] = useState([]);
 
  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorText('')
-    const { postPicture, projectDescription } = formData
+    const { postPicture, projectDescription, materialName } = formData
     if(!postPicture || !projectDescription){ 
       return setErrorText('Missing Picture or Description')
     }

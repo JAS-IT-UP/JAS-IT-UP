@@ -4,8 +4,9 @@
  */
 exports.up = (knex) => {
     return knex.schema.createTable('posts', (table) => {
-        table.increments();
+        table.increments('id').primary();
         table.string('post_picture').notNullable();
+        table.string('material_name').notNullable();
         table.string('project_description').notNullable();
         table.integer('user_id').unsigned().notNullable();
 

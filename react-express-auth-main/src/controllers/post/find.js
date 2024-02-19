@@ -1,10 +1,10 @@
 const findPost = async (req, res) => {
     const {
       session,
-      db: { posts },
+      db: { Post },
     } = req;
     
-    const post = await posts.find( req.params.id, session.userId);
+    const post = await Post.find( req.params.id, session.userId);
     console.log(post);
    
     res.send(post);
