@@ -22,7 +22,7 @@ class Material {
    
 
   static async findByMaterialName(materialName) {
-    const query = "SELECT * FROM materials Where materials.material_name = ?";
+    const query = "SELECT * FROM materials WHERE materials.material_name = ?";
     const args = [materialName];
     const { rows } = await knex.raw(query, args);
     return rows.map((material) => new Material(material));

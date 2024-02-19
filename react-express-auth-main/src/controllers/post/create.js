@@ -2,7 +2,7 @@ const createPost = async (req, res) => {
     const {
       session,
       db: { Post },
-      body: { postPicture, projectDescription },
+      body: { postPicture, materialName, projectDescription },
     } = req;
 
     const { userId } = session;
@@ -10,6 +10,7 @@ const createPost = async (req, res) => {
     console.log("next step should be here")
     const post = await Post.create({
       postPicture,
+      materialName,
       projectDescription,
       userId,
     });
