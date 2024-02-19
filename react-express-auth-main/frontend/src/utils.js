@@ -3,10 +3,10 @@ const basicFetchOptions = {
   credentials: 'include',
 };
 
-export const deleteOptions = {
+export const deleteOptions = () => ({
   method: 'DELETE',
-  credentials: 'include',
-};
+  credentials: 'include'
+});
 
 export const getPostOptions = (body) => ({
   method: 'POST',

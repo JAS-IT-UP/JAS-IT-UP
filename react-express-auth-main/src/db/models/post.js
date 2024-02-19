@@ -50,7 +50,7 @@ class Post {
 
   static async delete(id) {
     try {
-      const query = "DELETE FROM posts WHERE id = ?";
+      const query = "DELETE FROM posts WHERE id = $1";
       await knex.raw(query, [id]);
       return true;
     } catch (err) {
@@ -58,6 +58,9 @@ class Post {
       return false;
     }
   }
+  // const database = "DELETE FROM posts WHERE id = ?";
+  // const results = await knex.raw(database, [id]);
+  // return results.rows[0];
 
   static async deleteAll() {
     return knex.raw("TRUNCATE posts;");

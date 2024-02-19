@@ -16,22 +16,22 @@ export default function CreatePostPage() {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setPosts([...posts, formData]);
     setErrorText('')
     const { postPicture, projectDescription } = formData
     if(!postPicture || !projectDescription){ 
-        return setErrorText('Missing Picture or Description')
+      return setErrorText('Missing Picture or Description')
     }
-
+    
       
     const [post, error] = await createPost(formData); 
-
+    setPosts([...posts, post]);
+    
     if(error){
         return setErrorText(error.message)
     } 
 
     setFormData(post)
-    // navigate('/explore')
+    navigate('/users/:id');
   };
 
   const handleChange = (e) => {
@@ -69,10 +69,11 @@ export default function CreatePostPage() {
     </form>
     <div>
     {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} />
+      <PostCard key={index} postPicture={post.postPicture} materialName={post.materialName} projectDescription={post.projectDescription} />
     ))}
     </div>
     </div>
   );
 }
 
+// console.log(post, "these are my posts")

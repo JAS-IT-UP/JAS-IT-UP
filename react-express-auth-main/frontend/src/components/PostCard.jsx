@@ -1,15 +1,30 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
+import { deletePost } from "../adapters/post-adapter";
 
-export default function PostCard({ id, postPicture, projectDescription, material}) {
+export default function PostCard({ id, postPicture, materialName, projectDescription }) {
     const {currentUser} = useContext(CurrentUserContext);
+    const [errorText, setErrorText] = useState(null);
     const [posts, setPosts] = useState([]);
 
+    // useEffect(() => {
+    //     const loadPosts = async () => {
+    //         const [postCards, error] = await getAllPosts();
+    //         if (error) return setErrorText(error.message);
+    //         setPosts(postCards);
+    //     };
+    //     loadPosts();
+    // })
+
     const handleDelete = async () => {
-        const [post, error] = await deletePost(id);
+        const [post, error] = await deletePost({ id });
         if (error) return setErrorText(error.message);
-        setPosts(post);
+        setPosts(posts => { return posts.filter(post => post.id !== id)});
+        return post 
+        // post([]);
     }
+    console.log(id, "this is my post id")
+
     
     if(currentUser) {
         return (
@@ -24,7 +39,7 @@ export default function PostCard({ id, postPicture, projectDescription, material
             <h3>Materials:</h3>
             <ul>
                 <li>
-                    {material}
+                    {materialName}
                 </li>
             </ul>
             </div>
@@ -34,9 +49,10 @@ export default function PostCard({ id, postPicture, projectDescription, material
             <p>{projectDescription}</p>
             </div>
             <div>
-                <button type="button" id="delete-button" onClick={handleDelete}>DELETE</button>
+                <button type="button" id="delete-button" onClick={() => handleDelete(id)}>DELETE</button>
             </div>
         </div>
         )
     }
 };
+
