@@ -1,14 +1,14 @@
 const createSavedPost = async (req, res) => {
     const {
       session,
-      db: { saved_posts },
+      db: { SavedPost },
       body: { post_id},
     } = req;
   
     const { userId } = session;
     if (!userId) return res.sendStatus(401);
   
-    const bookmark = await saved_posts.create({
+    const bookmark = await SavedPost.create({
       user_id: userId,
       post_id,
     });

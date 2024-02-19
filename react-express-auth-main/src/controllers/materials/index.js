@@ -3,7 +3,7 @@ const create = require("./create");
 const find = require("./find");
 
 module.exports = {
-    list,
-    create,
-    find
-}
+  list,
+  create,
+  find,
+};
