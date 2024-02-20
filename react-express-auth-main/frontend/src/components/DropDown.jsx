@@ -1,17 +1,19 @@
 import { useState, useContext } from "react";
+import { getAllMaterials } from "../adapters/materials-adapter";
 
-export default function Dropdown()  {
+export default function Dropdown() {
 	const [selectedOption, setSelectedOption] = useState("Materials");
 
 	const  handleDropdownChange = (event) => {
-		setSelectedOption(event.target.value);
+		const seletedMaterilasId = event.target.value;
+		setSelectedOption(seletedMaterilasId);
 	};
 
 return  (
 	<div>
 		<label>
 			<h3>Choose Your Repurposed Materials:</h3>
-				<select  value={selectedOption} onChange={handleDropdownChange}>
+				 <select onChange={handleDropdownChange}>
 				<option  value="Milk Carton">Milk Carton</option>
 				<option  value="Jeans">Jeans</option>
 				<option  value="Mason Jars">Mason Jars</option>
@@ -21,7 +23,7 @@ return  (
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		<p>Selected Material: {selectedOption}</p>
+		// <p>Selected Material: {selectedOption}</p>
 	</div>
 	);
 }

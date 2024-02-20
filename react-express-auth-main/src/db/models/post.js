@@ -5,22 +5,24 @@ class Post {
     id,
     post_picture,
     project_description,
+    material_id,
     material_name,
     user_id,
   }) {
     this.id = id;
     this.postPicture = post_picture;
     this.projectDescription = project_description;
-    this.materialName = material_name;
+    this.materialId= material_id;
+    this.materialName= material_name;
     this.userId = user_id;
   }
 
   static async list() {
     const query =
-      "SELECT p.id, p.user_id, p.project_description, p.post_picture, STRING_AGG(m.material_name, ',') AS post_materials FROM posts p INNER JOIN post_materials pm ON p.id = pm.post_id INNER JOIN materials m ON pm.material_id = m.id GROUP BY p.id, p.user_id, p.project_description,  p.post_picture";
+      "SELECT * FROM posts JOIN materials ON posts.material_id = materials.id"
     const { rows } = await knex.raw(query);
     console.log(rows);
-    return rows.map((post) => new Post(post));
+    return rows;
   }
 
   static async find(id) {
