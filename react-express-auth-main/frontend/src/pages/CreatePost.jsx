@@ -23,12 +23,7 @@ export default function CreatePostPage() {
     const { postPicture, projectDescription, materialName } = formData
     if(!postPicture || !projectDescription || !materialName){
       return setErrorText('Missing Picture or Description')
-    }
-
-    // const findMaterialId = (materialName) => {
-    //   return materialName.id;
-    // }
-    // console.log(findMaterialId, "this is my material name")
+    };
     
     const materialByName = await getMaterial.findByMaterialName({materialName})
 
