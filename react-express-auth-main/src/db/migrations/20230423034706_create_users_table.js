@@ -5,7 +5,7 @@
 
 const usersTable = (table) => {
   table.increments();
-  table.string('profile_picture').notNullable();
+  table.string('profile_picture', 2000).notNullable();
   table.string('first_name').notNullable();
   table.string('last_name').notNullable();
   table.string('username').notNullable().unique();
@@ -22,7 +22,7 @@ const materialsTable = (table) => {
 const postsTable = (table) => {
   table.increments('id').primary();
   table.string('post_picture').notNullable();
-  table.string('project_description').notNullable();
+  table.string('project_description', 4000).notNullable();
   table.integer('material_id').unsigned();
   table.integer('user_id').unsigned();
   table.foreign('material_id').references('id').inTable('materials');
