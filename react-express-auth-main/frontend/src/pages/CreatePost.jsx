@@ -10,28 +10,28 @@ export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({postPicture: '', projectDescription: ''});
+  const [formData, setFormData] = useState({postPicture: '', projectDescription: '', materialName: ''});
   const [posts, setPosts] = useState([]);
 
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setPosts([...posts, formData]);
     setErrorText('')
-    const { postPicture, projectDescription } = formData
+    const { postPicture, projectDescription, materialName } = formData
     if(!postPicture || !projectDescription){ 
-        return setErrorText('Missing Picture or Description')
+      return setErrorText('Missing Picture or Description')
     }
-
+    
       
     const [post, error] = await createPost(formData); 
-
+    setPosts([...posts, post]);
+    
     if(error){
         return setErrorText(error.message)
     } 
 
     setFormData(post)
-    // navigate('/explore')
+    // navigate('/users/:id');
   };
 
   const handleChange = (e) => {
@@ -69,10 +69,11 @@ export default function CreatePostPage() {
     </form>
     <div>
     {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} />
+      <PostCard key={index} postPicture={post.postPicture} materialName={post.materialName} projectDescription={post.projectDescription} />
     ))}
     </div>
     </div>
   );
 }
 
+// console.log(post, "these are my posts")
