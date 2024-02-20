@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
+import './home.css';
 
 export default function HomePage() {
   const navigate = useNavigate();
