@@ -9,7 +9,7 @@ import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
-import CreatePostPage from './pages/createPost';
+import CreatePostPage from './pages/CreatePost';
 import ExplorePage from './pages/Explore';
 
 export default function App() {

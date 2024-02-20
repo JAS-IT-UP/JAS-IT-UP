@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function PostCard({ id, postPicture, projectDescription, material}) {
+export default function PostCard({ id, postPicture, projectDescription, materialName }) {
     const {currentUser} = useContext(CurrentUserContext);
     const [posts, setPosts] = useState([]);
 
@@ -21,10 +21,10 @@ export default function PostCard({ id, postPicture, projectDescription, material
             </div>
 
             <div>
-            <h3>Materials:</h3>
+            <h3> Materials: </h3>
             <ul>
-                <li>
-                    {material}
+                <li> 
+                    {materialName}
                 </li>
             </ul>
             </div>
