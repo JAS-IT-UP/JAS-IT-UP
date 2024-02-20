@@ -3,19 +3,19 @@ import { getAllMaterials } from "../adapters/materials-adapter";
 
 export default function Dropdown({ onSelect }) {
 	// const [selectedOption, setSelectedOption] = useState("Materials");
-	const [materials, setMaterials] = useState([]);
+	// const [materials, setMaterials] = useState([]);
 
-	// const [material, error] = await getAllMaterials();
-	const fetchMaterials = async () => {
-		const [materials] = await getAllMaterials();
-		setMaterials(materials);
-	};
-	}
+	// // const [material, error] = await getAllMaterials();
+	// const fetchMaterials = async () => {
+	// 	const [materials] = await getAllMaterials();
+	// 	setMaterials(materials);
+	// };
+	// }
 
-	const  handleDropdownChange = (event) => {
-		const seletedMaterilasId = event.target.value;
-		onSelect(seletedMaterilasId);
-	};
+	// const  handleDropdownChange = (event) => {
+	// 	const seletedMaterilasId = event.target.value;
+	// 	onSelect(seletedMaterilasId);
+	// };
 
 return  (
 	<div>
@@ -37,3 +37,5 @@ return  (
 		{/* <p>Selected Material: {selectedOption}</p> */}
 	</div>
 	);
+
+			}
