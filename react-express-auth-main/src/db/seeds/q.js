@@ -12,7 +12,7 @@ const post_materials = [
     count:1,
     post_id:1,
     material_id:3,
-  }
+  },
   {
     count:1,
     post_id:2,
