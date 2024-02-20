@@ -4,10 +4,20 @@
  */
 const post_materials = [
   {
-    count:2,
+    count:1,
     post_id:1,
-    material_id:1,
+    material_id:2,
   },
+  {
+    count:1,
+    post_id:1,
+    material_id:3,
+  }
+  {
+    count:1,
+    post_id:2,
+    material_id:1,
+  }
 ];
 exports.seed = async function(knex) {
   // Deletes ALL existing entries

@@ -1,7 +1,7 @@
 const deleteSavedPost = async (req, res) => {
     const {
       session,
-      db: { saved_posts },
+      db: { SavedPost },
       params: { id },
     } = req;
   
@@ -9,7 +9,7 @@ const deleteSavedPost = async (req, res) => {
   
     if (!userId) return res.sendStatus(401);
   
-    const savedPost = await saved_posts.delete(Number(id));
+    const savedPost = await SavedPost.delete(Number(id));
   
     if (!savedPost) return res.sendStatus(404);
   
