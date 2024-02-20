@@ -1,14 +1,14 @@
 const listsavedPosts = async (req, res) => {
     const {
       session,
-      db: { saved_posts },
+      db: { SavedPost },
     } = req;
   
     const { userId } = session;
   
     if (!userId) return res.sendStatus(401);
   
-    const savedPost = await saved_posts.list({
+    const savedPost = await SavedPost.list({
       user_id: userId,
     });
   

@@ -1,11 +1,11 @@
 const findMaterial = async (req, res) => {
     const {
       session,
-      db: { materials },
+      db: { Material },
     } = req;
     
-    const material = await materials.find( req.params.id, session.usersId);
-    console.log(materials);
+    const material = await Material.find( req.params.id, session.usersId);
+    console.log(material);
    
     res.send(material);
   };

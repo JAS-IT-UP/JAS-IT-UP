@@ -1,10 +1,10 @@
-const listPostMaterials = async (req, res) => {
+const listMaterials = async (req, res) => {
     const { 
-      db: { post_materials} 
+      db: { Material} 
     } = req; 
   
-    const post = await post_materials.list();
+    const post = await Material.list();
     res.send(post);
   };
   
-  module.exports = listPostMaterials;
+  module.exports = listMaterials;

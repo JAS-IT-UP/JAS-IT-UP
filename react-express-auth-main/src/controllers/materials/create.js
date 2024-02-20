@@ -1,10 +1,10 @@
 const createMaterial = async (req, res) => {
     const {
-      db: { materials }, 
+      db: { Material }, 
       body: { material_name }, 
     } = req;
   
-    const material = await materials.create({
+    const material = await Material.create({
       material_name: material_name,
     });
     res.send(material);
