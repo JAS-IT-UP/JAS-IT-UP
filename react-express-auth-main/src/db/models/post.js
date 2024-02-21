@@ -42,9 +42,9 @@ class Post {
     return rows.map((post) => new Post(post));
   }
 
-  static async create({ postPicture, projectDescription, userId }) {
-    const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
-    const args = [postPicture, projectDescription, userId];
+  static async create({ postPicture, projectDescription, materialId, userId }) {
+    const query = `INSERT INTO posts (post_picture, project_description, material_id, user_id) VALUES (?, ?, ?, ?) RETURNING *`;
+    const args = [postPicture, projectDescription, materialId, userId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
     return new Post(createdPost);
