@@ -21,7 +21,7 @@ const createUser = async (req, res) => {
   });
 
   session.usersId = user.id;
-  res.status(201).json({ message: 'User created successfully', user });
+  res.send(user);
 };
 
 module.exports = createUser; 
