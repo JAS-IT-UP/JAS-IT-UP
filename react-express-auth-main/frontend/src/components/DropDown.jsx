@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { getAllMaterials } from "../adapters/materials-adapter";
 
 export default function Dropdown() {
 	const [selectedOption, setSelectedOption] = useState("Materials");
@@ -23,7 +22,7 @@ return  (
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		// <p>Selected Material: {selectedOption}</p>
+		<p>Selected Material: {selectedOption}</p>
 	</div>
 	);
 }

@@ -5,11 +5,12 @@ const baseUrl = "/api/posts";
 export const createPost = async ({
   postPicture,
   projectDescription,
+  materialId,
   userId,
 }) => {
   const data = await fetchHandler(
     "/api/createPost",
-    getPostOptions({ postPicture, projectDescription, userId })
+    getPostOptions({ postPicture, projectDescription, materialId, userId })
   );
   return data;
 };
