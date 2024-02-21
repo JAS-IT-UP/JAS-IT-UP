@@ -4,6 +4,7 @@ class Post {
   constructor({
     id,
     post_picture,
+    material_name,
     project_description,
     material_id,
     material_name,
@@ -11,6 +12,7 @@ class Post {
   }) {
     this.id = id;
     this.postPicture = post_picture;
+    this.materialName = material_name;
     this.projectDescription = project_description;
     this.materialId= material_id;
     this.materialName= material_name;
@@ -42,9 +44,9 @@ class Post {
     return rows.map((post) => new Post(post));
   }
 
-  static async create({ postPicture, projectDescription, userId }) {
-    const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
-    const args = [postPicture, projectDescription, userId];
+  static async create({ postPicture, materialName,projectDescription, userId }) {
+    const query = `INSERT INTO posts (post_picture, material_name, project_description, user_id) VALUES (?, ?, ?, ?) RETURNING *`;
+    const args = [postPicture, materialName, projectDescription, userId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
     return new Post(createdPost);
@@ -60,16 +62,19 @@ class Post {
       return false;
     }
   }
+  // const database = "DELETE FROM posts WHERE id = ?";
+  // const results = await knex.raw(database, [id]);
+  // return results.rows[0];
 
   static async deleteAll() {
     return knex.raw("TRUNCATE posts;");
   }
 
-  update = async ({ postPicture, projectDescription }) => {
+  update = async ({ postPicture, materialName, projectDescription }) => {
     // dynamic queries are easier if you add more properties
     const rows = await knex("posts")
       .where({ id: this.id })
-      .update({ postPicture, projectDescription })
+      .update({ postPicture, materialName, projectDescription })
       .returning("*");
 
     const updatedPost = rows[0];
