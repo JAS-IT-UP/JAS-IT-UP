@@ -6,8 +6,7 @@ const deletePost = async (req, res) => {
     try {
       const post = await Post.delete(Number(id));
       if (!post) {
-        console.log(post, "this is the post")
-        console.log(id, "this is the id")
+        // console.log(post, "this is the post")
         return res.status(404).json({ message: "Post not found" });
       }
       return res.json({ message: "Post deleted" });

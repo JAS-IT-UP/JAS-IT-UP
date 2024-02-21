@@ -16,19 +16,16 @@ export const createPost = async ({
 
 export const getAllPosts = async () => {
   const data = await fetchHandler(baseUrl);
-  // console.log(data, "this is my adapter post")
+  console.log(data, "this is my adapter post")
   return data || [];
 };
 
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
 
-export const deletePost = async ({ id }) => {
-  return fetchHandler(`${baseUrl}/${id}`, deleteOptions({ id }));
-  // const post = await fetchHandler(`'/api/deletePosts/${[id]}`, deleteOptions({ id }));
-  // console.log(post, "this is my adapter post")
-  // return post;
+export const deletePost = async (id) => {
+  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions({ id }));
+  return data;
 };
-console.log(deletePost, "this is my delete post adapter")
 
 export const updatePost = async ({ postPicture, projectDescription }) =>
 fetchHandler(`${baseUrl}/${postId}`, getPatchOptions({ postPicture, projectDescription }));
