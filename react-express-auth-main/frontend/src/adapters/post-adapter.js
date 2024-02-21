@@ -12,6 +12,7 @@ export const createPost = async ({
     "/api/createPost",
     getPostOptions({ postPicture, projectDescription, materialId, userId })
   );
+  console.log(data, "this is my adapter post")
   return data;
 };
 
@@ -24,7 +25,7 @@ export const getAllPosts = async () => {
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
 
 export const deletePost = async (id) => {
-  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions({ id }));
+  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions());
   return data;
 };
 

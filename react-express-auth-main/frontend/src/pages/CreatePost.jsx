@@ -10,7 +10,7 @@ export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({ postPicture: '', projectDescription: '', materialName: ''});
+  const [formData, setFormData] = useState({ postPicture: '', projectDescription: '' });
   // const [materials, setMaterials] = useState([]);
   const [posts, setPosts] = useState([]);
 
@@ -18,8 +18,8 @@ export default function CreatePostPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorText('')
-    const { postPicture, projectDescription, materialName } = formData
-    if(!postPicture || !projectDescription || !materialName){
+    const { postPicture, projectDescription } = formData
+    if(!postPicture || !projectDescription ){
       return setErrorText('Missing Picture or Description')
     };
 
@@ -71,7 +71,7 @@ export default function CreatePostPage() {
     </form>
     <div>
     {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} materialName={post.materialName} />
+      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} />
     ))}
     </div>
     </div>

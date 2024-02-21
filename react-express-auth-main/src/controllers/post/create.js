@@ -2,7 +2,7 @@ const createPost = async (req, res) => {
     const {
       session,
       db: { Post },
-      body: { postPicture, projectDescription, materialId },
+      body: { postPicture, projectDescription },
     } = req;
 
     const { userId } = session;
@@ -11,9 +11,9 @@ const createPost = async (req, res) => {
     const post = await Post.create({
       postPicture,
       projectDescription,
-      materialId,
       userId,
     });
+    console.log(post, "this is the post")
     if (!post) return res.sendStatus(404);
   
     res.send(post);
