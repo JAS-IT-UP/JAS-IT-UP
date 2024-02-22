@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import "./SignUp.css";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
@@ -44,12 +45,17 @@ export default function SignUpPage() {
   };
 
   return <>
-    <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
+  <div className="split-screen">
       <h2 id="create-heading">Create an Account</h2>
+
+    <form onSubmit={handleSubmit} onChange={handleChange} id="create-form" aria-labelledby="create-heading">
+    <div className="left"> 
+    <section className="copy"></section>
 
       <section id="logo-signup">logo</section>
 
-      <p>JAS IT UP!</p>
+      <p id="logo-name">JAS IT UP!</p>
+    </div>
 
     {/* <div className="img-wrapper">
       <p id="profile-picture">Profile Picture</p>
@@ -145,8 +151,9 @@ export default function SignUpPage() {
       */}
 
       <button>Sign Up!</button>
+    <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
     </form>
     { !!errorText && <p>{errorText}</p> }
-    <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
+  </div>
   </>;
 }
