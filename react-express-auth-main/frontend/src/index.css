@@ -24,14 +24,15 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: #000;
+  background: #BFD0A0;
+  border: 1px solid black;
 }
 
 #logo {
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #FFF;
+  color: #05312F;
 }
 
 nav ul {
@@ -44,7 +45,7 @@ nav ul {
 
 nav a {
   display: block;
-  color: #FFF;
+  color: #05312F;
 }
 
 form {

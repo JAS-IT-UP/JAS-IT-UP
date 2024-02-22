@@ -46,16 +46,16 @@ export default function SignUpPage() {
 
   return <>
   <div className="split-screen">
+      <div className="signup-box">
+        <div className="left-box">
       <h2 id="create-heading">Create an Account</h2>
-
-    <form onSubmit={handleSubmit} onChange={handleChange} id="create-form" aria-labelledby="create-heading">
-    <div className="left"> 
-    <section className="copy"></section>
-
       <section id="logo-signup">logo</section>
-
       <p id="logo-name">JAS IT UP!</p>
-    </div>
+          </div> 
+
+        <div className="right-box">
+          
+    <form onSubmit={handleSubmit} onChange={handleChange} id="create-form" aria-labelledby="create-heading">
 
     {/* <div className="img-wrapper">
       <p id="profile-picture">Profile Picture</p>
@@ -153,7 +153,10 @@ export default function SignUpPage() {
       <button>Sign Up!</button>
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
     </form>
+      </div>
     { !!errorText && <p>{errorText}</p> }
+        </div>
+
   </div>
   </>;
 }
