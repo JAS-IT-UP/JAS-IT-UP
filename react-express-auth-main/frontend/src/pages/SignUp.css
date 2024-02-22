@@ -23,14 +23,69 @@ body {
   }
 
   #create-form {
+    border-style: none;
+  }
+
+  .split-screen {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #CEB3E2;
-    width: 50rem;
+}
+
+#create-heading {
+    color:#05312F;
+    /* font-family: "Michroma", serif; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-name {
+    color:#05312F;
+    font-family: "Oi", serif;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+}
+.signup-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #CEB3E2;
+    width: 90%;
+    max-width: 800px;
     border: 1px solid black;
-    box-shadow: 20px 20px #05312F;
-    margin-top: 6rem;
-    border-radius: 5%;
+    box-shadow: 30px 30px #05312F;
+    border-radius: 25px;
+  }
+
+  .left-box {
+    /* padding: 50px; */
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+.right-box {
+    /* padding: 0px; */
+    background:#CEB3E2;
+    flex-basis: 50%;
+    flex-grow: 1;
+    color:#05312F;
+  }
+
+  form input {
+    background-color: #FFFFFF;
+    width:14.3rem;
+    height: 2.8rem;
+    border: none;
+    border-radius: 22px;
+    text-align: center;
+    text-decoration: none;
   }
