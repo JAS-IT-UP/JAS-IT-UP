@@ -18,7 +18,6 @@ export default function ExplorePostCard({ postPicture, projectDescription, mater
                 <img src={postPicture} alt={`Post ${id}`} />
             </div>
             <div className="post-interactions">
-                <Hamburger toggled={isOpen} toggle={setOpen} />
                 <Hamburger toggled={isOpen} onClick={handleToggle} />
                 {isOpen && (
                     <>
