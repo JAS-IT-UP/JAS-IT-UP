@@ -74,17 +74,7 @@ export default function ExplorePage() {
       console.log(posts)
     }
     <section id="posts-container">
-      {posts && posts.map((post) => {
-        console.log(post)
-        // return  <div key={index}>{post.postDescription}</div> 
-        // return <p key={post.id}>{post.projectDescription}</p>
-        // (
-          //   // console.log(post,index)
-            // <div key={index}>{post.projectDescription}</div> 
-            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription} postMaterial={post.postMaterial}/>
-          // )
-        } 
-      )}
+      {posts && posts.map((post) => <ExplorePostCard key={post.id} postData={post} />)}
     </section>
     </div>
     <div id="right-wallpaper">

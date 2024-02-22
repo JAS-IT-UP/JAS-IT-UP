@@ -11,7 +11,8 @@ export default function CreatePostPage() {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState({ postPicture: '', projectDescription: '' });
-  // const [materials, setMaterials] = useState([]);
+  const [materialId, setMaterialId] = useState(1);
+
   const [posts, setPosts] = useState([]);
 
  
@@ -23,16 +24,17 @@ export default function CreatePostPage() {
       return setErrorText('Missing Picture or Description')
     };
 
-    const [post, error] = await createPost(formData); 
+    const payload = {...formData, materialId}
+    console.log(payload)
+
+    const [post, error] = await createPost(payload); 
     if(error){
         return setErrorText(error.message)
     } 
-
-    console.log(post, 'this is the post i am getting back')
     setPosts([...posts, post]);
 
 
-    setFormData(post)
+    setFormData({ postPicture: '', projectDescription: '' });
     // navigate(`/users/${currentUser.id}`);
   };
 
@@ -58,7 +60,7 @@ export default function CreatePostPage() {
       <div className="materials-section"> 
       <label htmlFor="materials"> <h1 id="materials">Materials:</h1></label> 
       
-      <Dropdown />
+      <Dropdown selectedValue={materialId}/>
       </div>
 
       <div className="description-section"> 
@@ -71,7 +73,7 @@ export default function CreatePostPage() {
     </form>
     <div>
     {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} />
+      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} />
     ))}
     </div>
     </div>

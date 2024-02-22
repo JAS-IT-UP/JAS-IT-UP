@@ -19,7 +19,7 @@ class Post {
 
   static async list() {
     const query =
-      "SELECT * FROM posts JOIN materials ON posts.material_id = materials.id"
+      "SELECT posts.id, post_picture, project_description, posts.created_at, material_name, profile_picture, username FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id;";
     const { rows } = await knex.raw(query);
     console.log(rows);
     return rows;
@@ -42,9 +42,9 @@ class Post {
     return rows.map((post) => new Post(post));
   }
 
-  static async create({ postPicture, projectDescription, userId }) {
-    const query = `INSERT INTO posts (post_picture, project_description, user_id) VALUES (?, ?, ?) RETURNING *`;
-    const args = [postPicture, projectDescription, userId];
+  static async create({ postPicture, projectDescription, userId, materialId }) {
+    const query = `INSERT INTO posts (post_picture, project_description, user_id, material_id) VALUES (?, ?, ?, ?) RETURNING *`;
+    const args = [postPicture, projectDescription, userId, materialId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
     return new Post(createdPost);

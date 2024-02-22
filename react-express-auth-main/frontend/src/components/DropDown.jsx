@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 
 export default function Dropdown({ materialName, materialId }) {
-	const [selectedMaterial, setSelectedMaterial] = useState("");
 
 	const  handleDropdownChange = (event) => {
 		return setSelectedMaterial(event.target.value);
@@ -21,7 +20,7 @@ return  (
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		<p>Selected Material: {selectedMaterial}</p>
+		<p>Selected Material: {materialName}</p>
 	</div>
 	);
 

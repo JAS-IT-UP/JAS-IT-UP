@@ -2,14 +2,10 @@ import { fetchHandler, getPostOptions, getPatchOptions, deleteOptions } from "..
 
 const baseUrl = "/api/posts";
 
-export const createPost = async ({
-  postPicture,
-  projectDescription,
-  userId,
-}) => {
+export const createPost = async (payload) => {
   const data = await fetchHandler(
     "/api/createPost",
-    getPostOptions({ postPicture, projectDescription, userId })
+    getPostOptions(payload)
   );
   console.log(data, "this is my adapter post")
   return data;
