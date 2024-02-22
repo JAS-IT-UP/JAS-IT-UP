@@ -16,7 +16,6 @@ export default function ExplorePage() {
 
   // const [savedPosts, setSavedPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
   // const [postMaterials, setpostMaterials] = useState({count: '', postId: '', materialId: ''});
-  const [hamburgerClicked, setHamburgerClicked] = useState({});
   console.log(posts, "before map")
 
   useEffect(() => {
@@ -43,27 +42,11 @@ export default function ExplorePage() {
   loadPosts();
 }, [boo]);
 
-  // const toggleSavePost = (postId) => {
-  //   if (savedPosts.includes(postId)) {
-  //     setSavedPosts(savedPosts.filter(id => id !== postId)); // Remove save
-  //   } else {
-  //     setSavedPosts([...savedPosts, postId]); // Save Post
-  //   }
-  // }
-
   // const handleSavePost = (postId) => { 
   //   toggleSavePost(postId);
   // }
 
   // const nonCurrUserPosts = posts.filter(post => post.userId !== currentUser.id);
-
-  // const handleHamburgerToggle = async (e, post) => {
-  //   e.preventDefault();
-  //   setHamburgerClicked(prevState => ({
-  //     ...prevState,
-  //     [post.id]: !prevState[post.id] 
-  //   }));
-  // }
 
   return <>
     <main>
@@ -75,14 +58,8 @@ export default function ExplorePage() {
     }
     <section id="posts-container">
       {posts && posts.map((post) => {
-        console.log(post)
-        // return  <div key={index}>{post.postDescription}</div> 
-        // return <p key={post.id}>{post.projectDescription}</p>
-        // (
-          //   // console.log(post,index)
-            // <div key={index}>{post.projectDescription}</div> 
-            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription} postMaterial={post.postMaterial}/>
-          // )
+        console.log(post, "inside map") 
+            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription}/>
         } 
       )}
     </section>
