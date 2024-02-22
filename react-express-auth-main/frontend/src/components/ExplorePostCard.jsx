@@ -10,17 +10,6 @@ export default function ExplorePostCard({ postPicture, projectDescription, mater
             <div className="green-outer-box">
                 <img src={postPicture} alt={`Post ${id}`} />
             </div>
-            {/* </div> */}
-            {/* {currentUser && (
-                <>
-                    {hamburgerClicked ? (
-                        <img src="/images/close.svg" alt="Close" onClick={() => handleHamburgerToggle(id)} />
-                    ) : (
-                        <img src="/images/hamburger.svg" alt="Hamburger" onClick={() => handleHamburgerToggle(index)} />
-                    )}
-                    <img src="/images/save.svg" alt="Save" onClick={() => handleSavePost(index)} /> */}
-                {/* </> */}
-            {/* )} */}
         </section>
     );
 }
