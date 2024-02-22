@@ -5,12 +5,11 @@ const baseUrl = "/api/posts";
 export const createPost = async ({
   postPicture,
   projectDescription,
-  materialId,
   userId,
 }) => {
   const data = await fetchHandler(
     "/api/createPost",
-    getPostOptions({ postPicture, projectDescription, materialId, userId })
+    getPostOptions({ postPicture, projectDescription, userId })
   );
   console.log(data, "this is my adapter post")
   return data;
