@@ -17,7 +17,6 @@
     "seed:make": "knex seed:make",
     "play:bcrypt": "nodemon ./playground-examples/bcrypt-example.js",
     "lint": "eslint . --fix"
-
   },
   "keywords": [],
   "author": "",
@@ -30,6 +29,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "hamburger-react": "^2.5.0",
     "knex": "^2.4.2",
     "pg": "^8.10.0"
   },
