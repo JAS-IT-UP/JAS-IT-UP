@@ -16,7 +16,6 @@ export default function ExplorePage() {
 
   // const [savedPosts, setSavedPosts] = useState({postPicture: '', projectDescription: '', userId: ''});
   // const [postMaterials, setpostMaterials] = useState({count: '', postId: '', materialId: ''});
-  const [hamburgerClicked, setHamburgerClicked] = useState({});
   console.log(posts, "before map")
 
   useEffect(() => {
@@ -59,8 +58,8 @@ export default function ExplorePage() {
     }
     <section id="posts-container">
       {posts && posts.map((post) => {
-        console.log(post) 
-            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription} postMaterial={post.postMaterial}/>
+        console.log(post, "inside map") 
+            return <ExplorePostCard key={post.id} id ={post.id} projectDescription={post.projectDescription}/>
         } 
       )}
     </section>
