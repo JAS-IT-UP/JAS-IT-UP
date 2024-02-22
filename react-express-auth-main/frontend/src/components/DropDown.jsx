@@ -1,12 +1,10 @@
 import { useState, useContext } from "react";
-import { getAllMaterials } from "../adapters/materials-adapter";
 
-export default function Dropdown() {
-	const [selectedOption, setSelectedOption] = useState("Materials");
+export default function Dropdown({ materialName, materialId }) {
+	const [selectedMaterial, setSelectedMaterial] = useState("");
 
 	const  handleDropdownChange = (event) => {
-		const seletedMaterilasId = event.target.value;
-		setSelectedOption(seletedMaterilasId);
+		return setSelectedMaterial(event.target.value);
 	};
 
 return  (
@@ -14,16 +12,33 @@ return  (
 		<label>
 			<h3>Choose Your Repurposed Materials:</h3>
 				 <select onChange={handleDropdownChange}>
-				<option  value="Milk Carton">Milk Carton</option>
-				<option  value="Jeans">Jeans</option>
-				<option  value="Mason Jars">Mason Jars</option>
-                <option  value="NewsPaper/Magazine">NewsPaper/Magazine</option>
-                <option  value="Fabric Scraps">Fabric Scraps</option>
-                <option  value="Cans">Cans</option>
+				<option  value={materialName}>Milk Carton</option>
+				<option  value={materialId}>Jeans</option>
+				<option  value={materialId}>Mason Jars</option>
+                <option  value={materialId}>NewsPaper/Magazine</option>
+                <option  value={materialId}>Fabric Scraps</option>
+                <option  value={materialId}>Cans</option>
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		// <p>Selected Material: {selectedOption}</p>
+		<p>Selected Material: {selectedMaterial}</p>
 	</div>
 	);
+
+// return  (
+// 	<div>
+// 	<label>
+// 		<h3>Choose Your Repurposed Materials:</h3>
+// 		<select onChange={handleDropdownChange} value={selectedMaterial}>
+// 			<option value="">Select a material</option>
+// 			{materials.map((material) => (
+// 				<option key={materialId} value={material.id}>
+// 					{material.materialName}
+// 				</option>
+// 			))}
+// 		</select>
+// 	</label>
+// 	<p>Selected Material: {selectedMaterial}</p>
+// 	</div>
+// 		);
 }

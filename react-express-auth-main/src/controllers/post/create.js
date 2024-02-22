@@ -14,6 +14,7 @@ const createPost = async (req, res) => {
       project_description,
       user_id: userId,
     });
+    console.log(post, "this is the post")
     if (!post) return res.sendStatus(404);
   
     res.send(post);
