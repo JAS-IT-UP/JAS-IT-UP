@@ -72,9 +72,9 @@ export default function CreatePostPage() {
       <button type="submit">POST</button>
     </form>
     <div>
-    {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} />
-    ))}
+    {/* {posts.map((post, index) => (
+      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} /> */}
+    {/* ))} */}
     </div>
     </div>
   );
