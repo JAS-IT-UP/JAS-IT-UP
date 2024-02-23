@@ -20,7 +20,7 @@ export const getAllPosts = async () => {
 export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);
 
 export const deletePost = async (id) => {
-  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions());
+  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions({ id }) );
   return data;
 };
 
