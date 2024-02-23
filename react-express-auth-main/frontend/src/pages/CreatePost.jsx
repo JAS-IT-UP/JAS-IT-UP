@@ -4,7 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
 import Dropdown from "../components/DropDown";
 import PostCard from "../components/PostCard";
-
+import './CreatePost.css'
 
 export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
