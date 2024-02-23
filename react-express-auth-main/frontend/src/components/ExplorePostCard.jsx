@@ -7,33 +7,20 @@ export default function ExplorePostCard({ postPicture, projectDescription, mater
     const [isOpen, setOpen] = useState(false);
 
     <Hamburger toggled={isOpen} toggle={setOpen} />
-
-
+    console.log(postPicture, projectDescription, materialName, id, username, profilePicture);
     return (
         <section id={`post-${id}`} key={id}>
-            {/* <img src={profilePicture} alt={`Posted by ${username}`}/> */}
+            <img src={profilePicture} alt={`Posted by ${username}`}/>
             <img src={postPicture} alt={`Post ${id}`} />
             <div className="post-interactions">
-                <Hamburger onToggle={toggled => {
-                    if(toggled){
-                        (
-                            <>
-                                <h3>Materials:</h3>
-                                <ul>
-                                    <li>
-                                        {materialName}
-                                    </li>
-                                </ul>
-                                <div>
-                                    <h3>The Revamp:</h3>
-                                    <p>{projectDescription}</p>
-                                </div>
-                            </>
-                        )
-                    } else {
-                        //close a menu
-                    }
-                }} />
+                <div>
+                    <p>{projectDescription}</p>
+                    <p>{materialName}</p>
+                </div>
+                <div>
+                    <p>{username}</p>
+                    <p>{id}</p>
+                </div>
             </div>
         </section>
     );
