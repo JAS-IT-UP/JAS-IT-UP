@@ -11,6 +11,7 @@ import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import CreatePostPage from './pages/CreatePost';
 import ExplorePage from './pages/Explore';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);

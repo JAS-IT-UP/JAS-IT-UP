@@ -36,6 +36,7 @@ header {
 }
 
 nav ul {
+  font-family: "Michroma", serif;
   display: flex;
   gap: 1rem;
   padding: 0;
@@ -44,6 +45,7 @@ nav ul {
 }
 
 nav a {
+  text-decoration: none;
   display: block;
   color: #05312F;
 }
