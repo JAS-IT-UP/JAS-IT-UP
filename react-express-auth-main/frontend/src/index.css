@@ -1,4 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -23,6 +22,15 @@ input {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #BFD0A0;
+  border: 1px solid black;
+}
+
+footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,9 +64,6 @@ nav a {
 
 form {
   padding: 1rem;
-  border: 1px solid #CCC;
-  width: 15rem;
-  margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */
