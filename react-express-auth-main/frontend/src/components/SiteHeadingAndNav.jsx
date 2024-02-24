@@ -5,7 +5,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 export default function SiteHeadingAndNav() {
   const { currentUser } = useContext(CurrentUserContext);
 
-  return <header>
+  return <header className="sticky">
     <nav>
       <ul>
         <li><NavLink to='/'>HOME</NavLink></li>
