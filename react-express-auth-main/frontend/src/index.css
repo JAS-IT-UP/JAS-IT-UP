@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +30,15 @@ header {
   border: 1px solid black;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #BFD0A0;
+  border: 1px solid black;
+}
+
 #logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -36,6 +47,8 @@ header {
 }
 
 nav ul {
+  font-family: "Aleo", sans-serif;
+  font-weight: 600;
   display: flex;
   gap: 1rem;
   padding: 0;
@@ -44,15 +57,18 @@ nav ul {
 }
 
 nav a {
+  text-decoration: none;
   display: block;
   color: #05312F;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 form {
   padding: 1rem;
-  border: 1px solid #CCC;
-  width: 15rem;
-  margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */

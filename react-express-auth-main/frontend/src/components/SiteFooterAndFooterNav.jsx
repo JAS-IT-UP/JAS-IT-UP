@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function SiteHeadingAndNav() {
+export default function SiteFooterAndFooterNav() {
   const { currentUser } = useContext(CurrentUserContext);
 
-  return <header className="sticky">
+  return <footer>
     <nav>
       <ul>
         <li><NavLink to='/'>HOME</NavLink></li>
@@ -21,5 +21,5 @@ export default function SiteHeadingAndNav() {
       </ul>
     </nav>
     <a id='logo' href='/'>JAS IT UP</a>
-  </header>;
+  </footer>;
 }

@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignUpPage from './pages/SignUp';
 import LoginPage from './pages/Login';
 import SiteHeadingAndNav from './components/SiteHeadingAndNav';
+import SiteFooterAndFooterNav from './components/SiteFooterAndFooterNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
@@ -11,6 +12,7 @@ import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import CreatePostPage from './pages/CreatePost';
 import ExplorePage from './pages/Explore';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -31,5 +33,6 @@ export default function App() {
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </main>
+    <SiteFooterAndFooterNav />
   </>;
 }
