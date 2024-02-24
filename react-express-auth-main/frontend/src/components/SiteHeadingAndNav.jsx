@@ -8,14 +8,14 @@ export default function SiteHeadingAndNav() {
   return <header>
     <nav>
       <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/explore'>Explore</NavLink></li>
+        <li><NavLink to='/'>HOME</NavLink></li>
+        <li><NavLink to='/explore'>EXPLORE</NavLink></li>
         {/* <li><NavLink to='/users' end={true}>Users</NavLink></li> */}
         {
           currentUser
           ? <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
             : <>
-              <li><NavLink to='/login'>Login</NavLink></li>
+              <li><NavLink to='/login'>LOGIN</NavLink></li>
             </>
         }
       </ul>

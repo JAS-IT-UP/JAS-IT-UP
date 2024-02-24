@@ -74,7 +74,7 @@ export default function SignUpPage() {
                 type="text"
                 id="profile-picture"
                 name="profilePicture"
-                placeholder="https://janesselfie.com/image.jpg"
+                placeholder="https://JANESSELFIE.COM/image.jpg"
                 onChange={handleChange}
                 value={formData.profilePicture}
                 required
@@ -90,7 +90,7 @@ export default function SignUpPage() {
                   type="text"
                   id="first-name"
                   name="firstName"
-                  placeholder="Jane"
+                  placeholder="JANE"
                   onChange={handleChange}
                   value={formData.firstName}
                   required
@@ -104,7 +104,7 @@ export default function SignUpPage() {
                   type="text"
                   id="last-name"
                   name="lastName"
-                  placeholder="Doe"
+                  placeholder="DOE"
                   onChange={handleChange}
                   value={formData.lastName}
                   required
@@ -119,7 +119,7 @@ export default function SignUpPage() {
               type="text"
               id="login-username"
               name="username"
-              placeholder="JaneTheCrafter"
+              placeholder="JANETHECRAFTER"
               onChange={handleChange}
               value={formData.username}
               required
@@ -131,7 +131,7 @@ export default function SignUpPage() {
               type="text"
               id="email"
               name="email"
-              placeholder="JaneDoe@gmail.com"
+              placeholder="JANEDOE@GMAIL.COM"
               onChange={handleChange}
               value={formData.email}
             />
