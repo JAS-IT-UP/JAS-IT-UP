@@ -35,7 +35,7 @@ export default function CreatePostPage() {
 
 
     setFormData({ postPicture: '', projectDescription: '' });
-    // navigate(`/users/${currentUser.id}`);
+    navigate(`/users/${currentUser.id}`);
   };
 
   const handleChange = (e) => {
