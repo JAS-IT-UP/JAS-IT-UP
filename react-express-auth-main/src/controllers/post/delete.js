@@ -3,6 +3,7 @@ const deletePost = async (req, res) => {
       db: { Post },
       params: { id },
     } = req;
+    console.log(id, "this is the id")
     try {
       const post = await Post.delete(Number(id));
       if (!post) {
