@@ -5,6 +5,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
+import { deletePost } from "../adapters/post-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -17,7 +18,8 @@ export default function UserPage() {
   const [errorText, setErrorText] = useState(null);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({userPost: []});
+  
 
   useEffect(() => {
     const loadUser = async () => {
@@ -37,7 +39,7 @@ export default function UserPage() {
           setErrorText(postsError.message);
         } else {
           console.log(userPosts, "this is userPosts");
-          setPosts(userPosts);
+          setPosts(() =>  {userPost: userPosts});
         }
       } catch (error) {
         setErrorText("Error fetching user posts");
@@ -51,6 +53,14 @@ export default function UserPage() {
     <button id="create" onClick={() => navigate('/create-post')}>+</button>
   );
 
+  const handleDelete = async (postId) => {
+    // const [userPosts, postsError] = await getUserPosts(id);
+    const postsArray = posts.userPost.filter(post => post.id = postId);
+    const [post, error] = await deletePost(postId);
+    if (error) return setErrorText(error.message);
+    console.log(postsArray, "this is the posts array");
+    setPosts(() =>  {userPost: postsArray});
+}
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);
@@ -84,7 +94,8 @@ export default function UserPage() {
       )}
 
       <section id="posts-container">
-        {posts && posts.map((post) => {
+        {/* {console.log(posts, "this is the userPost")} */}
+        {posts.userPost.length && posts.userPost.map((post) => {
           console.log(post, "in map")
           return (
           <Card key={post.id} style={{ width: '18rem' }}>
@@ -96,6 +107,7 @@ export default function UserPage() {
             <ListGroup className="list-group-flush">
               <ListGroup.Item>{post.material_name}</ListGroup.Item>
             </ListGroup>
+            <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
           </Card>
         )})}
       </section>
