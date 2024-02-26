@@ -3,6 +3,7 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 import './Login.css';
+import { getUserPosts } from "../adapters/post-adapter";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -16,7 +17,13 @@ export default function LoginPage() {
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
-    navigate(`/users/${user.id}`);
+    const [posts] = await getUserPosts(user.id)
+    console.log(posts)
+     if(!posts.length) {
+    navigate('/tutorial')
+     } else {
+     navigate(`/user/${user.id}`);
+     }
   };
 
   if (currentUser) return <Navigate to="/" />;
