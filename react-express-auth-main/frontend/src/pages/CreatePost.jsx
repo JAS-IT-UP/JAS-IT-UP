@@ -24,7 +24,9 @@ export default function CreatePostPage() {
       return setErrorText('Missing Picture or Description')
     };
 
-    const payload = {...formData, materialId}
+    const userId = currentUser.id;
+
+    const payload = {...formData, materialId, userId}
     console.log(payload)
 
     const [post, error] = await createPost(payload); 
@@ -36,6 +38,7 @@ export default function CreatePostPage() {
 
     setFormData({ postPicture: '', projectDescription: '' });
     // navigate(`/users/${currentUser.id}`);
+    navigate('/explore');
   };
 
   const handleChange = (e) => {

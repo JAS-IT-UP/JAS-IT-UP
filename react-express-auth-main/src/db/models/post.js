@@ -36,7 +36,8 @@ class Post {
 
   static async findByUserId(userId) {
     const query =
-      "SELECT * FROM posts JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
+      "SELECT * FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
+      // "SELECT posts.id, post_picture, project_description, posts.created_at, material_name, profile_picture, username FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id;";
     const args = [userId];
     const { rows } = await knex.raw(query, args);
     return rows.map((post) => new Post(post));

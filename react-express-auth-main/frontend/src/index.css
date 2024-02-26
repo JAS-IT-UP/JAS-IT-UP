@@ -69,6 +69,9 @@ nav a {
 
 form {
   padding: 1rem;
+  border: 1px solid #CCC;
+  width: 15rem;
+  margin: 1rem auto;
 }
 
 /* automatically added by NavLink component */
