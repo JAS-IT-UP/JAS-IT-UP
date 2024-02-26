@@ -36,16 +36,18 @@ class Post {
 
   static async findByUserId(userId) {
     const query =
-      "SELECT * FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
-      // "SELECT posts.id, post_picture, project_description, posts.created_at, material_name, profile_picture, username FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id;";
+      "SELECT posts.id, posts.post_picture, posts.project_description, posts.user_id, posts.material_id, materials.material_name FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
+      console.log(userId, "this is the findByUserId query")
     const args = [userId];
     const { rows } = await knex.raw(query, args);
+    console.log(rows, "these are the return rows")
     return rows.map((post) => new Post(post));
   }
 
-  static async create({ postPicture, projectDescription, userId, materialId }) {
-    const query = `INSERT INTO posts (post_picture, project_description, user_id, material_id) VALUES (?, ?, ?, ?) RETURNING *`;
-    const args = [postPicture, projectDescription, userId, materialId];
+  static async create({ postPicture, projectDescription, materialId,  userId }) {
+    const query = `INSERT INTO posts (post_picture, project_description, material_id, user_id) VALUES (?, ?, ?, ?) RETURNING *`;
+    console.log(postPicture, projectDescription, userId, materialId, "this is the query")
+    const args = [postPicture, projectDescription, materialId, userId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
     return new Post(createdPost);

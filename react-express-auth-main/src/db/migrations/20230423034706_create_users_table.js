@@ -21,7 +21,7 @@ const materialsTable = (table) => {
 
 const postsTable = (table) => {
   table.increments('id').primary();
-  table.string('post_picture').notNullable();
+  table.text('post_picture').notNullable();
   table.string('project_description', 4000).notNullable();
   table.integer('material_id').unsigned();
   table.integer('user_id').unsigned();
