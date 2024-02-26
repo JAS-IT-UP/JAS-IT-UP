@@ -18,8 +18,7 @@ export default function UserPage() {
   const [errorText, setErrorText] = useState(null);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
-  const [posts, setPosts] = useState({userPost: []});
-  
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const loadUser = async () => {
@@ -39,7 +38,7 @@ export default function UserPage() {
           setErrorText(postsError.message);
         } else {
           console.log(userPosts, "this is userPosts");
-          setPosts(() =>  {userPost: userPosts});
+          setPosts(userPosts);
         }
       } catch (error) {
         setErrorText("Error fetching user posts");
@@ -55,11 +54,11 @@ export default function UserPage() {
 
   const handleDelete = async (postId) => {
     // const [userPosts, postsError] = await getUserPosts(id);
-    const postsArray = posts.userPost.filter(post => post.id = postId);
+    const postsArray = posts.filter(post => post.id = postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
     console.log(postsArray, "this is the posts array");
-    setPosts(() =>  {userPost: postsArray});
+    setPosts([...postsArray]);
 }
   const handleLogout = async () => {
     logUserOut();
@@ -94,8 +93,7 @@ export default function UserPage() {
       )}
 
       <section id="posts-container">
-        {/* {console.log(posts, "this is the userPost")} */}
-        {posts.userPost.length && posts.userPost.map((post) => {
+        {posts.length && posts.map((post) => {
           console.log(post, "in map")
           return (
           <Card key={post.id} style={{ width: '18rem' }}>
