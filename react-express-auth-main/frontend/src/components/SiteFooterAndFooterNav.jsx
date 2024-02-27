@@ -25,6 +25,7 @@ export default function SiteFooterAndFooterNav() {
         }
       </ul>
     </nav>
+    
     <a id='logo' href='/'>JAS IT UP</a>
   </footer>;
 }
