@@ -12,8 +12,8 @@ class Post {
     this.id = id;
     this.postPicture = post_picture;
     this.projectDescription = project_description;
-    this.materialId= material_id;
-    this.materialName= material_name;
+    this.materialId = material_id;
+    this.materialName = material_name;
     this.userId = user_id;
   }
 
@@ -37,16 +37,14 @@ class Post {
   static async findByUserId(userId) {
     const query =
       "SELECT posts.id, posts.post_picture, posts.project_description, posts.user_id, posts.material_id, materials.material_name FROM posts JOIN materials ON posts.material_id = materials.id JOIN users ON posts.user_id = users.id WHERE posts.user_id = ?";
-      console.log(userId, "this is the findByUserId query")
+    console.log(userId, "this is the findByUserId query")
     const args = [userId];
     const { rows } = await knex.raw(query, args);
-    console.log(rows, "these are the return rows")
     return rows.map((post) => new Post(post));
   }
 
-  static async create({ postPicture, projectDescription, materialId,  userId }) {
+  static async create({ postPicture, projectDescription, materialId, userId }) {
     const query = `INSERT INTO posts (post_picture, project_description, material_id, user_id) VALUES (?, ?, ?, ?) RETURNING *`;
-    console.log(postPicture, projectDescription, userId, materialId, "this is the query")
     const args = [postPicture, projectDescription, materialId, userId];
     const { rows } = await knex.raw(query, args);
     const createdPost = rows[0];
@@ -69,7 +67,6 @@ class Post {
   }
 
   update = async ({ postPicture, projectDescription }) => {
-    // dynamic queries are easier if you add more properties
     const rows = await knex("posts")
       .where({ id: this.id })
       .update({ postPicture, projectDescription })
