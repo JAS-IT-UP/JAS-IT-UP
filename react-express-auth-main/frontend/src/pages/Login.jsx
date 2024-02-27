@@ -23,6 +23,7 @@ export default function LoginPage() {
 
   return <>
   {/* <div id='login-form'>  */}
+ <body id="behind"> 
     <form onSubmit={handleSubmit} id='login-form' aria-labelledby="login-heading">
       <h2 id='login-heading'>Sign In</h2>
       {/* <label htmlFor="username">Username</label> */}
@@ -33,11 +34,10 @@ export default function LoginPage() {
 
        <button id= "button">JAS IT UP!</button>
      
-      <p>Don't have an account? <a href="/sign-up">Sign Up</a>!</p>
+      <p id='no-account'>Don't have an account? <a href="/sign-up">Sign Up</a>!</p>
 
     </form> 
-   
+  
     { !!errorText && <p>{errorText}</p> }
-     {/* </div> */}
-  </>;
-}
+     {/* </div> */} </body>
+</>} 
