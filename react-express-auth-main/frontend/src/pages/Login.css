@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oi&display=swap');
 *{
     box-sizing: border-box;
-    margin: 0%;
+    margin:  0%;
     padding: 0%;
 }
 
-body{
+#behind{
     width: 100%;
     height: 100vh;
     background: linear-gradient(
@@ -16,6 +16,8 @@ body{
       #CEB3E2 50%,
       #CEB3E2 100%
     );
+    margin-bottom: -2rem;
+    margin-top: -3.5rem;
   }
 
 
@@ -29,7 +31,7 @@ body{
    border: 1px solid black;
    border-radius: 747%;
    box-shadow: 30px 20px #05312F;
-   margin-top: 3rem;
+   margin-bottom: 200px;
    background-color: #CEB3E2;
   }
 
@@ -38,7 +40,7 @@ body{
     font-family: "Oi", serif;
     font-size: 55px;
     color: #05312F;
-   margin-bottom: 3rem; 
+   margin-bottom: 3.5rem; 
   }
 
   #username{
@@ -73,9 +75,16 @@ body{
     font-family: "Oi", serif;
     font-size: 20px;
     box-shadow: 6px 4px #05312F;
+  
   }
+
+  #button:hover {
+    background-color: #05312F;
+    color: #C8E6E0;
+    box-shadow: 6px 4px #F4CF69
+}
  
-  p{
+  #no-account{
     font-family: "Michroma", sans-serif;
-    margin-top: 6rem;
+    margin-top: 7rem;
   }

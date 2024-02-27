@@ -50,8 +50,8 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div>
-    <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
+    <body id='back-page'>
+    <form onSubmit={handleSubmit} id='create-post-form' onChange={handleChange} aria-labelledby="create-heading">
       <div id= "picture-section"> 
       <label htmlFor="image"> <h1 id="create-heading">Picture:</h1> </label>
       <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" 
@@ -79,6 +79,6 @@ export default function CreatePostPage() {
       <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} /> */}
     {/* ))} */}
     </div>
-    </div>
+    </body>
   );
 }
