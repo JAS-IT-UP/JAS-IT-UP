@@ -62,11 +62,11 @@ export default function UserPage() {
     setPosts(prevState => ({ ...prevState, userPost: postsArray }));
     // setPosts(() =>  {userPost: postsArray});
 }
-  const handleLogout = async () => {
-    logUserOut();
-    setCurrentUser(null);
-    navigate('/');
-  };
+  // const handleLogout = async () => {
+  //   logUserOut();
+  //   setCurrentUser(null);
+  //   navigate('/');
+  // };
 
   if (!userProfile && !errorText) return null;
   if (errorText) return <p>{errorText}</p>;
@@ -82,15 +82,15 @@ export default function UserPage() {
         </div>
       </div>
 
-      {isCurrentUserProfile && (
+      {/* {isCurrentUserProfile && (
         <button onClick={handleLogout}>Log Out</button>
-      )}
+      )} */}
 
       {/* {isCurrentUserProfile && (
         <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
       )} */}
 
-      <section id="posts-container">
+      <section id="user-posts-container">
         {posts.userPost.length && posts.userPost.map((post) => {
           return (
             <Card key={post.id} style={{ width: "18rem" }}>
@@ -116,8 +116,8 @@ export default function UserPage() {
             <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
           </Card>
         )})}
-        <p>Update your username <a href="/update-username">here</a>!</p>
       </section>
+      <p id="update">Your username is {profileUsername}. You can update <a href="/update-username">here</a>!</p>
     </div>
   );
 }
