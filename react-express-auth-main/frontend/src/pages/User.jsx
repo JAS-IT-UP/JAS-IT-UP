@@ -74,7 +74,7 @@ export default function UserPage() {
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
   return (
-    <>
+    <div id="user-page-background">
       <div id="user-picture">
         {createPostButton}
         <div id="picture">
@@ -118,6 +118,6 @@ export default function UserPage() {
         )})}
         <p>Update your username <a href="/update-username">here</a>!</p>
       </section>
-    </>
+    </div>
   );
 }
