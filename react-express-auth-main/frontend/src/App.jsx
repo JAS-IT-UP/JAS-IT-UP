@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
+import UsernameUpdate from './pages/UsernameUpdate';
 import UserPage from './pages/User';
 import CreatePostPage from './pages/CreatePost';
 import ExplorePage from './pages/Explore';
@@ -29,6 +30,7 @@ export default function App() {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
+        <Route path='/update-username' element={<UsernameUpdate />} />
         <Route path='/create-post' element={<CreatePostPage />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />

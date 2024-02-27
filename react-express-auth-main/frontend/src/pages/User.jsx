@@ -8,7 +8,7 @@ import { logUserOut } from "../adapters/auth-adapter";
 import { deletePost } from "../adapters/post-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Hamburger from "hamburger-react";
 
 
 export default function UserPage() {
@@ -18,7 +18,9 @@ export default function UserPage() {
   const [errorText, setErrorText] = useState(null);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({userPost: []});
+  const [isOpen, setOpen] = useState(false);
+  
 
   useEffect(() => {
     const loadUser = async () => {
@@ -38,7 +40,7 @@ export default function UserPage() {
           setErrorText(postsError.message);
         } else {
           console.log(userPosts, "this is userPosts");
-          setPosts(userPosts);
+          setPosts(prevState => ({ ...prevState, userPost: userPosts }));
         }
       } catch (error) {
         setErrorText("Error fetching user posts");
@@ -53,30 +55,26 @@ export default function UserPage() {
   );
 
   const handleDelete = async (postId) => {
-    // const [userPosts, postsError] = await getUserPosts(id);
-    const postsArray = posts.filter(post => post.id = postId);
+    const postsArray = posts.userPost.filter(post => post.id === postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
     console.log(postsArray, "this is the posts array");
-    setPosts([...postsArray]);
+    setPosts(prevState => ({ ...prevState, userPost: postsArray }));
+    // setPosts(() =>  {userPost: postsArray});
 }
-  const handleLogout = async () => {
-    logUserOut();
-    setCurrentUser(null);
-    navigate('/');
-  };
+  // const handleLogout = async () => {
+  //   logUserOut();
+  //   setCurrentUser(null);
+  //   navigate('/');
+  // };
 
   if (!userProfile && !errorText) return null;
   if (errorText) return <p>{errorText}</p>;
 
-  // What parts of state would change if we altered our currentUser context?
-  // Ideally, this would update if we mutated it
-  // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
   return (
-    <>
-
+    <div id="user-page-background">
       <div id="user-picture">
         {createPostButton}
         <div id="picture">
@@ -84,31 +82,42 @@ export default function UserPage() {
         </div>
       </div>
 
-      {isCurrentUserProfile && (
+      {/* {isCurrentUserProfile && (
         <button onClick={handleLogout}>Log Out</button>
-      )}
+      )} */}
 
-      {isCurrentUserProfile && (
+      {/* {isCurrentUserProfile && (
         <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      )}
+      )} */}
 
-      <section id="posts-container">
-        {posts.length && posts.map((post) => {
-          console.log(post, "in map")
+      <section id="user-posts-container">
+        {posts.userPost.length && posts.userPost.map((post) => {
           return (
-          <Card key={post.id} style={{ width: '18rem' }}>
+            <Card key={post.id} style={{ width: "18rem" }}>
             <Card.Img variant="top" src={post.post_picture} />
-            <Card.Body>
-              <Card.Title>{post.username}</Card.Title>
-              <Card.Text>{post.project_description}</Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item>{post.material_name}</ListGroup.Item>
-            </ListGroup>
+            <Card.ImgOverlay>
+              <Card.Img variant="top" src={post.profile_picture} />
+            </Card.ImgOverlay>
+            <section class="postCard-info">
+              <Hamburger toggled={isOpen} toggle={setOpen} />
+            </section>
+            {isOpen && (
+              <Card.Body>
+                <Card.Text>
+                  <h3>Materials</h3>
+                  {post.material_name}
+                </Card.Text>
+                <Card.Text>
+                  <h3>The Revamp</h3>
+                  {post.project_description}
+                </Card.Text>
+              </Card.Body>
+            )}
             <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
           </Card>
         )})}
       </section>
-    </>
+      <p id="update">Your username is {profileUsername}. You can update <a href="/update-username">here</a>!</p>
+    </div>
   );
 }

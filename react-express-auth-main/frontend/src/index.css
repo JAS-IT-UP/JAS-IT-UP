@@ -39,6 +39,18 @@ footer {
   border: 1px solid black;
 }
 
+#sign-out {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+#logo-footer {
+  height: 3rem;
+  width: 3rem;
+}
+
 #logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -76,7 +88,6 @@ form {
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
   font-weight: bold;
   font-style: italic;
 }

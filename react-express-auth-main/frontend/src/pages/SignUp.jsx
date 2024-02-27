@@ -49,7 +49,9 @@ export default function SignUpPage() {
       <div className="signup-box">
         <div className="left-box">
           <h2 id="create-heading">Create an Account</h2>
-          <section id="logo-signup">logo</section>
+          <section id="logo-signup">
+            <img id="logo-form" src="../images/upcycling.png"></img>
+            </section>
           <p id="logo-name">JAS IT UP!</p>
         </div>
 
