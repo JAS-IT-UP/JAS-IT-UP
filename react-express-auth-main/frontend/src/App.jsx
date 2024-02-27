@@ -29,7 +29,7 @@ export default function App() {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
-        <Route path='./update-username' element={<UsernameUpdate />} />
+        <Route path='/update-username' element={<UsernameUpdate />} />
         <Route path='/create-post' element={<CreatePostPage />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
