@@ -12,20 +12,19 @@ export default function SiteFooterAndFooterNav() {
   };
 
   return <footer>
+        <img id="logo-footer" src="../images/upcycling.png"></img>
     <nav>
       <ul>
-        <li><NavLink to='/'>HOME</NavLink></li>
-        <li><NavLink to='/explore'>EXPLORE</NavLink></li>
         {
           currentUser
-          ? <li><NavLink to='/' onClick={handleLogout}>SIGN OUT</NavLink></li>
+          ? <li id="sign-out"><NavLink to='/' onClick={handleLogout}>SIGN OUT</NavLink></li>
             : <>
-              <li><NavLink to='/login'>LOGIN</NavLink></li>
+            <li></li>
             </>
         }
       </ul>
     </nav>
-    
+    <p style={{fontFamily: "Michroma", textAlign: 'center', fontSize: '0.8rem'}}>&copy; 2024. All Rights Reserved.</p>
     <a id='logo' href='/'>JAS IT UP</a>
   </footer>;
 }
