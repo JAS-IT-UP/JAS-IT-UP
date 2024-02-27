@@ -8,19 +8,18 @@ export default function Tutorial() {
     navigate('/create-post');
   };
 
-  const handleExploreClick = () => {
-    navigate('/explore');
-  };
-
   const createPostButton = (
     <button id="create" onClick={() => navigate('/create-post')}>+</button>
   );
   return <>
     <main>
-    {createPostButton}
-      <p> Go to the explore page to view more posts</p>
-    <h1>Let's Get Started</h1>
-    <p>Click the plus sign to post a new project</p>
+      <div id = "tutorial-background">
+    <div id = "circles">
+    <div id="dotExplore">Go to the explore page to view more posts</div>
+    <div id="dotGetStarted">Let's Get Started</div>
+    <div id="dotNewProject">Click the plus sign to post a new project</div>
+    </div>
+    </div>
     </main>
   </>;
 }
