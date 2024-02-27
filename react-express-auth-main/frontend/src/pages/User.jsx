@@ -19,7 +19,6 @@ export default function UserPage() {
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
   const [posts, setPosts] = useState({userPost: []});
-  // let boo = true;
   const [isOpen, setOpen] = useState(false);
   
 
@@ -87,9 +86,9 @@ export default function UserPage() {
         <button onClick={handleLogout}>Log Out</button>
       )}
 
-      {isCurrentUserProfile && (
+      {/* {isCurrentUserProfile && (
         <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      )}
+      )} */}
 
       <section id="posts-container">
         {posts.userPost.length && posts.userPost.map((post) => {
@@ -117,6 +116,7 @@ export default function UserPage() {
             <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
           </Card>
         )})}
+        <p>Update your username <a href="/update-username">here</a>!</p>
       </section>
     </>
   );
