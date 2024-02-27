@@ -9,6 +9,7 @@ import { deletePost } from "../adapters/post-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Hamburger from "hamburger-react";
 
 
 export default function UserPage() {
@@ -18,7 +19,8 @@ export default function UserPage() {
   const [errorText, setErrorText] = useState(null);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({userPost: []});
+  
 
   useEffect(() => {
     const loadUser = async () => {
@@ -38,7 +40,7 @@ export default function UserPage() {
           setErrorText(postsError.message);
         } else {
           console.log(userPosts, "this is userPosts");
-          setPosts(userPosts);
+          setPosts(prevState => ({ ...prevState, userPost: userPosts }));
         }
       } catch (error) {
         setErrorText("Error fetching user posts");
@@ -54,11 +56,12 @@ export default function UserPage() {
 
   const handleDelete = async (postId) => {
     // const [userPosts, postsError] = await getUserPosts(id);
-    const postsArray = posts.filter(post => post.id = postId);
+    const postsArray = posts.userPost.filter(post => post.id === postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
     console.log(postsArray, "this is the posts array");
-    setPosts([...postsArray]);
+    setPosts(prevState => ({ ...prevState, userPost: postsArray }));
+    // setPosts(() =>  {userPost: postsArray});
 }
   const handleLogout = async () => {
     logUserOut();
@@ -93,7 +96,8 @@ export default function UserPage() {
       )}
 
       <section id="posts-container">
-        {posts.length && posts.map((post) => {
+        {/* {console.log(posts, "this is the userPost")} */}
+        {posts.userPost.length && posts.userPost.map((post) => {
           console.log(post, "in map")
           return (
           <Card key={post.id} style={{ width: '18rem' }}>
