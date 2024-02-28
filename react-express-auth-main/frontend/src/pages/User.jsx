@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
-import { logUserOut } from "../adapters/auth-adapter";
 import { deletePost } from "../adapters/post-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
@@ -58,15 +57,9 @@ export default function UserPage() {
     const postsArray = posts.userPost.filter(post => post.id === postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
-    console.log(postsArray, "this is the posts array");
+    // console.log(postsArray, "this is the posts array");
     setPosts(prevState => ({ ...prevState, userPost: postsArray }));
-    // setPosts(() =>  {userPost: postsArray});
 }
-  // const handleLogout = async () => {
-  //   logUserOut();
-  //   setCurrentUser(null);
-  //   navigate('/');
-  // };
 
   if (!userProfile && !errorText) return null;
   if (errorText) return <p>{errorText}</p>;
@@ -81,10 +74,6 @@ export default function UserPage() {
           <img id="user-profile-picture" src={userProfile.profilePicture} alt="" />
         </div>
       </div>
-
-      {/* {isCurrentUserProfile && (
-        <button onClick={handleLogout}>Log Out</button>
-      )} */}
 
       {/* {isCurrentUserProfile && (
         <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />

@@ -1,9 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
+import { logUserOut } from "../adapters/auth-adapter";
+import { useNavigate } from "react-router-dom";
 
 export default function SiteFooterAndFooterNav() {
-  const { currentUser, setCurrentUser, logUserOut } = useContext(CurrentUserContext);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   const handleLogout = async () => {
     setCurrentUser(null);
@@ -23,7 +25,7 @@ export default function SiteFooterAndFooterNav() {
         }
       </ul>
     </nav>
-    <p style={{fontFamily: "Michroma", textAlign: 'center', fontSize: '0.8rem'}}>&copy; 2024. All Rights Reserved.</p>
+    <p style={{fontFamily: "Michroma", textAlign: 'center', fontSize: '0.8rem', marginRight: '20rem'}}>&copy; 2024. All Rights Reserved.</p>
     <a id='logo' href='/'>JAS IT UP</a>
   </footer>;
 }
