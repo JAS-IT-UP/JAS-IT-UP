@@ -5,8 +5,6 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { createUser } from "../adapters/user-adapter";
 import ProfilePicture from "../components/ProfilePicture";
 
-// Controlling the sign up form is a good idea because we want to add (eventually)
-// more validation and provide real time feedback to the user about usernames and passwords
 export default function SignUpPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
@@ -33,7 +31,7 @@ export default function SignUpPage() {
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
-    navigate('/');
+    navigate('/Tutorial');
   };
 
   const handleChange = (event) => {
@@ -48,7 +46,7 @@ export default function SignUpPage() {
     <div className="split-screen">
       <div className="signup-box">
         <div className="left-box">
-          <h2 id="create-heading">Create an Account</h2>
+          <h2 id="create-heading-signup">Create an Account</h2>
           <section id="logo-signup">
             <img id="logo-form" src="../images/upcycling.png"></img>
             </section>
