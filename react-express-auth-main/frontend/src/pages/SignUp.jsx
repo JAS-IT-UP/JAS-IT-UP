@@ -29,6 +29,7 @@ export default function SignUpPage() {
 
     const [user, error] = await createUser(formData);
     if (error) return setErrorText(error.message);
+    console.log(user)
 
     setCurrentUser(user);
     navigate('/tutorial');
