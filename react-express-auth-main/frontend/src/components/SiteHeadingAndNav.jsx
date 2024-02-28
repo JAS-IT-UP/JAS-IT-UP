@@ -12,7 +12,7 @@ export default function SiteHeadingAndNav() {
         <li><NavLink to='/explore'>EXPLORE</NavLink></li>
         {
           currentUser
-          ? <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
+          ? <li><NavLink to={`/user/${currentUser.id}`}>{currentUser.username}</NavLink></li>
             : <>
               <li><NavLink to='/login'>LOGIN</NavLink></li>
             </>

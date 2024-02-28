@@ -29,7 +29,7 @@ export default function UserPage() {
     };
 
     loadUser();
-  }, [id]);
+  }, [currentUser]);
 
   useEffect(() => {
     const fetchUserPosts = async () => {
@@ -47,7 +47,7 @@ export default function UserPage() {
     };
 
     fetchUserPosts();
-  }, [id]);
+  }, [currentUser]);
 
   const createPostButton = (
     <button id="create" onClick={() => navigate('/create-post')}>+</button>

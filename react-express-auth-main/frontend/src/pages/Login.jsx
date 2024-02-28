@@ -18,10 +18,12 @@ export default function LoginPage() {
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
     const [posts] = await getUserPosts(user.id)
-    console.log(posts)
+    // console.log(posts)
      if(!posts.length) {
     navigate('/tutorial')
      } else {
+      console.log(user)
+      // <Navigate to=`/user/${user.id} />;
      navigate(`/user/${user.id}`);
      }
   };
@@ -30,7 +32,7 @@ export default function LoginPage() {
 
   return <>
   {/* <div id='login-form'>  */}
- <body id="behind"> 
+ <div id="behind"> 
     <form onSubmit={handleSubmit} id='login-form' aria-labelledby="login-heading">
       <h2 id='login-heading'>Sign In</h2>
       {/* <label htmlFor="username">Username</label> */}
@@ -47,5 +49,5 @@ export default function LoginPage() {
     </form> 
   
     { !!errorText && <p>{errorText}</p> }
-     {/* </div> */} </body>
+     {/* </div> */} </div>
 </>} 
