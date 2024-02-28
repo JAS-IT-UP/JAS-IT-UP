@@ -1,4 +1,4 @@
-import { fetchHandler, getPostOptions, deleteOptions } from "../utils";
+import { fetchHandler, getPostOptions, deleteOptions, } from "../utils";
 
 const baseUrl = "/api/saved_posts";
 
@@ -12,15 +12,15 @@ export const getUserSavedPosts = async (id) => {
   }
 };
 
-export const createSavedPost = async ({ post_id, user_id }) => {
+export const createSavedPost = async ( post_id) => {
   const data = await fetchHandler(
     baseUrl,
-    getPostOptions({ post_id, user_id })
+    getPostOptions({ post_id })
   );
   return data;
 };
 
-export const deleteSavedPost = async (id) => {
-  const data = await fetchHandler(`${baseUrl}/${id}`, deleteOptions({ id }));
+export const deleteSavedPost = async (post_id) => {
+  const data = await fetchHandler(`${baseUrl}/${post_id}`, deleteOptions);
   return data;
 };

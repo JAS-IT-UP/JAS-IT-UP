@@ -40,7 +40,7 @@ Router.post('/posts', checkAuthentication, (require('./controllers/post')).creat
 Router.get('/posts/:id', (require('./controllers/post')).find);
 Router.get('/user_posts/:id', checkAuthentication, (require('./controllers/post')).findUserPost);
 Router.delete('/posts/:id', checkAuthentication, (require('./controllers/post')).deletePost);
-Router.delete('/saved_posts/:id', checkAuthentication, (require('./controllers/saved_posts')).deleteSavedPost);
+Router.delete('/saved_posts/:id', (require('./controllers/saved_posts')).deleteSavedPost);
 Router.patch('/users/:id', checkAuthentication, (require('./controllers/user')).update);
 
 module.exports = Router;

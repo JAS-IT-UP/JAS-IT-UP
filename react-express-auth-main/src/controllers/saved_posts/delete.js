@@ -2,14 +2,16 @@ const deleteSavedPost = async (req, res) => {
   const {
     session,
     db: { SavedPost },
-    body: { post_id, user_id },
+    params : { id}
   } = req;
 
+  //
   const { userId } = session;
+  console.log(userId)
 
-  if (!userId || !post_id) return res.sendStatus(401);
 
-  const savedPost = await SavedPost.delete(Number(post_id), Number(userId));
+
+  const savedPost = await SavedPost.delete(Number(id), userId);
 
   if (!savedPost) return res.sendStatus(404);
 
