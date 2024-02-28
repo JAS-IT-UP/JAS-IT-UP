@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oi&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oi&display=swap');
 * {
     box-sizing: border-box;
     margin:  0%;
@@ -15,30 +16,49 @@
     box-shadow: 30px 30px #05312F;
     background-color: #CEB3E2;
     width:500px ;
+    margin-bottom: 12rem;
+    margin-top: 3rem;
+   
 }
 
 #create-heading{
     font-family: "Oi", serif;
     font-size: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 #image{
     border: 1px solid black;
-    border-radius: 20px;
-    width: rem;
-    height: 12rem;
+    border-radius: 40px;
+    height: 250px;
+    width: 400px;
     margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 0rem;
     
 
 }
-#picture-section{
+#materials{
+    font-family: "Oi", serif;
+    font-size: 20px;
+    text-align: center;
+}
 
+#revamp{
+    font-family: "Oi", serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#picture-section{
+margin-bottom: 6rem;
 }
 
 #back-page {
-    padding-top: 4rem;
+    padding-top: 1rem;
+    /* padding-bottom: 1rem; */
     width: 100%;
-    height: 100vh;
+    height: 130vh;
     background: linear-gradient(to top,
             #FFFFFF 0%,
             #FFFFFF 60%,
@@ -47,3 +67,55 @@
     margin-bottom: 3rem;
     margin-top: -3.5rem;
 }
+
+#post{
+    display: inline-block;
+    background-color: #F4CF69;
+    width:6rem;
+    height: 1.5rem;
+    border-radius: 22px;
+    border: none;
+    font-family: "Michroma", sans-serif;
+    font-size: 13px;
+    box-shadow: 6px 4px #05312F;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+}
+
+form ::placeholder {
+    font-family: "Michroma", sans-serif;
+    font-weight: 6;
+    padding-left: 3rem;
+}
+
+#post::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: #05312F;
+    transition: all 0.3s ease;
+    border-radius: 22px;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  #post:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  #description{
+    border-radius: 40px;
+    height: 250px;
+    width: 400px;
+   
+    
+    
+    ;
+  }
+  /* #dropdown{
+    border-radius: 80px;
+  } */

@@ -67,12 +67,12 @@ export default function CreatePostPage() {
       </div>
 
       <div className="description-section"> 
-      <label htmlFor="description"> <h1> The Revamp:</h1></label> 
+      <label htmlFor="description"> <h1 id='revamp'> The Revamp:</h1></label> 
       <textarea type="text" id="description" name="projectDescription" placeholder="This Is Where You Help Others JAS UP The Materials They Have. Give Us A Step By Step Description Of Your Project." onChange={handleChange} 
       value={formData.projectDescription}  required></textarea>
       </div>
 
-      <button type="submit">POST</button>
+      <button id="post" type="submit">POST</button>
     </form>
     <div>
     {/* {posts.map((post, index) => (

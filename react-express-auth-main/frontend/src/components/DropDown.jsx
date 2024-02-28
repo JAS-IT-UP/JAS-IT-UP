@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+// import './CreatePost.css'
 
 export default function Dropdown({ materialName, materialId }) {
 
@@ -12,8 +13,8 @@ export default function Dropdown({ materialName, materialId }) {
 
 return  (
 	<div>
-		<label>
-			<h3>Choose Your Repurposed Materials:</h3>
+		<label id="dropdown">
+			{/* <h3>Choose Your Repurposed Materials:</h3> */}
 				 <select onChange={handleDropdownChange}>
 				<option  value={materialName}>Milk Carton</option>
 				<option  value={materialId}>Jeans</option>
@@ -24,7 +25,7 @@ return  (
                 <option  value="Other">Other</option>
 			</select>
 		</label>
-		<p>Selected Material: {materialName}</p>
+		{/* <p>Selected Material: {materialName}</p> */}
 	</div>
 	);
 
