@@ -32,7 +32,7 @@ class SavedPost {
   }
 
   static async create(postId, userId) {
-    const query = `INSERT INTO saved_post (post_id, user_id) VALUES (?, ?) RETURNING *`;
+    const query = `INSERT INTO saved_posts (post_id, user_id) VALUES (?, ?) RETURNING *`;
     const args = [postId, userId];
     const { rows } = await knex.raw(query, args);
     const createdSavedPost = rows[0];

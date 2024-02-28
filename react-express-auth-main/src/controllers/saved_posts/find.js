@@ -1,13 +1,16 @@
 const findsavedPost = async (req, res) => {
-    const {
-      session,
-      db: { SavedPost },
-    } = req;
-    
-    const savedPost = await SavedPost.find( req.params.id, session.userId);
-    console.log(savedPost);
-   
-    res.send(savedPost);
-  };
-  
-  module.exports = findsavedPost;
+  const {
+    session,
+    db: { SavedPost },
+    body: { post_id },
+  } = req;
+
+  const { userId } = session;
+  const savedPost = await SavedPost.findByUserId(userId);
+  console.log(userId)
+  console.log(savedPost);
+
+  res.send(savedPost);
+};
+
+module.exports = findsavedPost;

@@ -1,0 +1,19 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    background-image: url(../images/Explore-Page-Background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+#posts-container{
+    display:flex;
+    flex-direction: row;
+} */
