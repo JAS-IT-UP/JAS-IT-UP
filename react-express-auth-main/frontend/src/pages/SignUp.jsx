@@ -46,7 +46,7 @@ export default function SignUpPage() {
     <div className="split-screen">
       <div className="signup-box">
         <div className="left-box">
-          <h2 id="create-heading">Create an Account</h2>
+          <h2 id="create-heading-signup">Create an Account</h2>
           <section id="logo-signup">
             <img id="logo-form" src="../images/upcycling.png"></img>
             </section>
