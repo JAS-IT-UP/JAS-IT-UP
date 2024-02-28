@@ -81,24 +81,25 @@ export default function UserPage() {
 
       <section id="user-posts-container">
         {posts.userPost.length && posts.userPost.map((post) => {
+          // console.log(post, "this is my post")
           return (
             <Card key={post.id} style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={post.post_picture} />
+            <Card.Img variant="top" src={post.postPicture} />
             <Card.ImgOverlay>
-              <Card.Img variant="top" src={post.profile_picture} />
+              <Card.Img variant="top" src={post.profilePicture} />
             </Card.ImgOverlay>
-            <section class="postCard-info">
+            <section className="postCard-info">
               <Hamburger toggled={isOpen} toggle={setOpen} />
             </section>
             {isOpen && (
               <Card.Body>
                 <Card.Text>
                   <h3>Materials</h3>
-                  {post.material_name}
+                  {post.materialName}
                 </Card.Text>
                 <Card.Text>
                   <h3>The Revamp</h3>
-                  {post.project_description}
+                  {post.projectDescription}
                 </Card.Text>
               </Card.Body>
             )}

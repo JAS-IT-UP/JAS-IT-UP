@@ -26,7 +26,7 @@
     justify-content: flex-end;
     margin-top: -4rem;
     margin-bottom: 4rem;
-    /* position:sticky; */
+    position:sticky;
 }
 
 #create {
@@ -80,4 +80,5 @@
 
 #update {
     margin-top: 20rem;
+    font-family: "Michroma", sans-serif;
 }
