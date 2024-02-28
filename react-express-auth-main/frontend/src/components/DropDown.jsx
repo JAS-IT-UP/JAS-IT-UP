@@ -12,10 +12,10 @@ export default function Dropdown({ materialName, materialId }) {
 	};
 
 return  (
-	<div>
+	<div >
 		<label id="dropdown">
 			{/* <h3>Choose Your Repurposed Materials:</h3> */}
-				 <select onChange={handleDropdownChange}>
+				 <select style={{ width: '400px', height: '80px', borderRadius: '25px', textAlign: 'center', fontSize:'13px'}} onChange={handleDropdownChange}>
 				<option  value={materialName}>Milk Carton</option>
 				<option  value={materialId}>Jeans</option>
 				<option  value={materialId}>Mason Jars</option>

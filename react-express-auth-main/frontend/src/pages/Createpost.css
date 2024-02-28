@@ -61,7 +61,7 @@ margin-bottom: 6rem;
     padding-top: 1rem;
     /* padding-bottom: 1rem; */
     width: 100%;
-    height: 120vh;
+    height: 125vh;
     background: linear-gradient(to top,
             #FFFFFF 0%,
             #FFFFFF 60%,
@@ -69,6 +69,10 @@ margin-bottom: 6rem;
             #C8E6E0 100%);
     margin-bottom: 3rem;
     margin-top: -3.5rem;
+    background-image: url(../images/Create-Post-Background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
 }
 
 #post{
@@ -119,8 +123,20 @@ form::placeholder {
   
   }
 
-  #create-post-form > ::placeholder {
-    margin-top: 1rem;
+  .description-section textarea::placeholder {
+    font-family: "Michroma", sans-serif;
+    font-size: 13px;
+    color: black;
+    padding-top: 30px;
+    padding-right: 1rem;
+  }
+
+  #picture-section input::placeholder {
+    font-family: "Michroma", sans-serif;
+    font-size: 13px;
+    color: black;
+    padding-right: 3rem;
+    
   }
 
 
