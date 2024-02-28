@@ -13,11 +13,13 @@ export default function Tutorial() {
   );
   return <>
     <main>
-      <div id = "tutorial-background">
+    <div id = "tutorial-colors">
+    <div id = "tutorial-background">
     <div id = "circles">
-    <div id="dotExplore">Go to the explore page to view more posts</div>
+    <div id="dotExplore">Go to the explore page to view more posts!</div>
     <div id="dotGetStarted">Let's Get Started</div>
-    <div id="dotNewProject">Click the plus sign to post a new project</div>
+    <div id="dotNewProject">Click the plus sign to post a new project!</div>
+    </div>
     </div>
     </div>
     </main>
