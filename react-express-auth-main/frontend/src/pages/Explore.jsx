@@ -84,6 +84,7 @@ export default function ExplorePage() {
                     <Card.Img
                       variant="top"
                       src={post.post_picture}
+                      roundedCircle
                       id="explore-postcard-post-pic"
                     />
                     <Card.ImgOverlay>
@@ -94,7 +95,7 @@ export default function ExplorePage() {
                       />
                     </Card.ImgOverlay>
                     {isOpen[post.id] && (
-                      <Card.Body id = "postcard-text">
+                      <Card.Body id="postcard-text">
                         <Card.Text id="explore-post-heading">
                           Materials:
                         </Card.Text>
