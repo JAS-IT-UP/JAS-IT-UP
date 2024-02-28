@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./User.css"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
@@ -107,7 +107,7 @@ export default function UserPage() {
           </Card>
         )})}
       </section>
-      <p id="update">Your username is {profileUsername}. You can update <a href="/update-username">here</a>!</p>
+      <p id="update">Your username is {profileUsername}. You can update <NavLink to="/update-username">here</NavLink>!</p>
     </div>
   );
 }

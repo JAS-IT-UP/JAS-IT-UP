@@ -6,11 +6,11 @@ export default function UsernameUpdate() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
-
-    return <>
+  console.log(currentUser, "this is isCurrentUserProfile")
+    return (<>
         <h1>Username Update</h1>
-        {isCurrentUserProfile && (
+        {currentUser && (
         <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
       )}
-    </>;
+    </>);
 }
