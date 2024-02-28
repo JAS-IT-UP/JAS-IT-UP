@@ -32,7 +32,7 @@ export default function App() {
         <Route path='/sign-up' element={<SignUpPage />} />
         <Route path='/update-username' element={<UsernameUpdate />} />
         <Route path='/create-post' element={<CreatePostPage />} />
-        <Route path='/users/:id' element={<UserPage />} />
+        <Route path='/user/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
         <Route path="/tutorial" element={<Tutorial />} />
       </Routes>

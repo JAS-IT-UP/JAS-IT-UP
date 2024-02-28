@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./User.css"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
@@ -29,7 +29,7 @@ export default function UserPage() {
     };
 
     loadUser();
-  }, [id]);
+  }, [currentUser]);
 
   useEffect(() => {
     const fetchUserPosts = async () => {
@@ -47,7 +47,7 @@ export default function UserPage() {
     };
 
     fetchUserPosts();
-  }, [id]);
+  }, [currentUser]);
 
   const createPostButton = (
     <button id="create" onClick={() => navigate('/create-post')}>+</button>
@@ -81,24 +81,25 @@ export default function UserPage() {
 
       <section id="user-posts-container">
         {posts.userPost.length && posts.userPost.map((post) => {
+          // console.log(post, "this is my post")
           return (
             <Card key={post.id} style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={post.post_picture} />
+            <Card.Img variant="top" src={post.postPicture} />
             <Card.ImgOverlay>
-              <Card.Img variant="top" src={post.profile_picture} />
+              <Card.Img variant="top" src={post.profilePicture} />
             </Card.ImgOverlay>
-            <section class="postCard-info">
+            <section className="postCard-info">
               <Hamburger toggled={isOpen} toggle={setOpen} />
             </section>
             {isOpen && (
               <Card.Body>
                 <Card.Text>
                   <h3>Materials</h3>
-                  {post.material_name}
+                  {post.materialName}
                 </Card.Text>
                 <Card.Text>
                   <h3>The Revamp</h3>
-                  {post.project_description}
+                  {post.projectDescription}
                 </Card.Text>
               </Card.Body>
             )}
@@ -106,7 +107,7 @@ export default function UserPage() {
           </Card>
         )})}
       </section>
-      <p id="update">Your username is {profileUsername}. You can update <a href="/update-username">here</a>!</p>
+      <p id="update">Your username is {profileUsername}. You can update <NavLink to="/update-username">here</NavLink>!</p>
     </div>
   );
 }
