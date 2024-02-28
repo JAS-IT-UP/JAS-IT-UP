@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, NavLink } from "react-router-dom";
 import { logUserIn } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 import './Login.css';
@@ -18,10 +18,12 @@ export default function LoginPage() {
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
     const [posts] = await getUserPosts(user.id)
-    console.log(posts)
+    // console.log(posts)
      if(!posts.length) {
     navigate('/tutorial')
      } else {
+      console.log(user)
+      // <Navigate to=`/user/${user.id} />;
      navigate(`/user/${user.id}`);
      }
   };
@@ -30,7 +32,7 @@ export default function LoginPage() {
 
   return <>
   {/* <div id='login-form'>  */}
- <body id="behind"> 
+ <div id="behind"> 
     <form onSubmit={handleSubmit} id='login-form' aria-labelledby="login-heading">
       <h2 id='login-heading'>Sign In</h2>
       {/* <label htmlFor="username">Username</label> */}
@@ -41,10 +43,11 @@ export default function LoginPage() {
 
        <button id= "button">JAS IT UP!</button>
      
-      <p id='no-account'>Don't have an account? <a href="/sign-up">Sign Up</a>!</p>
+      <p id='no-account'>Don't have an account?<NavLink to="/sign-up"> sign up!</NavLink> 
+      </p>
 
     </form> 
   
     { !!errorText && <p>{errorText}</p> }
-     {/* </div> */} </body>
+     {/* </div> */} </div>
 </>} 
