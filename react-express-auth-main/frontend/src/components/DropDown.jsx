@@ -2,8 +2,12 @@ import { useState, useContext } from "react";
 
 export default function Dropdown({ materialName, materialId }) {
 
+	const [materials, setMaterials] = useState([]);
+	const [selectedMaterial, setSelectedMaterial] = useState(materialName);
+
 	const  handleDropdownChange = (event) => {
-		// const []
+		const value = event.target.value;
+		setMaterials(value);
 	};
 
 return  (
