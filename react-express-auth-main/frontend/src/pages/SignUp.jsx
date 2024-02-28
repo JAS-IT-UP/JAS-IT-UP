@@ -31,7 +31,7 @@ export default function SignUpPage() {
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
-    navigate('/');
+    navigate('/Tutorial');
   };
 
   const handleChange = (event) => {

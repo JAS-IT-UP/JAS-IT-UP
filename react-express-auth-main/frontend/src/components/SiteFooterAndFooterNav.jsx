@@ -8,7 +8,6 @@ export default function SiteFooterAndFooterNav() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   const handleLogout = async () => {
-    logUserOut();
     setCurrentUser(null);
     navigate('/');
   };
