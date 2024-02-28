@@ -134,7 +134,6 @@ export default function ExplorePage() {
                       </Card.Body>
                     )}
                   </Card>
-                  {/* <div> */}
                   <section className="Post-Interactions">
                       <Hamburger
                         toggled={isOpen[post.id]}
@@ -151,7 +150,6 @@ export default function ExplorePage() {
                           }));
                           handleSaveToggle(post.id);
                         }}>
-                          {/* <FaBookmark/> */}
                         </FaBookmark>
                       ) : (
                         <FaRegBookmark onClick={() => {
@@ -161,11 +159,9 @@ export default function ExplorePage() {
                           }));
                           handleSaveToggle(post.id);
                         }}>
-                        {/* <FaRegBookmark/> */}
                         </FaRegBookmark>
                       )}
                     </section>
-                  {/* </div> */}
                   </>
                 );
 
