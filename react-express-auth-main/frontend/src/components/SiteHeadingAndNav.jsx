@@ -17,6 +17,7 @@ export default function SiteHeadingAndNav() {
               <li><NavLink to='/login'>LOGIN</NavLink></li>
             </>
         }
+        <img id="logo-header" src="../images/upcycling.png"></img>
       </ul>
     </nav>
     <a id='logo' href='/'>JAS IT UP</a>
