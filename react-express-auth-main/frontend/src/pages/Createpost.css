@@ -85,7 +85,7 @@ margin-bottom: 6rem;
     
 }
 
-form ::placeholder {
+form::placeholder {
     font-family: "Michroma", sans-serif;
     font-weight: 6;
     padding-left: 3rem;
