@@ -15,9 +15,9 @@
     border-radius: 22px;
     box-shadow: 30px 30px #05312F;
     background-color: #CEB3E2;
-    width:500px ;
-    margin-bottom: 12rem;
-    margin-top: 7rem;
+    width:600px ;
+    /* margin-bottom: 12rem; */
+    margin-top: 8rem;
    
 }
 
@@ -25,16 +25,17 @@
     font-family: "Oi", serif;
     font-size: 20px;
     margin-bottom: 4rem;
+    text-align: center;
 }
 #image{
     border: 1px solid black;
     border-radius: 40px;
     height: 250px;
     width: 400px;
-    margin-top: 10px;
+    margin-top: -51px;
     text-align: center;
     text-decoration: none;
-    margin-bottom: 0rem;
+    /* margin-bottom: 0rem; */
     
 
 }
@@ -42,13 +43,14 @@
     font-family: "Oi", serif;
     font-size: 20px;
     text-align: center;
+    margin-top: -4rem;
 }
 
 #revamp{
     font-family: "Oi", serif;
     font-size: 20px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-top: 3rem;
 }
 
 #picture-section{
@@ -59,7 +61,7 @@ margin-bottom: 6rem;
     padding-top: 1rem;
     /* padding-bottom: 1rem; */
     width: 100%;
-    height: 130vh;
+    height: 120vh;
     background: linear-gradient(to top,
             #FFFFFF 0%,
             #FFFFFF 60%,
@@ -83,13 +85,15 @@ margin-bottom: 6rem;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    
+    margin-top: 2rem;
 }
 
 form::placeholder {
     font-family: "Michroma", sans-serif;
     font-weight: 6;
     padding-left: 3rem;
+   /* padding-bottom: 50rem; */
+
 }
 
 #post::after {
@@ -114,6 +118,12 @@ form::placeholder {
     width: 400px; 
   
   }
+
+  #create-post-form > ::placeholder {
+    margin-top: 1rem;
+  }
+
+
   /* #dropdown{
     border-radius: 80px;
   } */
