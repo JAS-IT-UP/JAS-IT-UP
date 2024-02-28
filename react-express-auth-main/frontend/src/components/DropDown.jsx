@@ -15,7 +15,7 @@ return  (
 		<label>
 			<h3>Choose Your Repurposed Materials:</h3>
 				 <select onChange={handleDropdownChange}>
-				<option  value={materialName}>Milk Carton</option>
+				<option  value={materialId}>Milk Carton</option>
 				<option  value={materialId}>Jeans</option>
 				<option  value={materialId}>Mason Jars</option>
                 <option  value={materialId}>NewsPaper/Magazine</option>
