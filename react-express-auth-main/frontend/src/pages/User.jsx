@@ -77,7 +77,9 @@ export default function UserPage() {
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
   return (
+    
     <div id="user-page-background">
+      <div id="template-background">
       <div id="user-picture">
         {createPostButton}
         <div id="picture">
@@ -126,5 +128,6 @@ export default function UserPage() {
       </section>
       <p id="update">Your username is {profileUsername}. You can update <NavLink to="/update-username">here</NavLink>!</p>
     </div>
+      </div>
   );
 }

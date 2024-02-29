@@ -13,7 +13,10 @@
             #FFFFFF 60%,
             #C8E6E0 60%,
             #C8E6E0 100%);
-    background-image: url(../images/BackgroundFrame.png);
+}
+
+#template-background {
+            background-image: url(../images/Explore-Page-Background.png);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
