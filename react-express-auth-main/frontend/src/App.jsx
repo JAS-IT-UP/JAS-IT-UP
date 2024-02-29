@@ -34,7 +34,7 @@ export default function App() {
         <Route path='/create-post' element={<CreatePostPage />} />
         <Route path='/user/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
-        <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="/tutorial" element={<Tutorial/>} />
       </Routes>
     </main>
     <SiteFooterAndFooterNav />

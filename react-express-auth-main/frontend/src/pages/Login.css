@@ -8,7 +8,7 @@
 
 #behind{
     width: 100%;
-    height: 100vh;
+    height: 119vh;
     background: linear-gradient(
       to right,
       #C8E6E0 0%,
@@ -33,6 +33,8 @@
    box-shadow: 30px 20px #05312F;
    margin-bottom: 200px;
    background-color: #CEB3E2;
+   position: relative;
+   top: 145px;
   }
 
   #login-heading {

@@ -17,37 +17,32 @@ export default function LoginPage() {
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
-    const [posts] = await getUserPosts(user.id)
-    // console.log(posts)
-     if(!posts.length) {
-    navigate('/tutorial')
-     } else {
-      console.log(user)
-      // <Navigate to=`/user/${user.id} />;
-     navigate(`/user/${user.id}`);
-     }
+    const [posts] = await getUserPosts(user.id);
+    if (!posts.length) {
+      navigate('/tutorial')
+    } else {
+      navigate(`/user/${user.id}`);
+    }
   };
 
   if (currentUser) return <Navigate to="/" />;
 
   return <>
-  {/* <div id='login-form'>  */}
- <div id="behind"> 
-    <form onSubmit={handleSubmit} id='login-form' aria-labelledby="login-heading">
-      <h2 id='login-heading'>Sign In</h2>
-      {/* <label htmlFor="username">Username</label> */}
-      <input type="text" autoComplete="username" id="username" name="username" placeholder="Enter Username"/>
+    <div id="behind">
+      <form onSubmit={handleSubmit} id='login-form' aria-labelledby="login-heading">
+        <h2 id='login-heading'>Sign In</h2>
+        <input type="text" autoComplete="username" id="username" name="username" placeholder="Enter Username" />
 
-      {/* <label htmlFor="password">Password</label> */}
-      <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Enter Password"/>
+        <input type="password" autoComplete="current-password" id="password" name="password" placeholder="Enter Password" />
 
-       <button id= "button">JAS IT UP!</button>
-     
-      <p id='no-account'>Don't have an account?<NavLink to="/sign-up"> sign up!</NavLink> 
-      </p>
+        <button id="button">JAS IT UP!</button>
 
-    </form> 
-  
-    { !!errorText && <p>{errorText}</p> }
-     {/* </div> */} </div>
-</>} 
+        <p id='no-account'>Don't have an account?<NavLink to="/sign-up"> sign up!</NavLink>
+        </p>
+
+      </form>
+
+      {!!errorText && <p>{errorText}</p>}
+    </div>
+  </>
+} 

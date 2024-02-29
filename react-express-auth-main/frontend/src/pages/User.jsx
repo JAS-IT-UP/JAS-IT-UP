@@ -54,11 +54,12 @@ export default function UserPage() {
   );
 
   const handleDelete = async (postId) => {
-    const postsArray = posts.userPost.filter(post => post.id === postId);
+    const postsArray = posts.userPost.filter(post => post.id !== postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
     // console.log(postsArray, "this is the posts array");
-    setPosts(prevState => ({ ...prevState, userPost: postsArray }));
+    setPosts(()=> ({ userPost: postsArray }));
+    console.log("hey")
 }
 
   if (!userProfile && !errorText) return null;
@@ -83,6 +84,7 @@ export default function UserPage() {
         {posts.userPost.length && posts.userPost.map((post) => {
           // console.log(post, "this is my post")
           return (
+            <>
             <Card key={post.id} style={{ width: "18rem" }}>
             <Card.Img variant="top" src={post.postPicture} />
             <Card.ImgOverlay>
@@ -103,8 +105,10 @@ export default function UserPage() {
                 </Card.Text>
               </Card.Body>
             )}
-            <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
           </Card>
+            <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
+
+            </>
         )})}
       </section>
       <p id="update">Your username is {profileUsername}. You can update <NavLink to="/update-username">here</NavLink>!</p>
