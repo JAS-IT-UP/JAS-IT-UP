@@ -86,7 +86,6 @@ export default function ExplorePage() {
                       <Card.Img
                         variant="top"
                         src={post.post_picture}
-                        roundedCircle
                         id="explore-postcard-post-pic"
                       />
                       <Card.ImgOverlay>
