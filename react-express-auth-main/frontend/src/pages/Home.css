@@ -1,6 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oi&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box
 }
+#everything{
+    width: 100%;
+    height: 232vh;
+    margin-top: 4rem;
+}
 
+#mission-logo{
+    background-color: #C8E6E0;
+    width: 1440px;
+    height: 550px;
+    margin-top: 3rem;
+    border: 1px solid black;
+}
+
+#home-logo{
+    height: 460px;
+    margin-left: 8rem;
+    position: relative;
+    top:30px
+
+}
+
+#mission-statement{
+    font-family: "Michroma", sans-serif;
+    font-size: 20px;
+    width: 480px;
+    margin-left: 55rem;
+    position: relative;
+    top: -370px;
+}
+
+#home-wallpaper{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+      to right,
+      #F4CF69 0%,
+      #F4CF69 50%,
+      #F4C5B9 50%,
+      #F4C5B9 100%
+    );
+    width:1440px;
+    height:480px;
+    border: 1px solid black;
+    border-right: 1px solid black;
+}
+
+
+#name-button{
+    border-radius:  100px;
+    width: 590px;
+    height: 170px;
+    background-color: #F4CF69;
+    box-shadow:12px 10px #05312F;;
+    margin-top: 7rem;
+   margin-left: 2.5rem;
+   margin-right: 9rem;
+   font-size: 50px;
+   color: #05312F;
+  
+}
+
+
+
+#upcycling-examples{
+    background-color: #BFD0A0;
+    width:1440px;
+    height:450px;
+    /* text-align: center; */
+    font-family: "Michroma", sans-serif;
+    border: 1px solid black;
+}
+
+#about-us{
+    background-color: #CEB3E2;
+    width:1440px;
+    height: 458px;
+    font-family: "Michroma", sans-serif;
+    border: 1px solid black;
+}
+
+
+#shapes{
+padding-left: 45rem;
+margin-top: -14rem;
+
+}
+#plant-bottle{
+display: flex;
+flex-direction: column;
+margin-left: 33rem;
+width:350px;
+height: 270px;
+position: relative;
+/* top: 160px; */
+bottom: -40px;
+}
+
+#purple-image{
+display: flex;
+flex-direction: column;
+margin-left: 2rem;
+width: 350px;
+height:270px;
+position: relative;
+/* top: 50px; */
+bottom: 330px;
+}
+
+#pink-image{
+display: flex;
+flex-direction: column;
+margin-left: 63rem;
+width: 350px;
+height:270px;
+margin-top: -390px;
+position: relative;
+/* top: 50px; */
+bottom: 350px;
+}
+
+#plant-description{
+    position: relative;
+    top: 49px;
+    margin-left: 5rem;
+    font-size: 15px;
+    width: 20rem;
+
+    
+}
+
+#purple-description{
+    position: relative;
+    bottom: 336px;
+    margin-left: 34rem;
+    width: 20rem;
+}
+
+#pink-description{
+    position: relative;
+    bottom: 350px;
+    margin-left: 66rem;
+}
+
+#AB-TEXT{
+ /* display: flex; */
+ /* justify-content: ; */
+    margin-left: 1290px;
+    transform: rotate(90deg);
+    position: relative;
+    bottom:280px;
+    font-family: "Oi", serif;
+    color: #05312F;
+    font-size: 58px;
+    white-space: nowrap;
+}
+
+#AB-paragraph{
+    margin-left: 50px;
+    width: 600px;
+    position: relative;
+    top:66.5px;
+    font-size: 20px;
+    
+}
