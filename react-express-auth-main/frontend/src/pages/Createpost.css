@@ -58,8 +58,13 @@ margin-bottom: 6rem;
 }
 
 #back-page {
-    padding-top: 1rem;
-    /* padding-bottom: 1rem; */
+    background-image: url(../images/Create-Post-Background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+#entierty{
+  padding-top: 1rem;
     width: 100%;
     height: 125vh;
     background: linear-gradient(to top,
@@ -69,12 +74,7 @@ margin-bottom: 6rem;
             #C8E6E0 100%);
     margin-bottom: 3rem;
     margin-top: -3.5rem;
-    background-image: url(../images/Create-Post-Background.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
 }
-
 #post{
     display: inline-block;
     background-color: #F4CF69;
@@ -129,7 +129,13 @@ form::placeholder {
     color: black;
     padding-top: 30px;
     padding-right: 1rem;
+   
   }
+
+  .description-section textarea {
+    padding-top: 2rem; 
+    padding-left: 1rem;
+}
 
   #picture-section input::placeholder {
     font-family: "Michroma", sans-serif;
@@ -139,6 +145,10 @@ form::placeholder {
     
   }
 
+  #create-post-form input[type="text"],
+#create-post-form textarea {
+    font-family: "Michroma", sans-serif; 
+}
 
   /* #dropdown{
     border-radius: 80px;
