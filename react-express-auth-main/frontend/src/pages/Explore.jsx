@@ -76,71 +76,75 @@ export default function ExplorePage() {
             posts.map((post) => {
               return (
                 <>
-                  <Card
-                    key={post.id}
-                    style={{ width: "18rem" }}
-                    id="explore-postcard"
-                  >
-                    <Card.Img
-                      variant="top"
-                      src={post.post_picture}
-                      roundedCircle
-                      id="explore-postcard-post-pic"
-                    />
-                    <Card.ImgOverlay>
+                  <div id="postcard">
+                    <Card
+                      key={post.id}
+                      style={{ width: "18rem" }}
+                      id="explore-postcard"
+                    >
+                      <div id="postcard-images">
                       <Card.Img
                         variant="top"
-                        src={post.profile_picture}
-                        id="explore-postcard-profile-pic"
+                        src={post.post_picture}
+                        roundedCircle
+                        id="explore-postcard-post-pic"
                       />
-                    </Card.ImgOverlay>
-                    {isOpen[post.id] && (
-                      <Card.Body id="postcard-text">
-                        <Card.Text id="explore-post-heading">
-                          Materials:
-                        </Card.Text>
-                        <Card.Text id="explore-post-details">
-                          {post.material_name}
-                        </Card.Text>
-                        <Card.Text id="explore-post-heading">
-                          The Revamp:
-                        </Card.Text>
-                        <Card.Text id="explore-post-details">
-                          {post.project_description}
-                        </Card.Text>
-                      </Card.Body>
-                    )}
-                  </Card>
-                  <section className="Post-Interactions">
-                    <Hamburger
-                      toggled={isOpen[post.id]}
-                      toggle={() =>
-                        setOpen({ ...isOpen, [post.id]: !isOpen[post.id] })
-                      }
-                    />
+                      <Card.ImgOverlay>
+                        <Card.Img
+                          variant="top"
+                          src={post.profile_picture}
+                          id="explore-postcard-profile-pic"
+                        />
+                      </Card.ImgOverlay>
+                      </div>
+                      {isOpen[post.id] && (
+                        <Card.Body id="postcard-text">
+                          <Card.Text id="explore-post-heading">
+                            Materials:
+                          </Card.Text>
+                          <Card.Text id="explore-post-details">
+                            {post.material_name}
+                          </Card.Text>
+                          <Card.Text id="explore-post-heading">
+                            The Revamp:
+                          </Card.Text>
+                          <Card.Text id="explore-post-details">
+                            {post.project_description}
+                          </Card.Text>
+                        </Card.Body>
+                      )}
+                    </Card>
+                    <section className="Post-Interactions">
+                      <Hamburger
+                        toggled={isOpen[post.id]}
+                        toggle={() =>
+                          setOpen({ ...isOpen, [post.id]: !isOpen[post.id] })
+                        }
+                      />
 
-                    {savedPosts[post.id] ? (
-                      <FaBookmark
-                        onClick={() => {
-                          setSavedPosts((prevState) => ({
-                            ...prevState,
-                            [post.id]: !savedPosts[post.id],
-                          }));
-                          handleSaveToggle(post.id);
-                        }}
-                      ></FaBookmark>
-                    ) : (
-                      <FaRegBookmark
-                        onClick={() => {
-                          setSavedPosts((prevState) => ({
-                            ...prevState,
-                            [post.id]: !savedPosts[post.id],
-                          }));
-                          handleSaveToggle(post.id);
-                        }}
-                      ></FaRegBookmark>
-                    )}
-                  </section>
+                      {savedPosts[post.id] ? (
+                        <FaBookmark
+                          onClick={() => {
+                            setSavedPosts((prevState) => ({
+                              ...prevState,
+                              [post.id]: !savedPosts[post.id],
+                            }));
+                            handleSaveToggle(post.id);
+                          }}
+                        ></FaBookmark>
+                      ) : (
+                        <FaRegBookmark
+                          onClick={() => {
+                            setSavedPosts((prevState) => ({
+                              ...prevState,
+                              [post.id]: !savedPosts[post.id],
+                            }));
+                            handleSaveToggle(post.id);
+                          }}
+                        ></FaRegBookmark>
+                      )}
+                    </section>
+                  </div>
                 </>
               );
             })}
