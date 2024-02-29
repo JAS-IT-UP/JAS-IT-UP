@@ -7,7 +7,7 @@
 }
 #everything{
     width: 100%;
-    height: 259vh;
+    height: 238vh;
     margin-top: 4rem;
 }
 
@@ -155,10 +155,10 @@ bottom: 350px;
     margin-left: 1290px;
     transform: rotate(90deg);
     position: relative;
-    bottom:286px;
+    bottom:289px;
     font-family: "Oi", serif;
     color: #05312F;
-    font-size: 58px;
+    font-size: 65px;
     white-space: nowrap;
 }
 
@@ -168,5 +168,5 @@ bottom: 350px;
     position: relative;
     top:66.5px;
     font-size: 20px;
-    
+
 }
