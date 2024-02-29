@@ -133,7 +133,6 @@ export default function UserPage() {
                         </Card.Text>
                       </Card.Body>
                     )}
-                    <Hamburger toggled={isOpen} toggle={setOpen} />
                   </Card>
                   <section className="user-post-interactions">
                     <Hamburger
