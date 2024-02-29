@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Dropdown({formData, setFormData}) {
 
     const handleDropdownChange = (event) => {

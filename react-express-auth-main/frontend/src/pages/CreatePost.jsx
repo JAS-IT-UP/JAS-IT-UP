@@ -10,7 +10,6 @@ export default function CreatePostPage() {
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
   const [formData, setFormData] = useState({ postPicture: '', projectDescription: '', materialId: 0 });
-  // const [materialId, setMaterialId] = useState(1);
   const [posts, setPosts] = useState([]);
 
  
@@ -35,7 +34,6 @@ export default function CreatePostPage() {
 
 
     setFormData({ postPicture: '', projectDescription: '', materialId: 0});
-    // navigate(`/users/${currentUser.id}`);
     navigate('/explore');
   };
 
@@ -48,7 +46,7 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div id='entierty'> 
+    <div id='entirety'> 
     <div id='back-page'>
     <form onSubmit={handleSubmit} id='create-post-form' onChange={handleChange} aria-labelledby="create-heading">
       <div id= "picture-section"> 
