@@ -50,7 +50,8 @@ export default function CreatePostPage() {
   };
 
   return (
-    <body id='back-page'>
+    <div id='entierty'> 
+    <div id='back-page'>
     <form onSubmit={handleSubmit} id='create-post-form' onChange={handleChange} aria-labelledby="create-heading">
       <div id= "picture-section"> 
       <label htmlFor="image"> <h1 id="create-heading">Picture:</h1> </label>
@@ -79,6 +80,7 @@ export default function CreatePostPage() {
       <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} /> */}
     {/* ))} */}
     </div>
-    </body>
+    </div>
+    </div>
   );
 }
