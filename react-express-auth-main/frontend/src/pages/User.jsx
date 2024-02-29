@@ -89,12 +89,16 @@ export default function UserPage() {
             </section>
             {isOpen && (
               <Card.Body>
-                <Card.Text>
-                  <h3>Materials</h3>
+                <Card.Text style={{ fontFamily: "Aleo", fontWeight: "bold", fontSize: "20px"}}>
+                  Materials:
+                </Card.Text>
+                <Card.Text style={{ fontFamily: "Michroma"}}>
                   {post.materialName}
                 </Card.Text>
-                <Card.Text>
-                  <h3>The Revamp</h3>
+                <Card.Text style={{ fontFamily: "Aleo", fontWeight: "bold", fontSize: "20px"}}>
+                  The Revamp:
+                </Card.Text>
+                <Card.Text style={{ fontFamily: "Michroma"}}>
                   {post.projectDescription}
                 </Card.Text>
               </Card.Body>
