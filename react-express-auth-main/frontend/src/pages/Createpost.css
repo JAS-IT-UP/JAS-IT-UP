@@ -149,3 +149,10 @@ form::placeholder {
 #create-post-form textarea {
   font-family: "Michroma", sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+  #create-post-form {
+      width: 90%;
+      max-width: 90%; 
+  }
+}
