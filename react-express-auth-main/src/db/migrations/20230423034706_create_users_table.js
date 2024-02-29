@@ -5,7 +5,7 @@
 
 const usersTable = (table) => {
   table.increments();
-  table.string('profile_picture', 2000).notNullable();
+  table.text('profile_picture').notNullable();
   table.string('first_name').notNullable();
   table.string('last_name').notNullable();
   table.string('username').notNullable().unique();
