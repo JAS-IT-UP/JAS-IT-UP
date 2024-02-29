@@ -5,10 +5,10 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
 import { deletePost } from "../adapters/post-adapter";
-import UpdateUsernameForm from "../components/UpdateUsernameForm";
+// import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
 import Hamburger from "hamburger-react";
-import Button from 'react-bootstrap/Button';
+import { getUserSavedPosts } from "../adapters/savedPost-adapter";
 
 
 export default function UserPage() {
@@ -19,7 +19,7 @@ export default function UserPage() {
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
   const [posts, setPosts] = useState({userPost: []});
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState({});
   
 
   useEffect(() => {
@@ -29,7 +29,17 @@ export default function UserPage() {
       setUserProfile(user);
     };
 
+    // const fetchSavedPosts = async () => {
+    //   if (currentUser) {
+    //     const [data, error] = await getUserSavedPosts(currentUser.id);
+    //     data.forEach((post) => {
+    //       setSave((prevState) => ({ ...prevState, [post.postId]: true }));
+    //     });
+    //   }
+    // }
+
     loadUser();
+    // fetchSavedPosts();
   }, [currentUser]);
 
   useEffect(() => {
@@ -79,14 +89,15 @@ export default function UserPage() {
         {posts.userPost.length && posts.userPost.map((post) => {
           return (
             <>
+            <div id="user-posts-cards">
             <Card key={post.id} style={{ width: "18rem" }}>
             <Card.Img variant="top" src={post.postPicture} />
             <Card.ImgOverlay>
               <Card.Img variant="top" src={post.profilePicture} />
             </Card.ImgOverlay>
             <section className="postCard-info">
-              <Hamburger toggled={isOpen} toggle={setOpen} />
-            </section>
+
+            
             {isOpen && (
               <Card.Body>
                 <Card.Text style={{ fontFamily: "Aleo", fontWeight: "bold", fontSize: "20px"}}>
@@ -103,8 +114,13 @@ export default function UserPage() {
                 </Card.Text>
               </Card.Body>
             )}
+            </section>
+            <Hamburger toggled={isOpen} toggle={setOpen} />
           </Card>
+          <div id="delete-container">
             <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
+          </div>
+            </div>
             </>
         )})}
       </section>
