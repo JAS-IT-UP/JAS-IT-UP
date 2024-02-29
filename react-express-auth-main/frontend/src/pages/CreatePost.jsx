@@ -2,8 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
-import Dropdown from "../components/DropDown";
-import PostCard from "../components/PostCard";
+import Dropdown from "../components/DropDown"
 import './CreatePost.css'
 
 export default function CreatePostPage() {
@@ -57,7 +56,6 @@ export default function CreatePostPage() {
       <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" 
       onChange={handleChange} 
       value={formData.postPicture} required></input>
-      {/* <img src={formData.postPicture} alt="" /> */}
       </div>
 
       <div className="materials-section"> 
@@ -75,9 +73,6 @@ export default function CreatePostPage() {
       <button id="post" type="submit">POST</button>
     </form>
     <div>
-    {/* {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} /> */}
-    {/* ))} */}
     </div>
     </body>
   );
