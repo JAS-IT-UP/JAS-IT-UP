@@ -8,6 +8,7 @@ import { deletePost } from "../adapters/post-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from 'react-bootstrap/Card';
 import Hamburger from "hamburger-react";
+import Button from 'react-bootstrap/Button';
 
 
 export default function UserPage() {
@@ -57,9 +58,7 @@ export default function UserPage() {
     const postsArray = posts.userPost.filter(post => post.id !== postId);
     const [post, error] = await deletePost(postId);
     if (error) return setErrorText(error.message);
-    // console.log(postsArray, "this is the posts array");
     setPosts(()=> ({ userPost: postsArray }));
-    console.log("hey")
 }
 
   if (!userProfile && !errorText) return null;
@@ -76,13 +75,8 @@ export default function UserPage() {
         </div>
       </div>
 
-      {/* {isCurrentUserProfile && (
-        <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      )} */}
-
       <section id="user-posts-container">
         {posts.userPost.length && posts.userPost.map((post) => {
-          // console.log(post, "this is my post")
           return (
             <>
             <Card key={post.id} style={{ width: "18rem" }}>
@@ -107,7 +101,6 @@ export default function UserPage() {
             )}
           </Card>
             <button type="button" id="delete-button" onClick={() => handleDelete(post.id)}>DELETE</button>
-
             </>
         )})}
       </section>
