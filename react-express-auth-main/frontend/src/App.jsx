@@ -36,7 +36,7 @@ export default function App() {
         <Route path='/user/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
         <Route path="/tutorial" element={<Tutorial/>} />
-        <Route path="/savedpost" element={<UserProfileSavedPosts/>} />
+        <Route path="/savedposts" element={<UserProfileSavedPosts/>} />
       </Routes>
     </main>
     <SiteFooterAndFooterNav />
