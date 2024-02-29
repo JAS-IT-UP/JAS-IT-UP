@@ -61,6 +61,7 @@
 }
 
 #delete-button {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,8 +74,8 @@
     width: 8rem;
     height: 2rem;
     border-radius: 15px;
-    margin-top: 10rem;
-    margin-left: 4.5rem;
+    margin-top: 11rem;
+    margin-left: -0.5rem;
     box-shadow: 4px 2px #05312F;
 }
 
