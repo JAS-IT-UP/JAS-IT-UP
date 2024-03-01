@@ -7,7 +7,6 @@ import { getUserPosts } from "../adapters/post-adapter";
 import { deletePost } from "../adapters/post-adapter";
 import Card from "react-bootstrap/Card";
 import Hamburger from "hamburger-react";
-import { getUserSavedPosts } from "../adapters/savedPost-adapter";
 
 export default function UserPage() {
   const navigate = useNavigate();
