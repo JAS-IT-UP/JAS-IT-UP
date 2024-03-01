@@ -4,57 +4,29 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { NavLink } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Hamburger from "hamburger-react";
+import './UserSavedPosts.css';
 export default function UserProfileSavedPosts() {
   const { currentUser } = useContext(CurrentUserContext);
   const [savedPosts, setSavedPosts] = useState([]);
   const [isOpen, setOpen] = useState({});
 
   useEffect(() => {
-    //fetches user's saved posts
     const fetchSavedPosts = async () => {
       if (currentUser) {
-        const [data, error] = await getUserSavedPostInfo(currentUser.id);
-        console.log(data, "this is my fetch");
+        const [data, error] = await getUserSavedPostInfo(currentUser.id)
         setSavedPosts([...data]);
-        // data.forEach((post) => {
-        //   setSavedPosts((prevState) => ({ ...prevState, [post.postId]: true }));
-        // });
+  
       }
     };
 
     fetchSavedPosts();
   }, [currentUser]);
 
-  //   const createPostButton = (
-  //     <button id="create" onClick={() => navigate("/create-post")}>
-  //       +
-  //     </button>
-  //   );
-
-  //   const handleDelete = async (postId) => {
-  //     const postsArray = posts.userPost.filter((post) => post.id !== postId);
-  //     const [post, error] = await deletePost(postId);
-  //     if (error) return setErrorText(error.message);
-  //     setPosts(() => ({ userPost: postsArray }));
-  //   };
-
-  //   if (!userProfile && !errorText) return null;
-  //   if (errorText) return <p>{errorText}</p>;
 
   const profileUsername = currentUser ? currentUser.username : null;
 
   return (
     <div id="user-page-background">
-      {/* <div id="user-picture">
-        {createPostButton}
-        <div id="picture">
-          <img
-            id="user-profile-picture"
-            src={userProfile.profilePicture}
-            alt=""
-          />
-        </div>
-      </div> */}
 
       <section id="user-posts-container">
         {savedPosts.length &&
