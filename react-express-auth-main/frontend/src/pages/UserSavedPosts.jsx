@@ -15,7 +15,7 @@ export default function UserProfileSavedPosts() {
       if (currentUser) {
         const [data, error] = await getUserSavedPostInfo(currentUser.id)
         setSavedPosts([...data]);
-  
+
       }
     };
 
@@ -26,82 +26,88 @@ export default function UserProfileSavedPosts() {
   const profileUsername = currentUser ? currentUser.username : null;
 
   return (
-    <div id="user-page-background">
+    <>
+    <div id="page-background">
 
-      <section id="user-posts-container">
-        {savedPosts.length &&
-          savedPosts.map((savedPost) => {
-            return (
-              <>
-                <div id="user-posts-cards">
-                  <Card key={savedPost.id} style={{ width: "18rem" }}>
-                    <Card.Img variant="top" src={savedPost.post_picture} />
-                    <Card.ImgOverlay>
-                      <Card.Img
-                        variant="top"
-                        src={savedPost.profile_picture}
-                        id="explore-postcard-profile-pic"
-                      />
-                    </Card.ImgOverlay>
+    <div id="saved-page-background">
+      <div id='saved-page'>
+        <section id="saved-posts-container">
+          {savedPosts.length &&
+            savedPosts.map((savedPost) => {
+              return (
+                <>
+                  <div id="saved-posts-cards">
+                    <Card key={savedPost.id} style={{ width: "18rem" }}>
+                      <Card.Img variant="top" src={savedPost.post_picture} />
+                      <Card.ImgOverlay>
+                        <Card.Img
+                          variant="top"
+                          src={savedPost.profile_picture}
+                          id="explore-postcard-profile-pic"
+                          />
+                      </Card.ImgOverlay>
 
-                    {isOpen[savedPost.id] && (
-                      <Card.Body>
-                        <Card.Text
+                      {isOpen[savedPost.id] && (
+                        <Card.Body>
+                          <Card.Text
                           style={{
-                            fontFamily: "Aleo",
-                            fontWeight: "bold",
-                            fontSize: "25px",
-                          }}
+                              fontFamily: "Aleo",
+                              fontWeight: "bold",
+                              fontSize: "25px",
+                            }}
+                          >
+                            Materials:
+                          </Card.Text>
+                          <Card.Text style={{ fontFamily: "Michroma" }}>
+                            {savedPost.material_name}
+                          </Card.Text>
+                          <Card.Text
+                            style={{
+                              fontFamily: "Aleo",
+                              fontWeight: "bold",
+                              fontSize: "25px",
+                            }}
+                          >
+                            The Revamp:
+                          </Card.Text>
+                          <Card.Text style={{ fontFamily: "Michroma" }}>
+                            {savedPost.project_description}
+                          </Card.Text>
+                        </Card.Body>
+                      )}
+                    </Card>
+                    <section className="user-post-interactions">
+                      <Hamburger
+                        toggled={isOpen[savedPost.id]}
+                        toggle={() =>
+                          setOpen({
+                            ...isOpen,
+                            [savedPost.id]: !isOpen[savedPost.id],
+                          })
+                        }
+                        />
+                      <div id="delete-container">
+                        <button
+                          type="button"
+                          id="delete-button"
+                          onClick={() => handleDelete(savedPost.id)}
                         >
-                          Materials:
-                        </Card.Text>
-                        <Card.Text style={{ fontFamily: "Michroma" }}>
-                          {savedPost.material_name}
-                        </Card.Text>
-                        <Card.Text
-                          style={{
-                            fontFamily: "Aleo",
-                            fontWeight: "bold",
-                            fontSize: "25px",
-                          }}
-                        >
-                          The Revamp:
-                        </Card.Text>
-                        <Card.Text style={{ fontFamily: "Michroma" }}>
-                          {savedPost.project_description}
-                        </Card.Text>
-                      </Card.Body>
-                    )}
-                  </Card>
-                  <section className="user-post-interactions">
-                    <Hamburger
-                      toggled={isOpen[savedPost.id]}
-                      toggle={() =>
-                        setOpen({
-                          ...isOpen,
-                          [savedPost.id]: !isOpen[savedPost.id],
-                        })
-                      }
-                    />
-                    <div id="delete-container">
-                      <button
-                        type="button"
-                        id="delete-button"
-                        onClick={() => handleDelete(savedPost.id)}
-                      >
-                        DELETE
-                      </button>
-                    </div>
-                  </section>
-                </div>
-              </>
-            );
-          })}
-      </section>
+                          DELETE
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </>
+              );
+            })}
+        </section>
+      </div>
       <p id="update">
         Your username is {profileUsername}. You can update{" "}
         <NavLink to="/update-username">here</NavLink>!
       </p>
     </div>
+            </div>
+    </>
   );
 }
