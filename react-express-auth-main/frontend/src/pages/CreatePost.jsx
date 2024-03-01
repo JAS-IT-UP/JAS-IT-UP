@@ -2,24 +2,21 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { createPost } from "../adapters/post-adapter";
-import Dropdown from "../components/DropDown";
-import PostCard from "../components/PostCard";
+import Dropdown from "../components/DropDown"
 import './CreatePost.css'
 
 export default function CreatePostPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const [errorText, setErrorText] = useState('');
-  const [formData, setFormData] = useState({ postPicture: '', projectDescription: '' });
-  const [materialId, setMaterialId] = useState(1);
-
+  const [formData, setFormData] = useState({ postPicture: '', projectDescription: '', materialId: 0 });
   const [posts, setPosts] = useState([]);
 
  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorText('')
-    const { postPicture, projectDescription } = formData
+    const { postPicture, projectDescription, materialId } = formData
     if(!postPicture || !projectDescription ){
       return setErrorText('Missing Picture or Description')
     };
@@ -36,8 +33,7 @@ export default function CreatePostPage() {
     setPosts([...posts, post]);
 
 
-    setFormData({ postPicture: '', projectDescription: '' });
-    // navigate(`/users/${currentUser.id}`);
+    setFormData({ postPicture: '', projectDescription: '', materialId: 0});
     navigate('/explore');
   };
 
@@ -50,7 +46,7 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div id='entierty'> 
+    <div id='entirety'> 
     <div id='back-page'>
     <form onSubmit={handleSubmit} id='create-post-form' onChange={handleChange} aria-labelledby="create-heading">
       <div id= "picture-section"> 
@@ -58,13 +54,12 @@ export default function CreatePostPage() {
       <input type="" name="postPicture" id="image" except="image/*" placeholder="Add An Image Of Your Finished Project Here" 
       onChange={handleChange} 
       value={formData.postPicture} required></input>
-      {/* <img src={formData.postPicture} alt="" /> */}
       </div>
 
       <div className="materials-section"> 
       <label htmlFor="materials"> <h1 id="materials">Materials:</h1></label> 
       
-      <Dropdown selectedValue={materialId}/>
+      <Dropdown formData={formData} setFormData={setFormData} onChange={handleChange}/>
       </div>
 
       <div className="description-section"> 
@@ -76,9 +71,6 @@ export default function CreatePostPage() {
       <button id="post" type="submit">POST</button>
     </form>
     <div>
-    {/* {posts.map((post, index) => (
-      <PostCard key={index} postPicture={post.postPicture} projectDescription={post.projectDescription} materialId={post.materialId} /> */}
-    {/* ))} */}
     </div>
     </div>
     </div>

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oi&display=swap');
+
+#update-username {
+    font-family: "Oi", serif;
+    font-size: 20px;
+}
+
+#update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 22px;
+    box-shadow: 30px 30px #05312F;
+    background-color: #CEB3E2;
+    width: 600px;
+    /* margin-bottom: 12rem; */
+    margin-top: 8rem;
+}
+
+#username-back {
+    padding-top: 1rem;
+    width: 100%;
+    height: 125vh;
+    background: linear-gradient(to top,
+            #FFFFFF 0%,
+            #FFFFFF 60%,
+            #C8E6E0 60%,
+            #C8E6E0 100%);
+    margin-bottom: 3rem;
+    margin-top: -3.5rem;
+}
+
+#update-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 12rem;
+    background-color: #C8E6E0;
+    width: 11rem;
+    height: 2.8rem;
+    border-radius: 22px;
+    border: none;
+    font-family: "Oi", serif;
+    font-size: 20px;
+    color: #05312F;
+    box-shadow: 6px 4px #05312F;
+}

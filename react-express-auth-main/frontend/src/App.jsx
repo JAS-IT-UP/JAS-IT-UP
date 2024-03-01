@@ -8,13 +8,14 @@ import SiteFooterAndFooterNav from './components/SiteFooterAndFooterNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UsersPage from './pages/Users';
+// import UsersPage from './pages/Users';
 import UsernameUpdate from './pages/UsernameUpdate';
 import UserPage from './pages/User';
 import CreatePostPage from './pages/CreatePost';
 import ExplorePage from './pages/Explore';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tutorial from './pages/Tutorial';
+import UserProfileSavedPosts from './pages/UserSavedPosts';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -35,6 +36,7 @@ export default function App() {
         <Route path='/user/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
         <Route path="/tutorial" element={<Tutorial/>} />
+        <Route path="/savedposts" element={<UserProfileSavedPosts/>} />
       </Routes>
     </main>
     <SiteFooterAndFooterNav />

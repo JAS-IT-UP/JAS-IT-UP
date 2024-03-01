@@ -30,6 +30,13 @@ class SavedPost {
     const { rows } = await knex.raw(query, args);
     return rows.map((savedPost) => new SavedPost(savedPost));
   }
+  static async getPostsByUserId(userId) {
+    const query =
+      "SELECT posts.*, materials.material_name, users.profile_picture FROM posts INNER JOIN saved_posts ON posts.id = saved_posts.post_id INNER JOIN materials ON posts.material_id = materials.id INNER JOIN users ON posts.user_id = users.id WHERE saved_posts.user_id = ?";
+    const args = [userId];
+    const { rows } = await knex.raw(query, args);
+    return rows;
+  }
 
   static async create(postId, userId) {
     const query = `INSERT INTO saved_posts (post_id, user_id) VALUES (?, ?) RETURNING *`;

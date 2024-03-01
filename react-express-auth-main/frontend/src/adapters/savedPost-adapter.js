@@ -24,3 +24,8 @@ export const deleteSavedPost = async (post_id) => {
   const data = await fetchHandler(`${baseUrl}/${post_id}`, deleteOptions);
   return data;
 };
+
+export const getUserSavedPostInfo = async (userId) => {
+  const data = await fetchHandler(`${baseUrl}/post/${userId}`)
+  return data;
+};
