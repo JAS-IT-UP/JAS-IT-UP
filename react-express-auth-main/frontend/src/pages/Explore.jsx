@@ -11,6 +11,7 @@ import Card from "react-bootstrap/Card";
 import Hamburger from "hamburger-react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import "./Explore.css";
+import "./User.css";
 
 export default function ExplorePage() {
   const { currentUser } = useContext(CurrentUserContext);
@@ -76,7 +77,31 @@ export default function ExplorePage() {
             posts.map((post) => {
               return (
                 <>
+                <div className="user-posts-cards">
+                {isOpen[post.id] ? <> 
                   <Card
+                    key={post.id}
+                    style={{ width: "18rem" }}
+                    id="explore-postcard"
+                  >
+
+                      <Card.Body id="postcard-text">
+                        <Card.Text id="explore-post-heading">
+                          Materials:
+                        </Card.Text>
+                        <Card.Text id="explore-post-details">
+                          {post.material_name}
+                        </Card.Text>
+                        <Card.Text id="explore-post-heading">
+                          The Revamp:
+                        </Card.Text>
+                        <Card.Text id="explore-post-details">
+                          {post.project_description}
+                        </Card.Text>
+                      </Card.Body>
+        
+                  </Card>
+                </> : <>     <Card
                     key={post.id}
                     style={{ width: "18rem" }}
                     id="explore-postcard"
@@ -94,23 +119,10 @@ export default function ExplorePage() {
                         id="explore-postcard-profile-pic"
                       />
                     </Card.ImgOverlay>
-                    {isOpen[post.id] && (
-                      <Card.Body id="postcard-text">
-                        <Card.Text id="explore-post-heading">
-                          Materials:
-                        </Card.Text>
-                        <Card.Text id="explore-post-details">
-                          {post.material_name}
-                        </Card.Text>
-                        <Card.Text id="explore-post-heading">
-                          The Revamp:
-                        </Card.Text>
-                        <Card.Text id="explore-post-details">
-                          {post.project_description}
-                        </Card.Text>
-                      </Card.Body>
-                    )}
-                  </Card>
+
+                  </Card></>}
+                
+
                   <section className="Post-Interactions">
                     <Hamburger
                       toggled={isOpen[post.id]}
@@ -142,6 +154,7 @@ export default function ExplorePage() {
                     )}
                     </div>
                   </section>
+                  </div>
                 </>
               );
             })}
