@@ -29,9 +29,7 @@
 }
 
 .explore-postcard{
-    border: 1px solid black;
-    box-shadow: 30px 30px #05312F;
-    border-radius: 30px;
+    box-shadow: #05312F;
 }
 
 .Post-Interactions{
@@ -75,9 +73,15 @@
 }
 #explore-save-icon{
     margin-top: 15px;
-    margin-left: 215px;
+    margin-left: 200px;
     height: 7px;
     width: 5px;
+}
+
+.bookmark{
+    height: 2rem;
+    width: 2rem;
+    margin-top: -0.25rem;
 }
 
 

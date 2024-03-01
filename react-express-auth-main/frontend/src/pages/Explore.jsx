@@ -120,7 +120,7 @@ export default function ExplorePage() {
                     />
                   <div id="explore-save-icon">
                     {savedPosts[post.id] ? (
-                      <FaBookmark
+                      <FaBookmark className="bookmark"
                         onClick={() => {
                           setSavedPosts((prevState) => ({
                             ...prevState,
@@ -130,7 +130,7 @@ export default function ExplorePage() {
                         }}
                       ></FaBookmark>
                     ) : (
-                      <FaRegBookmark
+                      <FaRegBookmark className="bookmark"
                         onClick={() => {
                           setSavedPosts((prevState) => ({
                             ...prevState,
