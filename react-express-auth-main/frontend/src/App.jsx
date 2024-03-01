@@ -8,7 +8,7 @@ import SiteFooterAndFooterNav from './components/SiteFooterAndFooterNav';
 import NotFoundPage from './pages/NotFound';
 import UserContext from './contexts/current-user-context';
 import { checkForLoggedInUser } from './adapters/auth-adapter';
-import UsersPage from './pages/Users';
+// import UsersPage from './pages/Users';
 import UsernameUpdate from './pages/UsernameUpdate';
 import UserPage from './pages/User';
 import CreatePostPage from './pages/CreatePost';

@@ -5,7 +5,6 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getUserPosts } from "../adapters/post-adapter";
 import { deletePost } from "../adapters/post-adapter";
-// import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import Card from "react-bootstrap/Card";
 import Hamburger from "hamburger-react";
 
@@ -78,86 +77,88 @@ export default function UserPage() {
     : userProfile.username;
 
   return (
+
     <div id="user-page-background">
-      <div id="user-picture">
-        {createPostButton}
-        <div id="picture">
-          <img
-            id="user-profile-picture"
-            src={userProfile.profilePicture}
-            alt=""
-          />
+      <div id="template-background">
+        <div id="user-picture">
+          {createPostButton}
+          <div id="picture">
+            <img
+              id="user-profile-picture"
+              src={userProfile.profilePicture}
+              alt=""
+            />
+          </div>
         </div>
+
+        <section id="user-posts-container">
+          {posts.userPost.length &&
+            posts.userPost.map((post) => {
+              return (
+                <>
+                  <div id="user-posts-cards">
+                    <Card key={post.id} style={{ width: "18rem" }}>
+                      <Card.Img variant="top" src={post.postPicture} />
+                      <Card.ImgOverlay>
+                        <Card.Img variant="top" src={post.profilePicture} />
+                      </Card.ImgOverlay>
+
+                      {isOpen[post.id] && (
+                        <Card.Body>
+                          <Card.Text
+                            style={{
+                              fontFamily: "Aleo",
+                              fontWeight: "bold",
+                              fontSize: "20px",
+                            }}
+                          >
+                            Materials:
+                          </Card.Text>
+                          <Card.Text style={{ fontFamily: "Michroma" }}>
+                            {post.materialName}
+                          </Card.Text>
+                          <Card.Text
+                            style={{
+                              fontFamily: "Aleo",
+                              fontWeight: "bold",
+                              fontSize: "20px",
+                            }}
+                          >
+                            The Revamp:
+                          </Card.Text>
+                          <Card.Text style={{ fontFamily: "Michroma" }}>
+                            {post.projectDescription}
+                          </Card.Text>
+                        </Card.Body>
+                      )}
+                    </Card>
+                    <section className="user-post-interactions">
+                      <Hamburger
+                        toggled={isOpen[post.id]}
+                        toggle={() =>
+                          setOpen({ ...isOpen, [post.id]: !isOpen[post.id] })
+                        }
+                      />
+                      <div id="delete-container">
+                        <button
+                          type="button"
+                          id="delete-button"
+                          onClick={() => handleDelete(post.id)}
+                        >
+                          DELETE
+                        </button>
+                      </div>
+                    </section>
+                  </div>
+                </>
+              );
+            })}
+        </section>
+        <p id="update">
+          Your username is {profileUsername}. You can update{" "}
+          <NavLink to="/update-username">here</NavLink>!
+        </p>
       </div>
-
-      <section id="user-posts-container">
-        {posts.userPost.length &&
-          posts.userPost.map((post) => {
-            return (
-              <>
-                <div id="user-posts-cards">
-                  <Card key={post.id} style={{ width: "18rem" }}>
-                    <Card.Img variant="top" src={post.postPicture} />
-                    <Card.ImgOverlay>
-                      <Card.Img variant="top" src={post.profilePicture} />
-                    </Card.ImgOverlay>
-
-                    {isOpen[post.id] && (
-                      <Card.Body>
-                        <Card.Text
-                          style={{
-                            fontFamily: "Aleo",
-                            fontWeight: "bold",
-                            fontSize: "20px",
-                          }}
-                        >
-                          Materials:
-                        </Card.Text>
-                        <Card.Text style={{ fontFamily: "Michroma" }}>
-                          {post.materialName}
-                        </Card.Text>
-                        <Card.Text
-                          style={{
-                            fontFamily: "Aleo",
-                            fontWeight: "bold",
-                            fontSize: "20px",
-                          }}
-                        >
-                          The Revamp:
-                        </Card.Text>
-                        <Card.Text style={{ fontFamily: "Michroma" }}>
-                          {post.projectDescription}
-                        </Card.Text>
-                      </Card.Body>
-                    )}
-                    <Hamburger toggled={isOpen} toggle={setOpen} />
-                  </Card>
-                  <section className="user-post-interactions">
-                    <Hamburger
-                      toggled={isOpen[post.id]}
-                      toggle={() =>
-                        setOpen({ ...isOpen, [post.id]: !isOpen[post.id] })
-                      }
-                    />
-                    <div id="delete-container">
-                      <button
-                        type="button"
-                        id="delete-button"
-                        onClick={() => handleDelete(post.id)}
-                      >
-                        DELETE
-                      </button>
-                    </div>
-                  </section>
-                </div>
-              </>
-            );
-          })}
-      </section>
-      <p id="update">
-        Your username is {profileUsername}. You can update{" "}
-        <NavLink to="/update-username">here</NavLink>!
-      </p>
     </div>
   );
 }

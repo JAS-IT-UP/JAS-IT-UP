@@ -19,8 +19,8 @@ export default function UpdateUsernameForm({ currentUser, setCurrentUser }) {
     event.target.reset();
   };
 
-  return <form onSubmit={handleSubmit} aria-labelledby="update-heading">
-    <h2 id="update-heading">Update User User</h2>
+  return <form id="update-form" onSubmit={handleSubmit} aria-labelledby="update-heading">
+    <h2 id="update-heading">Update Username</h2>
     <label htmlFor='username'>New Username</label>
     <input type='text' id='username' name='username'/>
     <input type="hidden" name="id" value={currentUser.id} />
