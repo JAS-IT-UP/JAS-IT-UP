@@ -92,3 +92,7 @@
     margin-top: 20rem;
     font-family: "Michroma", sans-serif;
 }
+
+#user-posts-cards {
+    box-shadow: 6px 4px #05312F;
+}

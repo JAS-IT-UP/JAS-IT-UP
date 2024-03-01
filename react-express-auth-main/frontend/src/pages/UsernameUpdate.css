@@ -32,3 +32,18 @@
     margin-bottom: 3rem;
     margin-top: -3.5rem;
 }
+
+#update-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 12rem;
+    background-color: #C8E6E0;
+    width: 11rem;
+    height: 2.8rem;
+    border-radius: 22px;
+    border: none;
+    font-family: "Oi", serif;
+    font-size: 20px;
+    color: #05312F;
+    box-shadow: 6px 4px #05312F;
+}

@@ -99,7 +99,7 @@ export default function UserPage() {
                 <>
                   <div id="user-posts-cards">
                     <Card key={post.id} style={{ width: "18rem" }}>
-                      <Card.Img variant="top" src={post.postPicture} />
+                      <Card.Img variant="top" src={post.postPicture} style={{ height: "18rem" }}/>
                       <Card.ImgOverlay>
                         <Card.Img variant="top" src={post.profilePicture} />
                       </Card.ImgOverlay>
