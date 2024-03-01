@@ -25,17 +25,7 @@ export default function UserPage() {
       setUserProfile(user);
     };
 
-    // const fetchSavedPosts = async () => {
-    //   if (currentUser) {
-    //     const [data, error] = await getUserSavedPosts(currentUser.id);
-    //     data.forEach((post) => {
-    //       setSave((prevState) => ({ ...prevState, [post.postId]: true }));
-    //     });
-    //   }
-    // }
-
     loadUser();
-    // fetchSavedPosts();
   }, [currentUser]);
 
   useEffect(() => {

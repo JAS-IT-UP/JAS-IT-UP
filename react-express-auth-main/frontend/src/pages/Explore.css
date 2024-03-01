@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oi&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-#explore-main{
+#explore-main {
     padding-top: 4rem;
     width: 100%;
     height: 100%;
@@ -18,40 +19,43 @@
     margin-bottom: 2rem;
 }
 
-#posts-container{
+#posts-container {
     padding-top: 70px;
     padding-left: 170px;
     padding-right: 150px;
     padding-bottom: 70px;
-    display:grid;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-row-gap: 50px;
 }
 
 .explore-postcard{
-    box-shadow: 4px 2px #05312F;
+    height: 25rem;
+    width: 18rem;
 }
 
-.Post-Interactions{
+.Post-Interactions {
     display: flex;
     flex-direction: row;
     justify-content: start;
 }
-#postcard-text{
+
+#postcard-text {
     background-color: #CEB3E2;
 }
 
-#explore-post-heading{
+#explore-post-heading {
     text-align: center;
 
 }
-#explore-post-details{
+
+#explore-post-details {
     font-family: "Michroma", sans-serif;
     text-align: center;
 }
 
-#explore-postcard-profile-pic{
+#explore-postcard-profile-pic {
     height: 3.4rem;
     width: 3.4rem;
     border-radius: 100%;
@@ -60,28 +64,31 @@
 
 }
 
-#postcard-images{
-   height: 18rem;
-   width: 18rem;
+#postcard-images {
+    height: 18rem;
+    width: 18rem;
 }
 
-#explore-postcard-post-pic{
-    height: 18rem;
+#explore-postcard-post-pic {
+    height: 25rem;
     width: 18rem;
     box-shadow: 4px 2px #05312F;
 }
 
-#postcard{
+#postcard {
     margin-left: 35px;
+
+
 }
-#explore-save-icon{
+
+#explore-save-icon {
     margin-top: 15px;
     margin-left: 200px;
     height: 7px;
     width: 5px;
 }
 
-.bookmark{
+.bookmark {
     height: 2rem;
     width: 2rem;
     margin-top: -0.25rem;
@@ -95,8 +102,3 @@
     justify-content: center;
     align-items: center;
 }
-
-
-
-
-
