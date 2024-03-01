@@ -82,7 +82,7 @@ export default function ExplorePage() {
                     {isOpen[post.id] ? <>
                       <Card
                         key={post.id}
-                        style={{ width: "18rem" }}
+                        style={{ width: "18rem"}}
                         id="explore-postcard"
                       >
 
