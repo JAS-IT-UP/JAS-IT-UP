@@ -97,13 +97,15 @@ export default function UserPage() {
               return (
                 <>
                   <div id="user-posts-cards">
+                    {!isOpen[post.id] ? 
                     <Card key={post.id} style={{ width: "18rem" }}>
-                      <Card.Img variant="top" src={post.postPicture} />
-                      <Card.ImgOverlay>
+                      <Card.Img variant="top" src={post.postPicture} style={{ height: "18rem" }}/>
+                      <Card.ImgOverlay style={{ border: "none" }}>
                         <Card.Img variant="top" src={post.profilePicture} />
                       </Card.ImgOverlay>
-
-                      {isOpen[post.id] && (
+                      </Card>
+                    : 
+                    <Card key={post.id} style={{ width: "18rem" }}>
                         <Card.Body>
                           <Card.Text
                             style={{
@@ -130,8 +132,8 @@ export default function UserPage() {
                             {post.projectDescription}
                           </Card.Text>
                         </Card.Body>
-                      )}
                     </Card>
+                    }
                     <section className="user-post-interactions">
                       <Hamburger
                         toggled={isOpen[post.id]}
@@ -149,6 +151,14 @@ export default function UserPage() {
                         </button>
                       </div>
                     </section>
+
+
+
+
+
+
+
+
                   </div>
                 </>
               );

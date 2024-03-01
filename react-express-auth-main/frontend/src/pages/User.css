@@ -63,6 +63,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    height: 100%;
 }
 
 #delete-container {
@@ -91,4 +92,11 @@
 #update {
     margin-top: 20rem;
     font-family: "Michroma", sans-serif;
+}
+
+#user-posts-cards {
+    /* background-color: #CEB3E2; */
+    height: 25rem;
+    background-color: #FFFFFF;
+    box-shadow: 6px 4px #05312F;
 }

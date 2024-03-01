@@ -25,6 +25,6 @@ export default function UpdateUsernameForm({ currentUser, setCurrentUser }) {
     <input type='text' id='username' name='username'/>
     <input type="hidden" name="id" value={currentUser.id} />
 
-    <button>Update Username</button>
+    <button type="submit" id="update-button">Update Username</button>
   </form>;
 }
