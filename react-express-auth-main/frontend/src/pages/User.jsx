@@ -152,13 +152,6 @@ export default function UserPage() {
                       </div>
                     </section>
 
-
-
-
-
-
-
-
                   </div>
                 </>
               );
