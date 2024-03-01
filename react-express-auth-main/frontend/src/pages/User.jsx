@@ -111,7 +111,7 @@ export default function UserPage() {
                             style={{
                               fontFamily: "Aleo",
                               fontWeight: "bold",
-                              fontSize: "20px",
+                              fontSize: "25px",
                             }}
                           >
                             Materials:
@@ -123,7 +123,7 @@ export default function UserPage() {
                             style={{
                               fontFamily: "Aleo",
                               fontWeight: "bold",
-                              fontSize: "20px",
+                              fontSize: "25px",
                             }}
                           >
                             The Revamp:
