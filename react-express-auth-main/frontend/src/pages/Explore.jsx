@@ -72,6 +72,7 @@ export default function ExplorePage() {
   return (
     <>
       <main id="explore-main">
+        <h1 id="explore-title">REVAMP REALITY!</h1>
         <section id="posts-container">
           {posts &&
             posts.map((post) => {
